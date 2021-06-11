@@ -116,7 +116,7 @@ public class BattleManager : MonoBehaviour
     }    
     private void Damage()
     {
-        enemy.Damage(playedCard.damageDealt);
+        enemy.TakeDamage(playedCard.damageDealt);
     }
     private void Armor()
     {

@@ -6,37 +6,80 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public string enemyName;
-    public int hp;
     public int attack;
+    public int maxHp; // changed from Hp, will need to be checked in other places, can be reverted
+    public int currentHp = 50;
+    public int armor = 0;
+    public int armorDecay = 5;
+    public int bleedDecay = 1;
+    public int bleed = 0;
+    public string target;
     public Sprite art;
-    public bool isalive = true;
-
-    public Text namePlate;
-    public Slider hpBar;
     public Image portrait;
-
     public PlayerCharacter enemy;
 
 
-    public bool Damage(int amountDamaged)
+
+    // Change Enemy Variables
+    //public void Attack()
+    //{
+    //    enemy.currentHp -= attack;
+    //}
+
+
+    public void Heal(int amountHealed)
     {
-        enemy.currentHp -= amountDamaged;
-        if (enemy.currentHp <= 0)
+        currentHp += amountHealed;
+        if (currentHp >= maxHp)
         {
-            isalive = true;
-            return isalive;
+            currentHp = maxHp;
+        }
+    }
+
+
+    public void Armor(int amountShielded)
+    {
+        armor += amountShielded;
+    }
+
+    public void Bleed(int amountBleed)
+    {
+        bleed = amountBleed;
+    }
+
+    public void TakeDamage(int amountDamage)
+    {
+        if (amountDamage - armor >= 0) 
+        {
+            currentHp -= amountDamage - armor;
+            armor = 0;
         }
         else
         {
-            isalive = false;
-            return isalive;
+            armor -= amountDamage;
         }
     }
+
+    public void TakePenDamage(int amountDamage)
+    {
+        currentHp -= amountDamage;
+    }
+
+    public void ChangeTarget(string character)
+    {
+        target = character;
+    }
+
+    public void EndOfTurn()
+    {
+        armor -= armorDecay; // armor goes down every turn
+        currentHp -= bleed; // bleed affects inside armor
+        bleed -= bleedDecay; // bleed decays after damage
+    }
+
 
     void Start()
     {
         portrait.sprite = art;
-        namePlate.text = enemyName;
-
     }
 }
