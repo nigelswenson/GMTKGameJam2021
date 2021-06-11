@@ -12,9 +12,9 @@ public class PlayerCharacter : ScriptableObject
     public int armorDecay = 5;
     public int bleedDecay = 1;
     public int bleed = 0;
-    public int actionAvailable = 0;
+    public int actions = 0;
     public Sprite art;
-
+    public int actionsRemaining = 0;
 
     public List<Card> deckData = new List<Card>();
     [HideInInspector]
@@ -60,5 +60,9 @@ public class PlayerCharacter : ScriptableObject
         armor -= armorDecay; // armor goes down every turn
         currentHp -= bleed; // bleed affects inside armor
         bleed -= bleedDecay; // bleed decays after damage
+    }
+    public void ActionAdd(int actionAdd)
+    {
+        actions += actionAdd;
     }
 }

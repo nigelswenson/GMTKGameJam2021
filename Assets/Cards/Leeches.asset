@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10d26a76d23cf4a86267bd338f76bc, type: 3}
   m_Name: Leeches
   m_EditorClassIdentifier: 
-  cardName: 
-  description: 
+  cardName: Leeches are great medicine!
+  description: Double the enemy's bleed
   art: {fileID: 0}
-  methodList: []
+  methodList:
+  - getBleed
+  - Bleed
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
   armorGained: 0
   bleedAdded: 0
   actionAdded: 0
-  target: 
+  target: enemy

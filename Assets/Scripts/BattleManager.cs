@@ -87,15 +87,18 @@ public class BattleManager : MonoBehaviour
 
     public void Execute(GameObject cardToExecute)
     {
-            playedCard = cardToExecute.GetComponent<CardDisplay>().card;
-            playedCardOwner = cardToExecute.GetComponent<CardDisplay>().owner;
-            
+        playedCard = cardToExecute.GetComponent<CardDisplay>().card;
+        playedCardOwner = cardToExecute.GetComponent<CardDisplay>().owner;
+        if (playedCardOwner.actions >= 1)
+        {
             foreach (string method in playedCard.methodList)
             {
                 Invoke(method, 0);
             }
             playedCardOwner.actions -= 1;
-        DiscardCard(cardToExecute);
+            DiscardCard(cardToExecute);
+        }
+
     }
 
     //Card Methods
@@ -139,7 +142,7 @@ public class BattleManager : MonoBehaviour
         {
             if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
             {
-                partyMember.actionAdd(playedCard.actionAdded);
+                partyMember.ActionAdd(playedCard.actionAdded);
             }
         }
     }
