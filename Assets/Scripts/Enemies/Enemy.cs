@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public int hp;
     public int attack;
     public Sprite art;
-
+    public bool isalive = true;
 
     public Text namePlate;
     public Slider hpBar;
@@ -18,9 +18,19 @@ public class Enemy : MonoBehaviour
     public PlayerCharacter enemy;
 
 
-    public void Attack()
+    public bool Damage(int amountDamaged)
     {
-        enemy.currentHp -= attack;
+        enemy.currentHp -= amountDamaged;
+        if (enemy.currentHp <= 0)
+        {
+            isalive = true;
+            return isalive;
+        }
+        else
+        {
+            isalive = false;
+            return isalive;
+        }
     }
 
     void Start()

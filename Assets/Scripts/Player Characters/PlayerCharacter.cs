@@ -9,6 +9,7 @@ public class PlayerCharacter : ScriptableObject
     public int maxHp;
     public int currentHp;
     public Sprite art;
+    public bool isalive = true;
 
     public List<Card> deckData = new List<Card>();
     [HideInInspector]
@@ -23,5 +24,15 @@ public class PlayerCharacter : ScriptableObject
         {
             currentHp = maxHp;
         }
-    }    
+    } 
+    
+    public void Damage(int amountDamaged)
+    {
+        currentHp -= amountDamaged;
+        if (currentHp <= 0)
+        {
+            currentHp = 0;
+            isalive = false;
+        }
+    }   
 }
