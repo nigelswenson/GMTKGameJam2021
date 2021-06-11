@@ -7,13 +7,13 @@ public class PlayerCharacter : ScriptableObject
 {
     public string characterName;
     public int maxHp = 50;
-    public int currentHp = maxHp;
+    public int currentHp = 50;
     public int armor = 0;
     public int armorDecay = 5;
     public int bleedDecay = 1;
     public int bleed = 0;
+    public int actionAvailable = 0;
     public Sprite art;
-    public List<Card> deckData = new List<Card>();
 
 
     public List<Card> deckData = new List<Card>();
@@ -42,10 +42,14 @@ public class PlayerCharacter : ScriptableObject
     public void TakeDamage(int amountDamage)
     {
         if (amountDamage - armor >= 0)
+        {
             currentHp -= amountDamage - armor;
-        armor = 0;
+            armor = 0;
+        }
         else
+        {
             armor -= amountDamage;
+        }
     }
     public void TakePenDamage(int amountDamage)
     {
