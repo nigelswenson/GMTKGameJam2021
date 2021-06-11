@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public string enemyName;
     public int attack;
-    public int maxHp = 50; // changed from Hp, will need to be checked in other places, can be reverted
+    public int maxHp; // changed from Hp, will need to be checked in other places, can be reverted
     public int currentHp = 50;
     public int armor = 0;
     public int armorDecay = 5;
@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public int bleed = 0;
     public string target;
     public Sprite art;
+    public Image portrait;
     public PlayerCharacter enemy;
 
 
