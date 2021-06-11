@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Damage Card
   m_EditorClassIdentifier: 
   cardName: Damage Card
-  description: Deals  5 Da,age
+  description: Deals  5 Damage
   art: {fileID: 21300000, guid: c55b963b043261a40bf998a53a04f711, type: 3}
-  doesDraw: 0
+  methodList: []
   cardsToDraw: 0
-  doesDamage: 1
   damageDealt: 5
-  doesHeal: 0
   healingDone: 0
+  armorGained: 0
+  bleedAdded: 0
+  actionAdded: 0
+  target: enemy

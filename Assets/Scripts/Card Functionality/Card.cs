@@ -17,5 +17,11 @@ public class Card : ScriptableObject
 
     public int healingDone = 0;
 
-
+    public int armorAdded = 0;
+    
+    public int bleedAdded = 0;
+    
+    public int actionAdded = 0;
+    
+    public string target = "";
 }

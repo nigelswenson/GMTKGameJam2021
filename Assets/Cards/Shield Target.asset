@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b10d26a76d23cf4a86267bd338f76bc, type: 3}
-  m_Name: Card Draw Card
+  m_Name: Shield Target
   m_EditorClassIdentifier: 
-  cardName: Card Draw Card
-  description: Target Draws  1 Card and gets 1 Action
-  art: {fileID: 21300000, guid: c55b963b043261a40bf998a53a04f711, type: 3}
-  methodList:
-  - CardDraw
-  cardsToDraw: 1
+  cardName: 
+  description: 
+  art: {fileID: 0}
+  methodList: []
+  cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
-  armorGained: 0
+  armorGained: 5
   bleedAdded: 0
-  actionAdded: 1
+  actionAdded: 0
   target: 

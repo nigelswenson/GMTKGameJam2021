@@ -107,13 +107,43 @@ public class BattleManager : MonoBehaviour
     {
         foreach (PlayerCharacter partyMember in party)
         {
-            partyMember.Heal(playedCard.healingDone);
+            if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
+            {
+                partyMember.Heal(playedCard.healingDone);
+            }
+
         }
     }    
     private void Damage()
     {
+        enemy.Damage(playedCard.damageDealt);
     }
+    private void Armor()
+    {
+        foreach (PlayerCharacter partyMember in party)
+        {
+            if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
+            {
+                partyMember.Armor(playedCard.armorAdded);
+            }
 
+        }
+    }
+    private void Bleed()
+    {
+        enemy.Bleed(playedCard.bleedAdded);
+    }
+    private void ActionAdd()
+    {
+        foreach (PlayerCharacter partyMember in party)
+        {
+            if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
+            {
+                partyMember.actionAdd(playedCard.actionAdded);
+            }
+
+        }
+    }
     public void EndTurn()
     {
         //Discards current hand before drawing a new one
