@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Warrior
   m_EditorClassIdentifier: 
   characterName: Isaac
-  hp: 20
+  maxHp: 10
+  currentHp: 10
   art: {fileID: 21300000, guid: 7a6b724a005bfed4191ba409458f7127, type: 3}
   deckData:
   - {fileID: 11400000, guid: 40dc51a0bb3f55743add2a963ecce85b, type: 2}
@@ -22,5 +23,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40dc51a0bb3f55743add2a963ecce85b, type: 2}
   - {fileID: 11400000, guid: 40dc51a0bb3f55743add2a963ecce85b, type: 2}
   - {fileID: 11400000, guid: 40dc51a0bb3f55743add2a963ecce85b, type: 2}
-  deck: []
+  deck:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   discardPile: []
