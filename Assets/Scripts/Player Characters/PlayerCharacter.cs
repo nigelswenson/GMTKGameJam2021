@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerCharacter : ScriptableObject
 {
     public string characterName;
-    public int attack;
     public int hp;
     public Sprite art;
 
