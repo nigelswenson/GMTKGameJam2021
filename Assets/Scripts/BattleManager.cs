@@ -94,7 +94,7 @@ public class BattleManager : MonoBehaviour
             {
                 Invoke(method, 0);
             }
-
+            playedCardOwner.actions -= 1;
         DiscardCard(cardToExecute);
     }
 
@@ -141,8 +141,11 @@ public class BattleManager : MonoBehaviour
             {
                 partyMember.actionAdd(playedCard.actionAdded);
             }
-
         }
+    }
+    private void getBleed()
+    {
+        
     }
     public void EndTurn()
     {

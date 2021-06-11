@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b10d26a76d23cf4a86267bd338f76bc, type: 3}
-  m_Name: Shield Target
+  m_Name: Salt Covered Sword
   m_EditorClassIdentifier: 
   cardName: 
   description: 
@@ -19,7 +19,7 @@ MonoBehaviour:
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
-  armorGained: 5
+  armorGained: 0
   bleedAdded: 0
   actionAdded: 0
   target: 
