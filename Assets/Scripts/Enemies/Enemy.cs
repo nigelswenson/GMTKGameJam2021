@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 
     public void Attack()
     {
-        enemy.hp -= attack;
+        enemy.currentHp -= attack;
     }
 
     void Start()

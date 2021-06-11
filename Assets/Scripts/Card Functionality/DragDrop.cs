@@ -62,13 +62,12 @@ public class DragDrop : MonoBehaviour
         if (isOverDropZone)
         {
             transform.SetParent(dropZone.transform, false);
+            FindObjectOfType<BattleManager>().Execute(gameObject);
         } 
         else
         {
             transform.position = startPosition;
             transform.SetParent(startParent.transform, false);
         }
-        
-
     }
 }

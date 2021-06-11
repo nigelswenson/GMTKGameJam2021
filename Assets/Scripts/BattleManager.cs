@@ -11,7 +11,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] List<PlayerCharacter> party = new List<PlayerCharacter>();
     [SerializeField] GameObject characterArea;
 
-    [SerializeField] List<GameObject> enemies = new List<GameObject>();
+    [SerializeField] GameObject enemy;
     [SerializeField] GameObject enemyArea;
 
     [SerializeField] int handSize;
@@ -80,16 +80,34 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void Execute()
-    {
-        foreach (Transform child in dropZone.transform)
-        {
-            Card playedCard = child.gameObject.GetComponent<CardDisplay>().card;
-            //card functions and behaviors can be implemented below in this loop
-        }
+    public void Execute(GameObject playedCard)
 
+    {
+            Card card = playedCard.GetComponent<CardDisplay>().card;
+            PlayerCharacter owner = playedCard.GetComponent<CardDisplay>().owner;
+            if (card.doesDamage)
+            {
+                Debug.Log("Damage Dealt");
+            }
+            if (card.doesHeal)
+            {
+                foreach (PlayerCharacter partyMember in party)
+                {
+                    partyMember.Heal(card.healingDone);
+                }
+            }
+            if (card.doesDraw)
+            {
+            Draw(owner, card.cardsToDraw, owner.deck);
+            }
+
+        DiscardCard(playedCard);
+    }
+
+    public void EndTurn()
+    {
         //Discards current hand before drawing a new one
-        DiscardActiveCards();
+        DiscardHand();
         //reset active cards to recieve a new hand
         activeCards.Clear();
         //Draws a fresh hand of cards
@@ -104,7 +122,12 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    private void DiscardActiveCards()
+    private void DiscardCard(GameObject card)
+    {
+        card.GetComponent<CardDisplay>().owner.discardPile.Add(card);
+        card.transform.SetParent(discardZone.transform, false);
+    }
+    private void DiscardHand()
     {
         foreach (GameObject card in activeCards)
         {

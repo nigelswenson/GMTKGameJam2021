@@ -10,7 +10,12 @@ public class Card : ScriptableObject
     public string description;
     public Sprite art;
 
-    public int damage;
-    public int healing;
-    public int damageModifier;
+    public bool doesDraw = false;
+    public int cardsToDraw = 0;
+
+    public bool doesDamage = false;
+    public int damageDealt = 0;
+
+    public bool doesHeal = false;
+    public int healingDone = 0;
 }
