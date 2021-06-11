@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   characterName: Piers
-  hp: 20
+  maxHp: 10
+  currentHp: 10
   art: {fileID: 21300000, guid: 36f4c51c188a0d4478638d28b148a541, type: 3}
   deckData:
   - {fileID: 11400000, guid: 52f5df2315118144cb73dcd4664ae4c8, type: 2}
@@ -22,5 +23,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 52f5df2315118144cb73dcd4664ae4c8, type: 2}
   - {fileID: 11400000, guid: 52f5df2315118144cb73dcd4664ae4c8, type: 2}
   - {fileID: 11400000, guid: 52f5df2315118144cb73dcd4664ae4c8, type: 2}
-  deck: []
+  deck:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   discardPile: []

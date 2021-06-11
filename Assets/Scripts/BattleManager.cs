@@ -11,7 +11,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] List<PlayerCharacter> party = new List<PlayerCharacter>();
     [SerializeField] GameObject characterArea;
 
-    [SerializeField] GameObject enemy;
+    [SerializeField] Enemy enemy;
     [SerializeField] GameObject enemyArea;
 
     [SerializeField] int handSize;
@@ -25,6 +25,9 @@ public class BattleManager : MonoBehaviour
     public GameObject dropZone;
     public GameObject discardZone;
 
+    Card playedCard;
+    PlayerCharacter playedCardOwner;
+
     //state variables
     BattleState state;
 
@@ -33,6 +36,11 @@ public class BattleManager : MonoBehaviour
     {
         state = BattleState.START;
         SetupBattle();
+    }
+
+    public void Test(string someText)
+    {
+        Debug.Log("ping");
     }
 
     void SetupBattle()
@@ -54,10 +62,7 @@ public class BattleManager : MonoBehaviour
 
     private void InstatiateEnemies()
     {
-        foreach (GameObject enemy in enemies)
-        {
-            Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity, enemyArea.transform);
-        }
+        Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity, enemyArea.transform);
     }
 
     private void InstatiateCharacters(PlayerCharacter partyMember)
@@ -80,28 +85,33 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void Execute(GameObject playedCard)
-
+    public void Execute(GameObject cardToExecute)
     {
-            Card card = playedCard.GetComponent<CardDisplay>().card;
-            PlayerCharacter owner = playedCard.GetComponent<CardDisplay>().owner;
-            if (card.doesDamage)
+            playedCard = cardToExecute.GetComponent<CardDisplay>().card;
+            playedCardOwner = cardToExecute.GetComponent<CardDisplay>().owner;
+            
+            foreach (string method in playedCard.methodList)
             {
-                Debug.Log("Damage Dealt");
-            }
-            if (card.doesHeal)
-            {
-                foreach (PlayerCharacter partyMember in party)
-                {
-                    partyMember.Heal(card.healingDone);
-                }
-            }
-            if (card.doesDraw)
-            {
-            Draw(owner, card.cardsToDraw, owner.deck);
+                Invoke(method, 0);
             }
 
-        DiscardCard(playedCard);
+        DiscardCard(cardToExecute);
+    }
+
+    //Card Methods
+    private void CardDraw()
+    {
+        Draw(playedCardOwner, playedCard.cardsToDraw, playedCardOwner.deck);
+    }
+    private void Heal()
+    {
+        foreach (PlayerCharacter partyMember in party)
+        {
+            partyMember.Heal(playedCard.healingDone);
+        }
+    }    
+    private void Damage()
+    {
     }
 
     public void EndTurn()
