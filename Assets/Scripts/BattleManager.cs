@@ -74,6 +74,7 @@ public class BattleManager : MonoBehaviour
     private void InstantiateEnemies()
     {
         Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity, enemyArea.transform);
+        
     }
 
     private void InstantiateCharacters(PlayerCharacter partyMember)
@@ -279,6 +280,7 @@ public class BattleManager : MonoBehaviour
     //Turn Process Functions
     public void EndTurn()
     {
+        enemy.Behavior();
         foreach (PlayerCharacter partyMember in party)
         {
             partyMember.EndTurn();

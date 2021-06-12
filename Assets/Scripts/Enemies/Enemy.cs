@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public string enemyName;
     public int maxHp; // changed from Hp, will need to be checked in other places, can be reverted
-    public int currentHp = 50;
+    public int currentHp;
     public int armor = 0;
     public int armorDecay = 5;
     public int bleedDecay = 1;
@@ -104,6 +104,9 @@ public class Enemy : MonoBehaviour
     {
         target = character;
     }
+
+    public virtual void Behavior()
+    { }
 
     // Update numbers at the end of enemy's turn
     public void EndTurn()

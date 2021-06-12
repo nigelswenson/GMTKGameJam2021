@@ -17,7 +17,7 @@ public class Slime : Enemy
     public int attack = 5;
 
 
-    public void Behavior()
+    override public void Behavior()
     {
         size += growRate; // grow every turn
         // scale slime pixel size here
