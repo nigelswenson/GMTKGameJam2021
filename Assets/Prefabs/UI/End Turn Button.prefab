@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16862746, g: 0.76470596, b: 0.76470596, a: 0}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -146,19 +146,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8fe391dabe44f4bb463ededf59d833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterTemplate: {fileID: 4514182117465981119, guid: bc74ae579fd98c14bbd9a3a76a8cbd65, type: 3}
+  characterTemplate: {fileID: 7994477606664190279, guid: e559bc0a92d846043a21754cb4778650, type: 3}
   party:
   - {fileID: 11400000, guid: eb8fa8dbd73ccbc46995212a3ea741ca, type: 2}
   - {fileID: 11400000, guid: be767f2236b13474aa7262386a84867e, type: 2}
   - {fileID: 11400000, guid: 1ee9058cbc3a6de49861c99b01d39102, type: 2}
   characterArea: {fileID: 0}
-  enemy: {fileID: 833914590802333032, guid: 499355c72eb1dfb41adfa856cbe70225, type: 3}
+  enemy: {fileID: 6754313503436384559, guid: 499355c72eb1dfb41adfa856cbe70225, type: 3}
   enemyArea: {fileID: 0}
   targetButton: {fileID: 5838135563954410300, guid: a40212ce156d14f4397e530d5951e832, type: 3}
   endTurnButton: {fileID: 0}
   handSize: 6
   cardTemplate: {fileID: 7361331403913989659, guid: 37fae56cd02acf7499ed15c0f9599f27, type: 3}
-  playerArea: {fileID: 0}
+  playerAreas: {fileID: 0}
   deckArea: {fileID: 0}
   dropZone: {fileID: 0}
   discardZone: {fileID: 0}
