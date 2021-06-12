@@ -40,7 +40,7 @@ public class Slime : Enemy
                 {
                     TargetRandom();
                 }
-                action = "grow";
+                action = "attack";
             }
 
         }
@@ -55,6 +55,8 @@ public class Slime : Enemy
                 action = "heal";
             }
         }
+
+        Debug.Log(action);
     }
 
 
