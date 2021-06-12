@@ -17,8 +17,8 @@ MonoBehaviour:
   art: {fileID: 0}
   methodList:
   - Bleed
-  - GetBleed
-  - Damage
+  - BleedToDamage
+  isTargeted: 0
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0

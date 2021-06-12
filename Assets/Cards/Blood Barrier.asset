@@ -16,8 +16,8 @@ MonoBehaviour:
   description: All Allies gain armor equal to enemy's bleed
   art: {fileID: 0}
   methodList:
-  - GetBleed
-  - Armor
+  - BleedToArmor
+  isTargeted: 0
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0

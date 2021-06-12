@@ -209,7 +209,7 @@ MonoBehaviour:
   armorDecay: 5
   bleedDecay: 1
   bleed: 0
-  target: 
+  target: shield
   art: {fileID: 21300000, guid: 3d2a6bb57e1221c4eb256880a45ae997, type: 3}
   portrait: {fileID: 297609314650466897}
   enemy: {fileID: 0}

@@ -28,7 +28,7 @@ public class BattleManager : MonoBehaviour
     public GameObject deckArea;
     public GameObject dropZone;
     public GameObject discardZone;
-    
+    public bool doubleStrike = false;
 
     Card playedCard;
     PlayerCharacter playedCardOwner;
@@ -98,6 +98,7 @@ public class BattleManager : MonoBehaviour
         playedCardOwner = cardToExecute.GetComponent<CardDisplay>().owner;
         StartCoroutine(TargetAndInvoke(cardToExecute));
 
+
     }
 
     private IEnumerator TargetAndInvoke(GameObject cardToExecute)
@@ -110,13 +111,26 @@ public class BattleManager : MonoBehaviour
             }
             foreach (string method in playedCard.methodList)
             {
-
                 Invoke(method, 0);
+            }
+            if (doubleStrike)
+            {
+                if (playedCard.isTargeted)
+                {
+                    yield return StartCoroutine(SelectTarget());
+                }
+                foreach (string method in playedCard.methodList)
+                {
+    
+                    Invoke(method, 0);
+                }
+                doubleStrike = false;
             }
             playedCardOwner.actions -= 1;
             DiscardCard(cardToExecute);
             targetSelected = false;
         }
+        
     }
 
     //Card Methods
@@ -165,11 +179,23 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    private void GetBleed()
+    private void BleedToDamage()
     {
-        playedCard.damageDealt = enemy.bleed;
-        playedCard.armorAdded = enemy.bleed;
-        playedCard.bleedAdded = enemy.bleed;
+        enemy.TakeDamage(enemy.bleed);
+    }
+    private void BleedToArmor()
+    {
+        foreach (PlayerCharacter partyMember in party)
+        {
+            if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
+            {
+                partyMember.Armor(enemy.bleed);
+            }
+        }
+    }
+    private void BleedToBleed()
+    {
+        enemy.Bleed(enemy.bleed*2);
     }
     private void ChangeTarget()
     {
@@ -184,7 +210,30 @@ public class BattleManager : MonoBehaviour
         {
             playedCard.damageDealt = 0;
         }
+        else 
+        {
+            playedCard.damageDealt = 5;
+        }
     }
+    private void HurtAllies()
+    {
+        foreach (PlayerCharacter partyMember in party)
+        {
+            if (partyMember != playedCardOwner)
+            {
+                partyMember.TakeDamage(5);
+            }
+        }
+    }
+    private void SetDuplicate()
+    {
+        doubleStrike = true;
+    }
+    private void Delay()
+    {
+        
+    }
+    
     private IEnumerator SelectTarget()
     {
         state = BattleState.TARGETING;
@@ -218,12 +267,13 @@ public class BattleManager : MonoBehaviour
         foreach (PlayerCharacter partyMember in party)
         {
             partyMember.EndTurn();
-            Debug.Log(partyMember.actions.ToString());
+            Debug.Log(partyMember.currentHp.ToString());
         }
         enemy.EndTurn();
         Debug.Log(enemy.currentHp.ToString());
         //Discards current hand before drawing a new one
         DiscardHand();
+        doubleStrike = false;
         //reset active cards to recieve a new hand
         activeCards.Clear();
         //Draws a fresh hand of cards

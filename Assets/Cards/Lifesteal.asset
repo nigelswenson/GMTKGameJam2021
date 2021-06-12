@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b10d26a76d23cf4a86267bd338f76bc, type: 3}
-  m_Name: Charge Up Attack
+  m_Name: Lifesteal
   m_EditorClassIdentifier: 
-  cardName: Charge up attack
-  description: Deal 40 damage next turn. Also uses next turn's action
+  cardName: Mandatory Transfusion
+  description: Deal 5 damage, all allies heal 1 health
   art: {fileID: 0}
   methodList:
-  - Delay
   - Damage
+  - Heal
+  isTargeted: 0
   cardsToDraw: 0
-  damageDealt: 40
-  healingDone: 0
+  damageDealt: 5
+  healingDone: 1
   armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
-  target: enemy
+  target: all
