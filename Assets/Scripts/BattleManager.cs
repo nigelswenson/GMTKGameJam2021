@@ -198,11 +198,11 @@ public class BattleManager : MonoBehaviour
         enemy.Bleed(enemy.bleed*2);
     }
     private void ChangeTarget()
-    {
-        if (enemy.target != "all")
-        {
-            enemy.target = playedCard.target;
-        }
+    {  // Needs to be fixed
+        //if (enemy.target != "all")
+        //{
+        //    enemy.target = playedCard.target;
+        //}
     }
     private void CheckArmored()
     {
