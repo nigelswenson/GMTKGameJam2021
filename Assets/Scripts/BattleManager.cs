@@ -11,12 +11,15 @@ public class BattleManager : MonoBehaviour
     [SerializeField] GameObject characterTemplate;
     public List<PlayerCharacter> party = new List<PlayerCharacter>();
     [SerializeField] GameObject characterArea;
+    
 
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject enemyArea;
 
     [SerializeField] Button targetButton;
     private List<Button> targetButtons = new List<Button>();
+
+    [SerializeField] Button endTurnButton;
 
     [SerializeField] int handSize;
     [SerializeField] GameObject cardTemplate;
@@ -25,6 +28,9 @@ public class BattleManager : MonoBehaviour
     private List<Card> discardPile = new List<Card>();
 
     public GameObject playerArea;
+    [SerializeField] GameObject laurelaiArea;
+    [SerializeField] GameObject shieldArea;
+    [SerializeField] GameObject swordArea;
     public GameObject deckArea;
     public GameObject dropZone;
     public GameObject discardZone;
@@ -57,7 +63,22 @@ public class BattleManager : MonoBehaviour
             //clears discardpile and deck in case there is leftover data before setting up this instance of the characters
             partyMember.discardPile.Clear();
             partyMember.deck.Clear();
-            partyMember.actionsRemaining = 1;
+            partyMember.actions = 1;
+            partyMember.currentHp = partyMember.maxHp;
+
+            //attach card areas
+            if (partyMember.characterName == "Laurelai")
+            {
+                partyMember.playerArea = laurelaiArea;
+            }
+            else if (partyMember.characterName == "Aegis Bane")
+            {
+                partyMember.playerArea = shieldArea;
+            }
+            else
+            {
+                partyMember.playerArea = swordArea;
+            }
 
             InstantiateCharacters(partyMember);
             InstantiateCards(partyMember);
@@ -77,6 +98,8 @@ public class BattleManager : MonoBehaviour
         GameObject newCharacter = Instantiate(characterTemplate, new Vector3(0, 0, 0), Quaternion.identity);
         newCharacter.GetComponent<CharacterDisplay>().character = partyMember;
         newCharacter.transform.SetParent(characterArea.transform, false);
+
+        newCharacter.GetComponent<CharacterDisplay>().SetHp();
     }
 
     private void InstantiateCards(PlayerCharacter partyMember)
@@ -97,8 +120,6 @@ public class BattleManager : MonoBehaviour
         playedCard = cardToExecute.GetComponent<CardDisplay>().card;
         playedCardOwner = cardToExecute.GetComponent<CardDisplay>().owner;
         StartCoroutine(TargetAndInvoke(cardToExecute));
-
-
     }
 
     private IEnumerator TargetAndInvoke(GameObject cardToExecute)
@@ -133,6 +154,33 @@ public class BattleManager : MonoBehaviour
         
     }
 
+    private IEnumerator SelectTarget()
+    {
+        state = BattleState.TARGETING;
+        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
+        foreach (CharacterDisplay display in characterDisplays)
+        {
+            var characterPos = display.gameObject.transform.position;
+            Button button = Instantiate(targetButton, characterPos, Quaternion.identity);
+            button.transform.SetParent(FindObjectOfType<Canvas>().transform, true);
+            button.GetComponent<TargetButton>().targetCharacterName = display.character.characterName;
+            targetButtons.Add(button);
+        }
+        yield return new WaitUntil(() => targetSelected);
+        state = BattleState.PLAYERTURN;
+    }
+
+    public void SetTarget(string target)
+    {
+        playedCard.target = target;
+        targetSelected = true;
+        foreach (Button button in targetButtons)
+        {
+            Destroy(button.gameObject);
+        }
+        targetButtons.Clear();
+    }
+
     //Card Methods
     private void CardDraw()
     {
@@ -146,7 +194,6 @@ public class BattleManager : MonoBehaviour
     }
     private void Heal()
     {
-        Debug.Log("Healing");
         foreach (PlayerCharacter partyMember in party)
         {
             if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
@@ -238,36 +285,8 @@ public class BattleManager : MonoBehaviour
     {
         
     }
-    
-    private IEnumerator SelectTarget()
-    {
-        state = BattleState.TARGETING;
-        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
-        foreach (CharacterDisplay display in characterDisplays)
-        {
-            var characterPos = display.gameObject.transform.position;
-            Button button = Instantiate(targetButton, characterPos, Quaternion.identity);
-            button.transform.SetParent(FindObjectOfType<Canvas>().transform, true);
-            button.GetComponent<TargetButton>().targetCharacterName = display.character.characterName;
-            targetButtons.Add(button);
-        }
-        yield return new WaitUntil(() => targetSelected);
-        state = BattleState.PLAYERTURN;
-    }
-
    
-    public void SetTarget(string target)
-    {
-        playedCard.target = target;
-        Debug.Log(playedCard.target);
-        targetSelected = true;
-        foreach (Button button in targetButtons)
-        {
-            Destroy(button.gameObject);
-        }
-        targetButtons.Clear();
-    }
-
+    //Turn Process Functions
     public void EndTurn()
     {
         foreach (PlayerCharacter partyMember in party)
@@ -320,7 +339,8 @@ public class BattleManager : MonoBehaviour
             }
 
             int randNum = Random.Range(0, activeDeck.Count);
-            activeDeck[randNum].transform.SetParent(playerArea.transform, false);
+            GameObject drawnCard = activeDeck[randNum];
+            drawnCard.transform.SetParent(drawnCard.GetComponent<CardDisplay>().owner.playerArea.transform, false);
             activeCards.Add(activeDeck[randNum]);
             activeDeck.RemoveAt(randNum);
         }

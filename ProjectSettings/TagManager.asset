@@ -13,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Background
   - 
   - Cards
   - Zoom
@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Foreground
+    uniqueID: 1940153507
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

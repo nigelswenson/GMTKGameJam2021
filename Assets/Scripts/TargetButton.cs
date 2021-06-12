@@ -8,7 +8,6 @@ public class TargetButton : MonoBehaviour
 
     public void SetTarget()
     {
-        Debug.Log("onclick working");
         FindObjectOfType<BattleManager>().SetTarget(targetCharacterName);
     }    
 }
