@@ -10,6 +10,7 @@ public class Card : ScriptableObject
     public string description;
     public Sprite art;
     public List<string> methodList = new List<string>();
+    public bool isTargeted = false;
 
     public int cardsToDraw = 0;
 

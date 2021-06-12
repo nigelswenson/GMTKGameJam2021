@@ -35,6 +35,7 @@ public class BattleManager : MonoBehaviour
 
     //state variables
     BattleState state;
+    bool targetSelected = false;
 
 
     void Start()
@@ -95,15 +96,26 @@ public class BattleManager : MonoBehaviour
     {
         playedCard = cardToExecute.GetComponent<CardDisplay>().card;
         playedCardOwner = cardToExecute.GetComponent<CardDisplay>().owner;
+        StartCoroutine(TargetAndInvoke(cardToExecute));
+
+    }
+
+    private IEnumerator TargetAndInvoke(GameObject cardToExecute)
+    {
         if (playedCardOwner.actions >= 1)
         {
+            if (playedCard.isTargeted)
+            {
+                yield return StartCoroutine(SelectTarget());
+            }
             foreach (string method in playedCard.methodList)
             {
-                
+
                 Invoke(method, 0);
             }
             playedCardOwner.actions -= 1;
             DiscardCard(cardToExecute);
+            targetSelected = false;
         }
     }
 
@@ -114,6 +126,7 @@ public class BattleManager : MonoBehaviour
     }
     private void Heal()
     {
+        Debug.Log("Healing");
         foreach (PlayerCharacter partyMember in party)
         {
             if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
@@ -172,26 +185,28 @@ public class BattleManager : MonoBehaviour
             playedCard.damageDealt = 0;
         }
     }
-    private void SelectTarget()
+    private IEnumerator SelectTarget()
     {
         state = BattleState.TARGETING;
-
         var characterDisplays = FindObjectsOfType<CharacterDisplay>();
         foreach (CharacterDisplay display in characterDisplays)
         {
             var characterPos = display.gameObject.transform.position;
             Button button = Instantiate(targetButton, characterPos, Quaternion.identity);
-            button.transform.SetParent(characterArea.transform, true);
+            button.transform.SetParent(characterArea.transform, false);
             button.GetComponent<TargetButton>().targetCharacterName = display.character.characterName;
             targetButtons.Add(button);
         }
+        yield return new WaitUntil(() => targetSelected);
         state = BattleState.PLAYERTURN;
     }
 
+   
     public void SetTarget(string target)
     {
         playedCard.target = target;
         Debug.Log(playedCard.target);
+        targetSelected = true;
         foreach (Button button in targetButtons)
         {
             Destroy(button.gameObject);
