@@ -48,6 +48,6 @@ public class CharacterDisplay : MonoBehaviour
 
     public void EnableTargetIndicator()
     {
-        targetIndicator.enabled = false;
+        targetIndicator.enabled = true;
     }
 }
