@@ -15,11 +15,12 @@ MonoBehaviour:
   cardName: Vicious strike
   description: Inflict 5 bleed on the enemy
   art: {fileID: 0}
-  methodList: []
+  methodList:
+  - Bleed
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
-  armorGained: 0
+  armorAdded: 0
   bleedAdded: 5
   actionAdded: 0
   target: enemy

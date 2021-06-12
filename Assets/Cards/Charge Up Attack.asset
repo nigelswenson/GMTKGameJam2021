@@ -16,12 +16,12 @@ MonoBehaviour:
   description: Deal 40 damage next turn. Also uses next turn's action
   art: {fileID: 0}
   methodList:
-  - delay
-  - damage
+  - Delay
+  - Damage
   cardsToDraw: 0
   damageDealt: 40
   healingDone: 0
-  armorGained: 0
+  armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
   target: enemy

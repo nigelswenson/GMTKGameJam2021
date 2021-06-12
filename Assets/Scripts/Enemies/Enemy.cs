@@ -70,11 +70,20 @@ public class Enemy : MonoBehaviour
         target = character;
     }
 
-    public void EndOfTurn()
+    public void EndTurn()
     {
         armor -= armorDecay; // armor goes down every turn
+        if (armor < 0)
+        {
+            armor = 0;
+        }
         currentHp -= bleed; // bleed affects inside armor
         bleed -= bleedDecay; // bleed decays after damage
+        if (bleed < 0)
+        {
+            bleed = 0;
+        }
+        
     }
 
 

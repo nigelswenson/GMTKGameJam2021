@@ -12,7 +12,7 @@ public class PlayerCharacter : ScriptableObject
     public int armorDecay = 5;
     public int bleedDecay = 1;
     public int bleed = 0;
-    public int actions = 0;
+    public int actions = 10;
     public Sprite art;
     public int actionsRemaining = 0;
 
@@ -55,11 +55,12 @@ public class PlayerCharacter : ScriptableObject
     {
         currentHp -= amountDamage;
     }
-    public void EndOfTurn()
+    public void EndTurn()
     {
         armor -= armorDecay; // armor goes down every turn
         currentHp -= bleed; // bleed affects inside armor
         bleed -= bleedDecay; // bleed decays after damage
+        actions = 1;
     }
     public void ActionAdd(int actionAdd)
     {

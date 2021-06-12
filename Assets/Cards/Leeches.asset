@@ -16,12 +16,12 @@ MonoBehaviour:
   description: Double the enemy's bleed
   art: {fileID: 0}
   methodList:
-  - getBleed
+  - GetBleed
   - Bleed
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
-  armorGained: 0
+  armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
   target: enemy

@@ -16,12 +16,12 @@ MonoBehaviour:
   description: Play next ally's card twice
   art: {fileID: 0}
   methodList:
-  - selectTarget
-  - setDuplicate
+  - SelectTarget
+  - SetDuplicate
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
-  armorGained: 0
+  armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
   target: 

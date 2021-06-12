@@ -17,12 +17,12 @@ MonoBehaviour:
   art: {fileID: 0}
   methodList:
   - Bleed
-  - getBleed
+  - GetBleed
   - Damage
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
-  armorGained: 0
+  armorAdded: 0
   bleedAdded: 1
   actionAdded: 0
   target: enemy

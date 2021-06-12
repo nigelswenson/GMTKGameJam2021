@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 // Characters now instatiate at the start of the script, need to edit script to manage the three decks separately.
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, ESCAPE, VICTORY, DEFEAT, RUN }
 
@@ -24,6 +25,7 @@ public class BattleManager : MonoBehaviour
     public GameObject deckArea;
     public GameObject dropZone;
     public GameObject discardZone;
+    
 
     Card playedCard;
     PlayerCharacter playedCardOwner;
@@ -93,12 +95,12 @@ public class BattleManager : MonoBehaviour
         {
             foreach (string method in playedCard.methodList)
             {
+                
                 Invoke(method, 0);
             }
             playedCardOwner.actions -= 1;
             DiscardCard(cardToExecute);
         }
-
     }
 
     //Card Methods
@@ -146,12 +148,65 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    private void getBleed()
+    private void GetBleed()
     {
-        
+        playedCard.damageDealt = enemy.bleed;
+        playedCard.armorAdded = enemy.bleed;
+        playedCard.bleedAdded = enemy.bleed;
     }
+    private void ChangeTarget()
+    {
+        if (enemy.target != "all")
+        {
+            enemy.target = playedCard.target;
+        }
+    }
+    private void CheckArmored()
+    {
+        if (playedCardOwner.armor <= 0)
+        {
+            playedCard.damageDealt = 0;
+        }
+    }
+    private void SelectTarget()
+    {
+        Debug.Log ("starting the select target");
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Debug.Log ("got past raycast stuff");
+        if(Physics.Raycast (ray, out hit))
+        {
+            if(hit.transform.name == "Shield Area")
+            {
+                Debug.Log ("Clicked on Shield");
+                playedCard.target = "shield";
+            }
+            else if(hit.transform.name == "Mark Area")
+            {
+                Debug.Log ("Clicked on Mark");
+                playedCard.target = "mark";
+            }
+            else if(hit.transform.name == "Sword Area")
+            {
+                Debug.Log ("Clicked on Sword");
+                playedCard.target = "sword";
+            }
+            else
+            {
+                Debug.Log("ya missed");
+            }
+        }
+    }
+    
     public void EndTurn()
     {
+        foreach (PlayerCharacter partyMember in party)
+        {
+            partyMember.EndTurn();
+            Debug.Log(partyMember.actions.ToString());
+        }
+        enemy.EndTurn();
+        Debug.Log(enemy.currentHp.ToString());
         //Discards current hand before drawing a new one
         DiscardHand();
         //reset active cards to recieve a new hand
