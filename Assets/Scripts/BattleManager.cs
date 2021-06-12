@@ -279,11 +279,19 @@ public class BattleManager : MonoBehaviour
         
     }
 
+    //Enemy Turn Coroutine
+    private IEnumerator EnemyTurn()
+    {
+        yield return new WaitForSeconds(.5f);
+        enemy.DoBehavior();
+        enemy.SetBehavior();
+        yield return new WaitForSeconds(.5f);
+    }
+
     //Turn Process Functions
     public void EndTurn()
     {
-        enemy.DoBehavior();
-        enemy.SetBehavior();
+        StartCoroutine(EnemyTurn());
         foreach (PlayerCharacter partyMember in party)
         {
             partyMember.EndTurn();
