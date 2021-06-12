@@ -33,6 +33,15 @@ public class PlayerCharacter : ScriptableObject
         }
     }
 
+    private void UpdateBleed()
+        {
+        var displays = FindObjectsOfType<CharacterDisplay>();
+        foreach (CharacterDisplay character in displays)
+        {
+            character.SetBleed(bleed);
+        }
+    }
+
 public void Heal(int amountHealed)
     {
         currentHp += amountHealed;
@@ -50,6 +59,7 @@ public void Heal(int amountHealed)
     public void Bleed(int amountBleed)
     {
         bleed = amountBleed;
+        UpdateBleed();
     }
     public void TakeDamage(int amountDamage)
     {
@@ -83,6 +93,7 @@ public void Heal(int amountHealed)
         {
             bleed = 0;
         }
+        UpdateBleed();
         actions = 1;
     }
     public void ActionAdd(int actionAdd)

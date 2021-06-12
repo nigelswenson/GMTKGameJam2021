@@ -1088,14 +1088,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7624324507100199284, guid: 0b6fef10f97304847b7486880d257c9d, type: 3}
-      propertyPath: m_StartCorner
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7624324507100199284, guid: 0b6fef10f97304847b7486880d257c9d, type: 3}
-      propertyPath: m_ChildAlignment
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8343219508653397879, guid: 0b6fef10f97304847b7486880d257c9d, type: 3}
       propertyPath: m_Name
       value: EnemyArea
@@ -1117,18 +1109,6 @@ PrefabInstance:
     - target: {fileID: 953257569861205709, guid: 28d8674943884df4aa09d818c7be4f75, type: 3}
       propertyPath: m_Name
       value: DiscardZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 1429499781452974958, guid: 28d8674943884df4aa09d818c7be4f75, type: 3}
-      propertyPath: m_Color.b
-      value: 0.121840514
-      objectReference: {fileID: 0}
-    - target: {fileID: 1429499781452974958, guid: 28d8674943884df4aa09d818c7be4f75, type: 3}
-      propertyPath: m_Color.g
-      value: 0.121840514
-      objectReference: {fileID: 0}
-    - target: {fileID: 1429499781452974958, guid: 28d8674943884df4aa09d818c7be4f75, type: 3}
-      propertyPath: m_Color.r
-      value: 0.6981132
       objectReference: {fileID: 0}
     - target: {fileID: 1917445980781147582, guid: 28d8674943884df4aa09d818c7be4f75, type: 3}
       propertyPath: m_Pivot.x
@@ -1227,10 +1207,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
-    - target: {fileID: 3197427497786009024, guid: 456c93549d325c7449987738f20d4841, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3197427497786009025, guid: 456c93549d325c7449987738f20d4841, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1314,22 +1290,6 @@ PrefabInstance:
     - target: {fileID: 3197427497786009025, guid: 456c93549d325c7449987738f20d4841, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3197427497786009026, guid: 456c93549d325c7449987738f20d4841, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f2eab81c10c5eb247b9fe99105e3c5dd, type: 3}
-    - target: {fileID: 3197427497786009026, guid: 456c93549d325c7449987738f20d4841, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3197427497786009026, guid: 456c93549d325c7449987738f20d4841, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3197427497786009026, guid: 456c93549d325c7449987738f20d4841, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456c93549d325c7449987738f20d4841, type: 3}
@@ -1534,22 +1494,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 401515537}
     m_Modifications:
-    - target: {fileID: 6428910574364421200, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428910574364421200, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: m_Color.b
-      value: 0.21960786
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428910574364421200, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: m_Color.g
-      value: 0.21960786
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428910574364421200, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: m_Color.r
-      value: 0.21960786
-      objectReference: {fileID: 0}
     - target: {fileID: 6428910574364421202, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1639,10 +1583,6 @@ PrefabInstance:
       value: End Turn Button
       objectReference: {fileID: 0}
     - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 6754313503436384559, guid: 499355c72eb1dfb41adfa856cbe70225, type: 3}
-    - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
       propertyPath: deckArea
       value: 
       objectReference: {fileID: 6925948677850082311}
@@ -1655,18 +1595,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8755075059764988346}
     - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: swordArea
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: playerArea
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: shieldArea
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
       propertyPath: discardZone
       value: 
       objectReference: {fileID: 1329467125617394013}
@@ -1675,17 +1603,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 724559485}
     - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: laurelaiArea
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
       propertyPath: characterArea
       value: 
       objectReference: {fileID: 554179627}
-    - target: {fileID: 6428910574364421214, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
-      propertyPath: characterTemplate
-      value: 
-      objectReference: {fileID: 7994477606664190279, guid: e559bc0a92d846043a21754cb4778650, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdfe236a0acfc74409bc51c107b36027, type: 3}
 --- !u!1 &6925948677850082311 stripped
@@ -1705,14 +1625,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2146722380}
     m_Modifications:
-    - target: {fileID: -1027508296972254202, guid: d8221d35d3c93364c9b76c71117b6650, type: 3}
-      propertyPath: m_Size.x
-      value: 406.081
-      objectReference: {fileID: 0}
-    - target: {fileID: -1027508296972254202, guid: d8221d35d3c93364c9b76c71117b6650, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.79959106
-      objectReference: {fileID: 0}
     - target: {fileID: 420439016755366327, guid: d8221d35d3c93364c9b76c71117b6650, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1797,16 +1709,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 909458299422652263, guid: d8221d35d3c93364c9b76c71117b6650, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1329467125501887172, guid: d8221d35d3c93364c9b76c71117b6650, type: 3}
       propertyPath: m_Name
-      value: DropZone
-      objectReference: {fileID: 0}
-    - target: {fileID: 1329467125501887172, guid: d8221d35d3c93364c9b76c71117b6650, type: 3}
-      propertyPath: m_TagString
       value: DropZone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
