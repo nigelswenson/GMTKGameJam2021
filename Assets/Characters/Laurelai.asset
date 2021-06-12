@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7c319ce6eb3cb4aaaa795eaf1d077c, type: 3}
   m_Name: Laurelai
   m_EditorClassIdentifier: 
-  characterName: Isaac
+  characterName: Laurelai
   maxHp: 10
-  currentHp: 30
+  currentHp: 10
   armor: 0
   armorDecay: 5
   bleedDecay: 1
@@ -22,6 +22,7 @@ MonoBehaviour:
   actions: 1
   art: {fileID: 21300000, guid: 7a6b724a005bfed4191ba409458f7127, type: 3}
   actionsRemaining: 1
+  playerArea: {fileID: 0}
   deckData:
   - {fileID: 11400000, guid: 1a8630c924986f01180fdf1f50bea298, type: 2}
   - {fileID: 11400000, guid: 52f5df2315118144cb73dcd4664ae4c8, type: 2}
@@ -32,6 +33,6 @@ MonoBehaviour:
   deck:
   - {fileID: 0}
   - {fileID: 0}
+  discardPile:
   - {fileID: 0}
   - {fileID: 0}
-  discardPile: []

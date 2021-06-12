@@ -51,6 +51,7 @@ public class Slime : Enemy
             else // Heal
             {
                 currentHp += healSize * size / 10;
+                SetHp();
             }
         }
     }

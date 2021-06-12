@@ -22,6 +22,12 @@ public class CardZoom : MonoBehaviour
 
         RectTransform rect = zoomCard.GetComponent<RectTransform>();
         rect.sizeDelta = new Vector2(240, 344);
+        foreach (Transform child in transform)
+        {
+            var go = transform.gameObject;
+            go.GetComponent<RectTransform>()
+
+        }
     }
 
     public void OnHoverExit()

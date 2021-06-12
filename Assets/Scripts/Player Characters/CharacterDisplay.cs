@@ -8,13 +8,12 @@ public class CharacterDisplay : MonoBehaviour
 
     public PlayerCharacter character;
     public Text namePlate;
-    public Image portrait;
+    public GameObject cardArea;
     public Slider hpSlider;
     public Text hpText;
     // Start is called before the first frame update
     void Start()
     {
-        portrait.sprite = character.art;
         namePlate.text = character.characterName;
         hpSlider.maxValue = character.maxHp;
         SetHp();

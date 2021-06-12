@@ -20,4 +20,9 @@ public class CardDisplay : MonoBehaviour
 
         art.sprite = card.art;
     }
+
+    public void SetColor(Color color)
+    {
+        gameObject.GetComponent<Image>().color = color;
+    }    
 }

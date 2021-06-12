@@ -16,6 +16,7 @@ public class PlayerCharacter : ScriptableObject
     public Sprite art;
     public int actionsRemaining = 0;
     public GameObject playerArea;
+    public Color cardColor;
 
     public List<Card> deckData = new List<Card>();
     [HideInInspector]

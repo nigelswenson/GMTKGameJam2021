@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     public int bleedDecay = 1;
     public int bleed = 0;
     public PlayerCharacter target;
+    public Text namePlate;
+    public Slider hpSlider;
     public Sprite art;
     public Image portrait;
     public PlayerCharacter enemy;
@@ -81,6 +83,7 @@ public class Enemy : MonoBehaviour
         if (amountDamage - armor >= 0)
         {
             currentHp -= amountDamage - armor;
+            SetHp();
             armor = 0;
         }
         else
@@ -92,6 +95,7 @@ public class Enemy : MonoBehaviour
     public void TakePenDamage(int amountDamage)
     {
         currentHp -= amountDamage;
+        SetHp();
     }
 
     // Change target to one given, currently won't work because it happens
@@ -110,6 +114,7 @@ public class Enemy : MonoBehaviour
             armor = 0;
         }
         currentHp -= bleed; // bleed affects inside armor
+        SetHp();
         bleed -= bleedDecay; // bleed decays after damage
         if (bleed < 0)
         {
@@ -122,5 +127,13 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         portrait.sprite = art;
+        namePlate.text = enemyName;
+        hpSlider.maxValue = maxHp;
+        SetHp();
+    }
+
+    public void SetHp()
+    { 
+        hpSlider.value = currentHp;
     }
 }

@@ -27,10 +27,7 @@ public class BattleManager : MonoBehaviour
     private List<GameObject> activeCards = new List<GameObject>();
     private List<Card> discardPile = new List<Card>();
 
-    public GameObject playerArea;
-    [SerializeField] GameObject laurelaiArea;
-    [SerializeField] GameObject shieldArea;
-    [SerializeField] GameObject swordArea;
+    [SerializeField] GameObject playerAreas;
     public GameObject deckArea;
     public GameObject dropZone;
     public GameObject discardZone;
@@ -66,20 +63,6 @@ public class BattleManager : MonoBehaviour
             partyMember.actions = 1;
             partyMember.currentHp = partyMember.maxHp;
 
-            //attach card areas
-            if (partyMember.characterName == "Laurelai")
-            {
-                partyMember.playerArea = laurelaiArea;
-            }
-            else if (partyMember.characterName == "Aegis Bane")
-            {
-                partyMember.playerArea = shieldArea;
-            }
-            else
-            {
-                partyMember.playerArea = swordArea;
-            }
-
             InstantiateCharacters(partyMember);
             InstantiateCards(partyMember);
         }
@@ -97,7 +80,9 @@ public class BattleManager : MonoBehaviour
     {
         GameObject newCharacter = Instantiate(characterTemplate, new Vector3(0, 0, 0), Quaternion.identity);
         newCharacter.GetComponent<CharacterDisplay>().character = partyMember;
-        newCharacter.transform.SetParent(characterArea.transform, false);
+        newCharacter.transform.SetParent(playerAreas.transform, false);
+
+        partyMember.playerArea = newCharacter.GetComponent<CharacterDisplay>().cardArea;
 
         newCharacter.GetComponent<CharacterDisplay>().SetHp();
     }
@@ -109,6 +94,7 @@ public class BattleManager : MonoBehaviour
         {
             GameObject newCard = Instantiate(cardTemplate, new Vector3(0, 0, 0), Quaternion.identity);
             newCard.GetComponent<CardDisplay>().card = card;
+            newCard.GetComponent<CardDisplay>().SetColor(partyMember.cardColor);
             newCard.GetComponent<CardDisplay>().owner = partyMember;
             newCard.transform.SetParent(deckArea.transform, false);
             partyMember.deck.Add(newCard);
@@ -285,7 +271,7 @@ public class BattleManager : MonoBehaviour
     {
         
     }
-   
+
     //Turn Process Functions
     public void EndTurn()
     {
