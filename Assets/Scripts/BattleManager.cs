@@ -65,10 +65,12 @@ public class BattleManager : MonoBehaviour
 
             InstantiateCharacters(partyMember);
             InstantiateCards(partyMember);
+            
         }
 
         InstantiateEnemies();
         DrawNewHand();
+        enemy.SetBehavior();
     }
 
     private void InstantiateEnemies()
@@ -280,7 +282,8 @@ public class BattleManager : MonoBehaviour
     //Turn Process Functions
     public void EndTurn()
     {
-        enemy.Behavior();
+        enemy.DoBehavior();
+        enemy.SetBehavior();
         foreach (PlayerCharacter partyMember in party)
         {
             partyMember.EndTurn();

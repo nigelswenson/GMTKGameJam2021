@@ -15,18 +15,20 @@ public class Slime : Enemy
     public int armorSize = 5;
     public int healSize = 5;
     public int attack = 5;
+    public string action;
 
 
-    override public void Behavior()
+    override public void SetBehavior()
     {
+
+        
         size += growRate; // grow every turn
         // scale slime pixel size here
-
         if (currentHp > maxHp / 2) // attack or grow
         {
             if (size < 5) // grow
             {
-                size += growSize;
+                action = "grow";
             }
             else // attack 
             {
@@ -38,7 +40,7 @@ public class Slime : Enemy
                 {
                     TargetRandom();
                 }
-                target.TakeDamage(attack * size / 10);
+                action = "grow";
             }
 
         }
@@ -46,13 +48,34 @@ public class Slime : Enemy
         {
             if (size < 5) // Shield
             {
-                armor = armorSize * size / 10;
+                action = "shield";
             }
             else // Heal
             {
-                currentHp += healSize * size / 10;
-                SetHp();
+                action = "heal";
             }
+        }
+    }
+
+
+override public void DoBehavior()
+    {
+        if (action == "attack")
+        {
+            target.TakeDamage(attack * (size / 10));
+        }
+        else if (action == "heal")
+        {
+            currentHp += healSize * (size / 10);
+            SetHp();
+        }
+        else if (action == "shield")
+        {
+            armor = armorSize * (size / 10);
+        }
+        else // grow
+        {
+            size += growSize;
         }
     }
 }

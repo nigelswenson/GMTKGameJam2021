@@ -18,7 +18,7 @@ public class Guard : Enemy
     public int shieldDecay = 2;
 
 
-    override public void Behavior()
+    override public void SetBehavior()
     {
         SetArmorDecay(shieldDecay);
         armor += shield;

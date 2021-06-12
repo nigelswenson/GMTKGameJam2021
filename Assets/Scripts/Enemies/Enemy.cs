@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
     public PlayerCharacter enemy;
     //[SerializeField] List<PlayerCharacter> party = FindObjectOfType<BattleManager>().party;
     //PlayerCharacter party = FindObjectOfType<BattleManager>().party;
-    public List<PlayerCharacter> party = new List<PlayerCharacter>();
 
     // Set armor decay value (could be nice to make this for updating all variables if we're bored)
     public void SetArmorDecay(int decay)
@@ -31,7 +30,7 @@ public class Enemy : MonoBehaviour
     public void TargetLowest()
     {
         int lowHealth = 100000;
-        foreach (PlayerCharacter partyMember in party)
+        foreach (PlayerCharacter partyMember in FindObjectOfType<BattleManager>().party)
         {
             if (partyMember.currentHp < lowHealth)
             {
@@ -44,13 +43,13 @@ public class Enemy : MonoBehaviour
     // Target Random Member
     public void TargetRandom()
     {
-        target = party[Random.Range(1, 3)];
+        target = FindObjectOfType<BattleManager>().party[Random.Range(1, 3)];
     }
 
     // Attack All Members
     public void AttackAll(int damage)
     {
-        foreach (PlayerCharacter partyMember in party)
+        foreach (PlayerCharacter partyMember in FindObjectOfType<BattleManager>().party)
         {
             partyMember.TakeDamage(damage);
         }
@@ -105,7 +104,10 @@ public class Enemy : MonoBehaviour
         target = character;
     }
 
-    public virtual void Behavior()
+    public virtual void SetBehavior()
+    { }
+
+    public virtual void DoBehavior()
     { }
 
     // Update numbers at the end of enemy's turn
@@ -133,6 +135,8 @@ public class Enemy : MonoBehaviour
         namePlate.text = enemyName;
         hpSlider.maxValue = maxHp;
         SetHp();
+
+
     }
 
     public void SetHp()

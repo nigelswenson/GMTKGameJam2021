@@ -19,7 +19,7 @@ public class Lich : Enemy
     public int attack = 8;
     public int selfharm = 4;
 
-    override public void Behavior()
+    override public void SetBehavior()
     {
         if (Random.Range(1, 5) != 4)
         {
