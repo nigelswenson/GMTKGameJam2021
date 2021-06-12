@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Goblin
-  maxHp: 0
+  maxHp: 50
   currentHp: 50
   armor: 0
   armorDecay: 5

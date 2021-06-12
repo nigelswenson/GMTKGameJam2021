@@ -137,6 +137,10 @@ public class BattleManager : MonoBehaviour
             DiscardCard(cardToExecute);
             targetSelected = false;
         }
+        else
+        {
+            cardToExecute.transform.SetParent(cardToExecute.GetComponent<CardDisplay>().owner.playerArea.transform, false);
+        }
         
     }
 
