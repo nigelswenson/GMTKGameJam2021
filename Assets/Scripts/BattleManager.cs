@@ -285,7 +285,15 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         enemy.DoBehavior();
         enemy.SetBehavior();
-        yield return new WaitForSeconds(.5f);
+        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
+        foreach (CharacterDisplay display in characterDisplays)
+        {
+            if (display.character = enemy.target)
+            {
+                display.EnableTargetIndicator();
+            }
+        }
+            yield return new WaitForSeconds(.5f);
     }
 
     //Turn Process Functions

@@ -13,6 +13,7 @@ public class CharacterDisplay : MonoBehaviour
     public Text hpText;
     public Image bleedImage;
     public Text bleedCount;
+    public Image targetIndicator;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class CharacterDisplay : MonoBehaviour
         hpSlider.maxValue = character.maxHp;
         SetHp();
         SetBleed(0);
+        targetIndicator.enabled = false;
     }
 
     public void SetHp()
@@ -42,6 +44,10 @@ public class CharacterDisplay : MonoBehaviour
             bleedImage.enabled = true;
             bleedCount.enabled = true;
         }
+    }
 
-    }    
+    public void EnableTargetIndicator()
+    {
+        targetIndicator.enabled = false;
+    }
 }
