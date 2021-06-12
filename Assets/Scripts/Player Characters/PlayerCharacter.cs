@@ -22,13 +22,23 @@ public class PlayerCharacter : ScriptableObject
     [HideInInspector]
     public List<GameObject> discardPile = new List<GameObject>();
 
-    public void Heal(int amountHealed)
+    private void UpdateHp()
+    {
+        var displays = FindObjectsOfType<CharacterDisplay>();
+        foreach (CharacterDisplay character in displays)
+        {
+            character.SetHp();
+        }
+    }
+
+public void Heal(int amountHealed)
     {
         currentHp += amountHealed;
         if (currentHp >= maxHp)
         {
             currentHp = maxHp;
         }
+        UpdateHp();
     }
 
     public void Armor(int amountShielded)
@@ -44,6 +54,7 @@ public class PlayerCharacter : ScriptableObject
         if (amountDamage - armor >= 0)
         {
             currentHp -= amountDamage - armor;
+            UpdateHp();
             armor = 0;
         }
         else
@@ -54,6 +65,7 @@ public class PlayerCharacter : ScriptableObject
     public void TakePenDamage(int amountDamage)
     {
         currentHp -= amountDamage;
+        UpdateHp();
     }
     public void EndTurn()
     {
@@ -63,6 +75,7 @@ public class PlayerCharacter : ScriptableObject
             armor = 0;
         }
         currentHp -= bleed; // bleed affects inside armor
+        UpdateHp();
         bleed -= bleedDecay; // bleed decays after damage
         if (bleed < 0)
         {

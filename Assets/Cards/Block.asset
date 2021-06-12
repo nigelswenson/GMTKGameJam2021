@@ -18,10 +18,11 @@ MonoBehaviour:
   methodList:
   - SelectTarget
   - Armor
+  isTargeted: 1
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
-  armorGained: 5
+  armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
   target: 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-// Characters now instatiate at the start of the script, need to edit script to manage the three decks separately.
+// Characters now instantiate at the start of the script, need to edit script to manage the three decks separately.
 public enum BattleState { START, PLAYERTURN, TARGETING, ENEMYTURN, ESCAPE, VICTORY, DEFEAT, RUN }
 
 public class BattleManager : MonoBehaviour
@@ -51,7 +51,7 @@ public class BattleManager : MonoBehaviour
 
     void SetupBattle()
     {
-        //instatiate player characters and generate decks
+        //instantiate player characters and generate decks
         foreach (PlayerCharacter partyMember in party)
         {
             //clears discardpile and deck in case there is leftover data before setting up this instance of the characters
@@ -59,29 +59,29 @@ public class BattleManager : MonoBehaviour
             partyMember.deck.Clear();
             partyMember.actionsRemaining = 1;
 
-            InstatiateCharacters(partyMember);
-            InstatiateCards(partyMember);
+            InstantiateCharacters(partyMember);
+            InstantiateCards(partyMember);
         }
 
-        InstatiateEnemies();
+        InstantiateEnemies();
         DrawNewHand();
     }
 
-    private void InstatiateEnemies()
+    private void InstantiateEnemies()
     {
         Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity, enemyArea.transform);
     }
 
-    private void InstatiateCharacters(PlayerCharacter partyMember)
+    private void InstantiateCharacters(PlayerCharacter partyMember)
     {
         GameObject newCharacter = Instantiate(characterTemplate, new Vector3(0, 0, 0), Quaternion.identity);
         newCharacter.GetComponent<CharacterDisplay>().character = partyMember;
         newCharacter.transform.SetParent(characterArea.transform, false);
     }
 
-    private void InstatiateCards(PlayerCharacter partyMember)
+    private void InstantiateCards(PlayerCharacter partyMember)
     {
-        //instatiates card templates and applys card data to them, marking each card as "owned" by a particular character so we can access their specific discard pile
+        //instantiates card templates and applys card data to them, marking each card as "owned" by a particular character so we can access their specific discard pile
         foreach (Card card in partyMember.deckData)
         {
             GameObject newCard = Instantiate(cardTemplate, new Vector3(0, 0, 0), Quaternion.identity);
@@ -136,7 +136,13 @@ public class BattleManager : MonoBehaviour
     //Card Methods
     private void CardDraw()
     {
-        Draw(playedCardOwner, playedCard.cardsToDraw, playedCardOwner.deck);
+        foreach (PlayerCharacter partyMember in party)
+        {
+            if ((partyMember.characterName == playedCard.target) | (playedCard.target == "all"))
+            {
+                Draw(partyMember, playedCard.cardsToDraw, partyMember.deck);
+            }
+        }
     }
     private void Heal()
     {
@@ -162,7 +168,6 @@ public class BattleManager : MonoBehaviour
             {
                 partyMember.Armor(playedCard.armorAdded);
             }
-
         }
     }
     private void Bleed()
@@ -242,7 +247,7 @@ public class BattleManager : MonoBehaviour
         {
             var characterPos = display.gameObject.transform.position;
             Button button = Instantiate(targetButton, characterPos, Quaternion.identity);
-            button.transform.SetParent(characterArea.transform, false);
+            button.transform.SetParent(FindObjectOfType<Canvas>().transform, true);
             button.GetComponent<TargetButton>().targetCharacterName = display.character.characterName;
             targetButtons.Add(button);
         }
@@ -260,6 +265,7 @@ public class BattleManager : MonoBehaviour
         {
             Destroy(button.gameObject);
         }
+        targetButtons.Clear();
     }
 
     public void EndTurn()

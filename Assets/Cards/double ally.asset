@@ -18,6 +18,7 @@ MonoBehaviour:
   methodList:
   - SelectTarget
   - SetDuplicate
+  isTargeted: 1
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0

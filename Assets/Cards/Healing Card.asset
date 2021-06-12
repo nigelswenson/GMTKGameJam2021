@@ -18,10 +18,11 @@ MonoBehaviour:
   methodList:
   - SelectTarget
   - Heal
+  isTargeted: 1
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 5
-  armorGained: 0
+  armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
-  target: 
+  target: Piers

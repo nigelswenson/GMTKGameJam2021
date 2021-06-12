@@ -19,10 +19,11 @@ MonoBehaviour:
   - SelectTarget
   - CardDraw
   - ActionAdd
+  isTargeted: 1
   cardsToDraw: 1
   damageDealt: 0
   healingDone: 0
-  armorGained: 0
+  armorAdded: 0
   bleedAdded: 0
   actionAdded: 1
-  target: 
+  target: Piers

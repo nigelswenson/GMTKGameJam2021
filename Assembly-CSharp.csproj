@@ -58,16 +58,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Enemies\EnemyDisplay.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\TargetButton.cs" />
     <Compile Include="Assets\Scripts\Player Characters\PlayerCharacter.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Slime.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\Card.cs" />
+    <Compile Include="Assets\Scripts\Enemies\CryptGuard.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\CardDisplay.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Lich.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\DragDrop.cs" />
     <Compile Include="Assets\Scripts\Player Characters\CharacterDisplay.cs" />
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\CardZoom.cs" />
-    <Compile Include="Assets\Scripts\TargetButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

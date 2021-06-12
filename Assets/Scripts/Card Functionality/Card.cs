@@ -23,6 +23,6 @@ public class Card : ScriptableObject
     public int bleedAdded = 0;
     
     public int actionAdded = 0;
-    
+
     public string target = "";
 }
