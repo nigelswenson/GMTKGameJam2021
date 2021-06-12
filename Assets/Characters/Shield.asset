@@ -23,6 +23,7 @@ MonoBehaviour:
   art: {fileID: 21300000, guid: 4cf50f041210f3743b67b2b302c4709c, type: 3}
   actionsRemaining: 1
   playerArea: {fileID: 0}
+  cardColor: {r: 0.3137255, g: 0.6784314, b: 0.8980393, a: 1}
   deckData:
   - {fileID: 11400000, guid: 27b1a465510510b96b505ea56b7f3d80, type: 2}
   - {fileID: 11400000, guid: 6cb666fa1a5c64a40ad6906210763980, type: 2}
@@ -33,6 +34,6 @@ MonoBehaviour:
   deck:
   - {fileID: 0}
   - {fileID: 0}
-  discardPile:
   - {fileID: 0}
   - {fileID: 0}
+  discardPile: []

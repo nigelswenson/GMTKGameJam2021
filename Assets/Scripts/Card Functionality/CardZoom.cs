@@ -19,15 +19,6 @@ public class CardZoom : MonoBehaviour
         zoomCard.transform.SetParent(canvas.transform, false);
         //sets the layer of the zoom card to something else so it can't collide with anything on the game layer
         zoomCard.layer = LayerMask.NameToLayer("Zoom");
-
-        RectTransform rect = zoomCard.GetComponent<RectTransform>();
-        rect.sizeDelta = new Vector2(240, 344);
-        foreach (Transform child in transform)
-        {
-            var go = transform.gameObject;
-            go.GetComponent<RectTransform>()
-
-        }
     }
 
     public void OnHoverExit()
