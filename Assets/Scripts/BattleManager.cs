@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 // Characters now instatiate at the start of the script, need to edit script to manage the three decks separately.
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, ESCAPE, VICTORY, DEFEAT, RUN }
+public enum BattleState { START, PLAYERTURN, TARGETING, ENEMYTURN, ESCAPE, VICTORY, DEFEAT, RUN }
 
 public class BattleManager : MonoBehaviour
 {
     //config variables
     [SerializeField] GameObject characterTemplate;
-    [SerializeField] List<PlayerCharacter> party = new List<PlayerCharacter>();
+    public List<PlayerCharacter> party = new List<PlayerCharacter>();
     [SerializeField] GameObject characterArea;
 
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject enemyArea;
+
+    [SerializeField] Button targetButton;
+    private List<Button> targetButtons = new List<Button>();
 
     [SerializeField] int handSize;
     [SerializeField] GameObject cardTemplate;
@@ -53,6 +56,7 @@ public class BattleManager : MonoBehaviour
             //clears discardpile and deck in case there is leftover data before setting up this instance of the characters
             partyMember.discardPile.Clear();
             partyMember.deck.Clear();
+            partyMember.actionsRemaining = 1;
 
             InstatiateCharacters(partyMember);
             InstatiateCards(partyMember);
@@ -170,34 +174,30 @@ public class BattleManager : MonoBehaviour
     }
     private void SelectTarget()
     {
-        Debug.Log ("starting the select target");
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        Debug.Log ("got past raycast stuff");
-        if(Physics.Raycast (ray, out hit))
+        state = BattleState.TARGETING;
+
+        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
+        foreach (CharacterDisplay display in characterDisplays)
         {
-            if(hit.transform.name == "Shield Area")
-            {
-                Debug.Log ("Clicked on Shield");
-                playedCard.target = "shield";
-            }
-            else if(hit.transform.name == "Mark Area")
-            {
-                Debug.Log ("Clicked on Mark");
-                playedCard.target = "mark";
-            }
-            else if(hit.transform.name == "Sword Area")
-            {
-                Debug.Log ("Clicked on Sword");
-                playedCard.target = "sword";
-            }
-            else
-            {
-                Debug.Log("ya missed");
-            }
+            var characterPos = display.gameObject.transform.position;
+            Button button = Instantiate(targetButton, characterPos, Quaternion.identity);
+            button.transform.SetParent(characterArea.transform, true);
+            button.GetComponent<TargetButton>().targetCharacterName = display.character.characterName;
+            targetButtons.Add(button);
+        }
+        state = BattleState.PLAYERTURN;
+    }
+
+    public void SetTarget(string target)
+    {
+        playedCard.target = target;
+        Debug.Log(playedCard.target);
+        foreach (Button button in targetButtons)
+        {
+            Destroy(button.gameObject);
         }
     }
-    
+
     public void EndTurn()
     {
         foreach (PlayerCharacter partyMember in party)
