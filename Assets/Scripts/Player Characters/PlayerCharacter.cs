@@ -60,7 +60,7 @@ public class PlayerCharacter : ScriptableObject
         }
         else if (currentHp <= 0)
         {
-            currentHp = 0
+            currentHp = 0;
         }
         UpdateHp();
     }
