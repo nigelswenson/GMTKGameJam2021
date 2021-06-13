@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public Slider hpSlider;
     public Sprite art;
     public Image portrait;
-    public PlayerCharacter enemy;
+
     //[SerializeField] List<PlayerCharacter> party = FindObjectOfType<BattleManager>().party;
     //PlayerCharacter party = FindObjectOfType<BattleManager>().party;
 

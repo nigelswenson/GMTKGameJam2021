@@ -10,7 +10,7 @@ Crypt Guard
     Does shit damage, but scales with armor
 
 */
-public class Guard : Enemy
+public class CryptGuard : Enemy
 {
     public int attack = 2;
     public int startArmor = 15;
