@@ -6,6 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Dialogue 1.unity
+    guid: 6e43db498a024ce47862d0a7986091a5
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Dialogue 2.unity
+    guid: 7d5cdac49415a704da04c3cf3e13483d
+  - enabled: 1
+    path: Assets/Scenes/Crypt Guard.unity
+    guid: 6f877323322d5824ea8461099d05f22e
+  - enabled: 1
+    path: Assets/Scenes/Dialogue 3.unity
+    guid: 28bd7270f3245b440b17830cbfd21c94
+  - enabled: 1
+    path: Assets/Scenes/Lich.unity
+    guid: 6af45be749b16d341bb1e366d7c74ae5
+  - enabled: 1
+    path: Assets/Scenes/Dialogue 4.unity
+    guid: a1771a62696417c4198dfae5878f7af4
+  - enabled: 1
+    path: Assets/Scenes/Final Boss.unity
+    guid: 6503c00eb1df1bf4fb50dc932607cdce
+  - enabled: 1
+    path: Assets/Scenes/Dialogue 5.unity
+    guid: c146b4dd80571374b9f4567c50875caa
   m_configObjects: {}

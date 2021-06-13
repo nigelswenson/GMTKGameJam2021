@@ -70,6 +70,10 @@ public class DialogueManager : MonoBehaviour
 		{
 			StartDialogue(dialogues[dialogueIndex]);
 		}
+		else
+        {
+			FindObjectOfType<SceneLoader>().LoadNextScene();
+        }
 	}
 
 }

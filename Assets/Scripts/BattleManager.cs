@@ -441,5 +441,3 @@ public class BattleManager : MonoBehaviour
         enemyHealImage.enabled = true;
     }
 }
-
-
