@@ -13,10 +13,8 @@ Crypt Guard
 public class CryptGuard : Enemy
 {
     public int attack = 2;
-    public int startArmor = 15;
     public int shield = 4;
     public int shieldScaling = 5;
-    public int startBleed = 5;
     public int startHealth = 100;
     public string action;
 

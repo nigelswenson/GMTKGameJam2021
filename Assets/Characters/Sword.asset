@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7c319ce6eb3cb4aaaa795eaf1d077c, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  characterName: Blood Avow
+  characterName: BLOOD AVOW
   maxHp: 40
   currentHp: 40
   armor: 0

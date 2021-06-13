@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Card Draw Card
   description: Ally Draws  1 Card and gets 1 Action
-  art: {fileID: 21300000, guid: eac7478b3c6168e45b1b1f4733d00842, type: 3}
+  art: {fileID: 21300000, guid: b46d7a43b2fa40240bec0582f0fe34ee, type: 3}
   methodList:
   - SelectTarget
   - CardDraw

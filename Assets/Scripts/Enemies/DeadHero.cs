@@ -59,17 +59,33 @@ public class DeadHero : Enemy
                 {
                     action1 = "attackall";
                     action2 = "armor";
+                    var displays = FindObjectsOfType<CharacterDisplay>();
+                    foreach (CharacterDisplay display in displays)
+                    {
+                        display.EnableTargetIndicator();
+                    }
                 }
                 else // mid chance for bleed and shield
                 {
                     action1 = "bleedall";
                     action2 = "armor";
+                    var displays = FindObjectsOfType<CharacterDisplay>();
+                    foreach (CharacterDisplay display in displays)
+                    {
+                        display.EnableTargetIndicator();
+                    }
+                    FindObjectOfType<BattleManager>().EnableHealImage();
                 }
                 if (cranky == true) // Really aggressive attack, when first woken up & when low 
                 {
                     action1 = "attackall";
                     action2 = "bleedall";
                     cranky = false;
+                    var displays = FindObjectsOfType<CharacterDisplay>();
+                    foreach (CharacterDisplay display in displays)
+                    {
+                        display.EnableTargetIndicator();
+                    }
                 }
                 Debug.Log("Undead Hero is about to " + action1 + " and " + action2);
             }
@@ -143,5 +159,13 @@ public class DeadHero : Enemy
                 target.TakeDamage(oneAttack);
             }
         }
+    }
+
+    public override void EnemySetup()
+    {
+        base.EnemySetup();
+        action1 = "asleep";
+        cranky = true;
+        tired = false;
     }
 }

@@ -89,6 +89,8 @@ public class BattleManager : MonoBehaviour
                 display.EnableTargetIndicator();
             }
         }
+
+        enemy.EnemySetup();
     }
 
     private void InstantiateEnemies()

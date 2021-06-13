@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public int armor = 0;
     public int armorDecay = 5;
     public int bleedDecay = 1;
+    public int startBleed = 0;
+    public int startArmor = 0;
     public int bleed = 0;
     public PlayerCharacter target;
     public Sprite art;
@@ -69,7 +71,15 @@ public class Enemy : MonoBehaviour
     // Target Random Member
     public void TargetRandom()
     {
-        target = FindObjectOfType<BattleManager>().party[Random.Range(1, 3)];
+        var targetList = FindObjectOfType<BattleManager>().party;
+        foreach (PlayerCharacter target in targetList)
+        {
+            if (target.currentHp <=0)
+            {
+                targetList.Remove(target);
+            }
+        }
+            target = FindObjectOfType<BattleManager>().party[Random.Range(1, 3)];
     }
 
     // Attack All Members
@@ -180,6 +190,16 @@ public class Enemy : MonoBehaviour
     public void SetHp()
     {
         FindObjectOfType<BattleManager>().SetEnemyHp();
+    }
+
+    public virtual void EnemySetup()
+    {
+        currentHp = maxHp;
+        bleed = startBleed;
+        armor = startArmor;
+        SetArmor(armor);
+        SetBleed(bleed);
+        SetHp();
     }
 
     /*private void Die()

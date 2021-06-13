@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Behind Me
   m_EditorClassIdentifier: 
   cardName: Behind Me!
-  description: Inflict 2 bleed, all allies gain 2 armor
-  art: {fileID: 21300000, guid: 01145de7cf3c346498fa677fc8b3ac37, type: 3}
+  description: Deal 2 bleed, Allies gain 2 armor
+  art: {fileID: 21300000, guid: 9c6fd5292da7e3b4394caad2628ab489, type: 3}
   methodList:
   - Bleed
   - Armor

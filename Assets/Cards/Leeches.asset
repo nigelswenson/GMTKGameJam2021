@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Leeches are great medicine!
   description: Double the enemy's bleed
-  art: {fileID: 21300000, guid: a14f868499ca2144688e8b512db5dd15, type: 3}
+  art: {fileID: 21300000, guid: 08506e3c67892aa4e9dcfd6e8e1740a4, type: 3}
   methodList:
   - BleedToBleed
   isTargeted: 0

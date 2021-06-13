@@ -38,6 +38,12 @@ public class Lich : Enemy
             if (target.currentHp > target.maxHp / 2)
             {
                 action = "attackall";
+
+                var displays = FindObjectsOfType<CharacterDisplay>();
+                foreach (CharacterDisplay display in displays)
+                {
+                    display.EnableTargetIndicator();
+                }
             }
             else
             {
