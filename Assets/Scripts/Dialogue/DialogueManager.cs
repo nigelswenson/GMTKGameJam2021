@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 
 	[SerializeField] Text nameText;
 	[SerializeField] Text dialogueText;
+	[SerializeField] Image portrait;
 	[SerializeField] Dialogue[] dialogues;
 	public int dialogueIndex = 0;
 
@@ -26,7 +27,7 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-
+		portrait.sprite = dialogue.portrait;
 		nameText.text = dialogue.name;
 
 		sentences.Clear();

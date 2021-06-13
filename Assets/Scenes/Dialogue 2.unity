@@ -381,6 +381,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &297019920
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 256022443391445116, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_Name
+      value: SceneLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 959.9917
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -53.95331
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 243.85915
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
 --- !u!1 &607581041
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,15 +470,38 @@ MonoBehaviour:
   nameText: {fileID: 20443477}
   dialogueText: {fileID: 47299514}
   dialogues:
-  - name: Dwayne the Sword Johnson
+  - name: AEGIS BANE
     sentences:
-    - CAN YOU SMELL....
-    - WHAT THE SWORD....
-    - IS COOKIN!
-  - name: Macho Man Randy Shieldage
+    - See? There is naught to fear.
+  - name: LAURELAI
     sentences:
-    - OHHHHH YEAH BROTHER
-    - SNAP INTO A SLIM JIM
+    - I guess that wasn't so bad.
+    - But why is this place so...gross?
+  - name: AEGIS BANE
+    sentences:
+    - The cursed lich Sharathkon the Destroyer leeches the virtue of this holy sepulchure.
+    - Tis our duty to purge his wickedness so our master can slumber--
+  - name: BLOOD AVOW
+    sentences:
+    - THE TASTE OF BATTLE HATH WHETTED MY EDGE!
+  - name: LAURELAI
+    sentences:
+    - ...
+  - name: AEGIS BANE
+    sentences:
+    - Good morning, Avow.
+  - name: BLOOD AVOW
+    sentences:
+    - I AM THE TERROR OF TERRORS! VILLAINS SHALL DESPAIR AT MY RIGHTEOUSNESS!
+  - name: LAURELAI
+    sentences:
+    - Is he alright?
+  - name: AEGIS BANE
+    sentences:
+    - Yes.
+  - name: BLOOD AVOW
+    sentences:
+    - 'LO, MY NEXT FOE APPROACHES! '
   dialogueIndex: 0
   animator: {fileID: 1126185637}
   textSpeed: 0.02

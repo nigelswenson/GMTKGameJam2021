@@ -131,7 +131,7 @@ public class Enemy : MonoBehaviour
         }
         if (currentHp <= 0)
         {
-            StartCoroutine(Die());
+            FindObjectOfType<BattleManager>().EnemyDeath();
         }
     }
     // Take premitigation damage for amount given
@@ -178,12 +178,15 @@ public class Enemy : MonoBehaviour
         FindObjectOfType<BattleManager>().SetEnemyHp();
     }
 
-    private IEnumerator Die()
+    /*private void Die()
     {
+        Debug.Log("Died");
         isAlive = false;
         portrait.enabled = false;
         yield return new WaitForSeconds(1);
 
+        FindObjectOfType<SceneLoader>().LoadNextScene();
+
         //change enemy in battleManager
-    }    
+    } */   
 }

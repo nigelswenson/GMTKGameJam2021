@@ -281,6 +281,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47299512}
   m_CullTransparentMesh: 1
+--- !u!1001 &91066946
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 256022443391445116, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_Name
+      value: SceneLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 959.9917
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -53.95331
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 243.85915
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 256022443391445118, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a24851c5eac022242a44bc98a3b186be, type: 3}
 --- !u!1 &146950877
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,15 +470,34 @@ MonoBehaviour:
   nameText: {fileID: 20443477}
   dialogueText: {fileID: 47299514}
   dialogues:
-  - name: Dwayne the Sword Johnson
+  - name: LAURELAI
     sentences:
-    - CAN YOU SMELL....
-    - WHAT THE SWORD....
-    - IS COOKIN!
-  - name: Macho Man Randy Shieldage
+    - Okay, that time was a lot scarier!
+  - name: BLOOD AVOW
     sentences:
-    - OHHHHH YEAH BROTHER
-    - SNAP INTO A SLIM JIM
+    - YET FALTER WE DID NOT!
+  - name: LAURELAI
+    sentences:
+    - ...
+    - Is this normal for him?
+  - name: AEGIS BANE
+    sentences:
+    - Yes.
+  - name: BLOOD AVOW
+    sentences:
+    - I AM THE RIGHTEOUS KNIFE SLICING THROUGH THE CORRUPTION OF BUTTER!
+  - name: LAURELAI
+    sentences:
+    - But you *are* just a big knife, I feel like the metaphor doesn't really work.
+  - name: AEGIS BANE
+    sentences:
+    - Do not heed his rambling.
+  - name: ???
+    sentences:
+    - Muah......hah....
+  - name: LAURELAI
+    sentences:
+    - Do you hear that?
   dialogueIndex: 0
   animator: {fileID: 1126185637}
   textSpeed: 0.02

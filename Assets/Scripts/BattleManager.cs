@@ -313,6 +313,18 @@ public class BattleManager : MonoBehaviour
             display.DisableTargetIndicator();
             enemyHealImage.enabled = false;
         }
+        var alive = false;
+        foreach (PlayerCharacter character in party)
+        {
+            if (character.currentHp > 0)
+            {
+                alive = true;
+            }
+        }
+        if (!alive)
+        {
+            GameOver();
+        }
         enemy.SetBehavior();
         
         foreach (CharacterDisplay display in characterDisplays)
@@ -333,8 +345,19 @@ public class BattleManager : MonoBehaviour
         {
             partyMember.EndTurn();
         }
+        var alive = false;
+        foreach (PlayerCharacter character in party)
+        {
+            if (character.currentHp > 0)
+            {
+                alive = true;
+            }
+        }
+        if (!alive)
+        {
+            GameOver();
+        }
         enemy.EndTurn();
-        Debug.Log(enemy.currentHp.ToString());
         //Discards current hand before drawing a new one
         DiscardHand();
         doubleStrike = false;
@@ -369,19 +392,22 @@ public class BattleManager : MonoBehaviour
 
     public void Draw(PlayerCharacter partyMember, int numCards, List<GameObject> activeDeck)
     {
-        for (var i = 0; i < numCards; i++)
+        if (partyMember.currentHp > 0)
         {
-            //check if deck is empty, if so shuffle
-            if (activeDeck.Count <= 0)
+            for (var i = 0; i < numCards; i++)
             {
-                shuffle(activeDeck, partyMember.discardPile);
-            }
+                //check if deck is empty, if so shuffle
+                if (activeDeck.Count <= 0)
+                {
+                    shuffle(activeDeck, partyMember.discardPile);
+                }
 
-            int randNum = Random.Range(0, activeDeck.Count);
-            GameObject drawnCard = activeDeck[randNum];
-            drawnCard.transform.SetParent(drawnCard.GetComponent<CardDisplay>().owner.playerArea.transform, false);
-            activeCards.Add(activeDeck[randNum]);
-            activeDeck.RemoveAt(randNum);
+                int randNum = Random.Range(0, activeDeck.Count);
+                GameObject drawnCard = activeDeck[randNum];
+                drawnCard.transform.SetParent(drawnCard.GetComponent<CardDisplay>().owner.playerArea.transform, false);
+                activeCards.Add(activeDeck[randNum]);
+                activeDeck.RemoveAt(randNum);
+            }
         }
     }
 
@@ -440,4 +466,14 @@ public class BattleManager : MonoBehaviour
     {
         enemyHealImage.enabled = true;
     }
+
+    public void EnemyDeath()
+    {
+        FindObjectOfType<SceneLoader>().LoadNextScene();
+    }  
+    
+    public void GameOver()
+    {
+        FindObjectOfType<SceneLoader>().LoadSpecificScene("GameOver");
+    }    
 }
