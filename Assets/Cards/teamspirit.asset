@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Team Spirit
   description: All allies heal 3 health
-  art: {fileID: 0}
+  art: {fileID: 21300000, guid: eac7478b3c6168e45b1b1f4733d00842, type: 3}
   methodList:
   - Heal
+  isTargeted: 0
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 3
-  armorGained: 0
+  armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
   target: all

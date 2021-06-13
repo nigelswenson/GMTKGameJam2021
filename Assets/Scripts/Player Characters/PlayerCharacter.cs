@@ -36,13 +36,22 @@ public class PlayerCharacter : ScriptableObject
     private void UpdateBleed()
         {
         var displays = FindObjectsOfType<CharacterDisplay>();
-        foreach (CharacterDisplay character in displays)
+        foreach (CharacterDisplay display in displays)
         {
-            character.SetBleed(bleed);
+            display.SetBleed(display.character.bleed);
         }
     }
 
-public void Heal(int amountHealed)
+    private void UpdateArmor()
+    {
+        var displays = FindObjectsOfType<CharacterDisplay>();
+        foreach (CharacterDisplay display in displays)
+        {
+            display.SetArmor(display.character.armor);
+        }
+    }
+
+    public void Heal(int amountHealed)
     {
         currentHp += amountHealed;
         if (currentHp >= maxHp)
@@ -54,7 +63,9 @@ public void Heal(int amountHealed)
 
     public void Armor(int amountShielded)
     {
+        Debug.Log("shileded" + amountShielded);
         armor += amountShielded;
+        UpdateArmor();
     }
     public void Bleed(int amountBleed)
     {
@@ -73,6 +84,7 @@ public void Heal(int amountHealed)
         {
             armor -= amountDamage;
         }
+        UpdateArmor();
     }
     public void TakePenDamage(int amountDamage)
     {
@@ -85,6 +97,7 @@ public void Heal(int amountHealed)
         if (armor < 0)
         {
             armor = 0;
+            UpdateArmor();
         }
         currentHp -= bleed; // bleed affects inside armor
         UpdateHp();

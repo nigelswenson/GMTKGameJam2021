@@ -11,7 +11,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField] GameObject characterTemplate;
     public List<PlayerCharacter> party = new List<PlayerCharacter>();
     [SerializeField] GameObject characterArea;
-    
+
+    public SFX_Playing sfx;
 
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject enemyArea;
@@ -192,6 +193,7 @@ public class BattleManager : MonoBehaviour
             if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
             {
                 partyMember.Heal(playedCard.healingDone);
+                sfx.PlayHeal();
             }
 
         }
@@ -199,20 +201,24 @@ public class BattleManager : MonoBehaviour
     private void Damage()
     {
         enemy.TakeDamage(playedCard.damageDealt);
+        sfx.PlayDamage();
     }
     private void Armor()
     {
         foreach (PlayerCharacter partyMember in party)
         {
-            if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
+            Debug.Log(playedCard.target);
+            if ((partyMember.characterName == playedCard.target)||(playedCard.target == "all"))
             {
                 partyMember.Armor(playedCard.armorAdded);
+                sfx.PlayArmor();
             }
         }
     }
     private void Bleed()
     {
         enemy.Bleed(playedCard.bleedAdded);
+        sfx.PlayBleed();
     }
     private void ActionAdd()
     {
@@ -284,11 +290,16 @@ public class BattleManager : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         enemy.DoBehavior();
-        enemy.SetBehavior();
         var characterDisplays = FindObjectsOfType<CharacterDisplay>();
         foreach (CharacterDisplay display in characterDisplays)
         {
-            if (display.character = enemy.target)
+                display.DisableTargetIndicator();
+        }
+        enemy.SetBehavior();
+        
+        foreach (CharacterDisplay display in characterDisplays)
+        {
+            if (display.character == enemy.target)
             {
                 display.EnableTargetIndicator();
             }

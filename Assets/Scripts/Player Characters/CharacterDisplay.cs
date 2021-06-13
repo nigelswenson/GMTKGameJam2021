@@ -13,6 +13,8 @@ public class CharacterDisplay : MonoBehaviour
     public Text hpText;
     public Image bleedImage;
     public Text bleedCount;
+    public Image armorImage;
+    public Text armorCount;
     public Image targetIndicator;
 
 
@@ -23,6 +25,7 @@ public class CharacterDisplay : MonoBehaviour
         hpSlider.maxValue = character.maxHp;
         SetHp();
         SetBleed(0);
+        SetArmor(0);
         targetIndicator.enabled = false;
     }
 
@@ -46,8 +49,29 @@ public class CharacterDisplay : MonoBehaviour
         }
     }
 
+    public void SetArmor(int armor)
+    {
+        Debug.Log("Set Armor");
+        if (armor <= 0)
+        {
+            armorImage.enabled = false;
+            armorCount.enabled = false;
+        }
+        else
+        {
+            armorCount.text = armor.ToString();
+            armorImage.enabled = true;
+            armorCount.enabled = true;
+        }
+    }
+
     public void EnableTargetIndicator()
     {
         targetIndicator.enabled = true;
+    }
+
+    public void DisableTargetIndicator()
+    {
+        targetIndicator.enabled = false;
     }
 }
