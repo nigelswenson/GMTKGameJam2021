@@ -21,7 +21,7 @@ public class Slime : Enemy
     override public void SetBehavior()
     {
 
-        
+
         size += growRate; // grow every turn
         // scale slime pixel size here
         if (currentHp > maxHp / 2) // attack or grow
@@ -56,11 +56,11 @@ public class Slime : Enemy
             }
         }
 
-        Debug.Log(action);
+        Debug.Log("Slime is about to" + action);
     }
 
 
-override public void DoBehavior()
+    override public void DoBehavior()
     {
         if (action == "attack")
         {

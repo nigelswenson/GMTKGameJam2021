@@ -26,13 +26,19 @@ public class Enemy : MonoBehaviour
     {
         armorDecay = decay;
     }
+
+    public void SetMaxHp(int maxHealth)
+    {
+        maxHp = maxHealth;
+    }
+
     // Target Lowest Healthbar
     public void TargetLowest()
     {
         int lowHealth = 100000;
         foreach (PlayerCharacter partyMember in FindObjectOfType<BattleManager>().party)
         {
-            if (partyMember.currentHp < lowHealth)
+            if (partyMember.currentHp < lowHealth && partyMember.currentHp > 0)
             {
                 lowHealth = partyMember.currentHp;
                 target = partyMember;
@@ -54,6 +60,16 @@ public class Enemy : MonoBehaviour
             partyMember.TakeDamage(damage);
         }
     }
+
+    // Bleed All Members
+    public void BleedAll(int bleed)
+    {
+        foreach (PlayerCharacter partyMember in FindObjectOfType<BattleManager>().party)
+        {
+            partyMember.Bleed(bleed);
+        }
+    }
+
 
     // Heal self for amount given
     public void Heal(int amountHealed)
@@ -125,7 +141,6 @@ public class Enemy : MonoBehaviour
         {
             bleed = 0;
         }
-
     }
 
 
@@ -135,12 +150,10 @@ public class Enemy : MonoBehaviour
         namePlate.text = enemyName;
         hpSlider.maxValue = maxHp;
         SetHp();
-
-
     }
 
     public void SetHp()
-    { 
+    {
         hpSlider.value = currentHp;
     }
 }

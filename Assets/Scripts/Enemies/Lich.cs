@@ -18,41 +18,48 @@ public class Lich : Enemy
 {
     public int attack = 8;
     public int selfharm = 4;
+    public float scalar = 1;
+    public string action;
 
     override public void SetBehavior()
     {
+        if (currentHp > maxHp / 2)
+        {
+            scalar = 1;
+        }
+        else // Is inraged/desperate so deals more damage and hurts itself more (change healthbar color?)
+        {
+            scalar = 2;
+        }
+
         if (Random.Range(1, 5) != 4)
         {
-            if (currentHp > maxHp / 2)
+            TargetLowest();
+            if (target.currentHp > target.maxHp / 2)
             {
-                TargetLowest();
-                if (target.currentHp > target.maxHp / 2)
-                {
-                    AttackAll(attack);
-                }
-                else
-                {
-                    target.TakeDamage(attack * 2);
-                }
-                currentHp -= selfharm;
+                action = "attackall";
             }
-            else // Is inraged/desperate so deals more damage and hurts itself more (change healthbar color?)
+            else
             {
-                TargetLowest();
-                if (target.currentHp > target.maxHp / 2)
-                {
-                    AttackAll((int)((float)attack * 1.5));
-                }
-                else
-                {
-                    target.TakeDamage(attack * 3);
-                }
-                currentHp -= (int)((float)selfharm * 1.5);
+                action = "attack";
             }
+
         }
     }
-}
 
+    override public void DoBehavior()
+    {
+        if (action == "attackall")
+        {
+            AttackAll((int)((float)attack * scalar));
+        }
+        else if (action == "attack")
+        {
+            target.TakeDamage(2 * (int)((float)attack * scalar));
+        }
+        currentHp -= (int)((float)selfharm * scalar);
+    }
+}
 
 
 /*
