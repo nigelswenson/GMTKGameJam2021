@@ -53,7 +53,7 @@ MonoBehaviour:
   enemyName: 
   maxHp: 100
   currentHp: 100
-  armor: 0
+  armor: 15
   armorDecay: 5
   bleedDecay: 1
   bleed: 3

@@ -27,7 +27,7 @@ public class CryptGuard : Enemy
         {
             armor += shield;
             SetArmor(armor);
-            TargetLowest();
+            TargetRandom();
             action = "attack";
         }
     }

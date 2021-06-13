@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Salt Covered Sword
   m_EditorClassIdentifier: 
   cardName: Salt Covered Sword
-  description: 'Inflict 1 bleed. Deal damage equal to enemy''s current bleed. '
+  description: 'Deal damage equal to enemy''s current bleed. '
   art: {fileID: 21300000, guid: 3325921238c9ed643b9e0c0b3cac8c23, type: 3}
   methodList:
-  - Bleed
   - BleedToDamage
   isTargeted: 0
   cardsToDraw: 0
