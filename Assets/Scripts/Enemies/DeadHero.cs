@@ -86,15 +86,18 @@ public class DeadHero : Enemy
             {
                 action1 = "rest";
             }
+            if (Random.Range(1, 5) != 4) // Choose to either target lowest or target random
+            {
+                TargetLowest();
+            }
+            else
+            {
+                TargetRandom();
+            }
+            Debug.Log("Undead Hero is about to" + action1 + "and " + action2);
+
         }
-        if (Random.Range(1, 5) != 4) // Choose to either target lowest or target random
-        {
-            TargetLowest();
-        }
-        else
-        {
-            TargetRandom();
-        }
+
     }
 
 
