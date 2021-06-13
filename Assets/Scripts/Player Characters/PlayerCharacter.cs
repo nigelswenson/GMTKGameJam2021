@@ -72,7 +72,7 @@ public class PlayerCharacter : ScriptableObject
     }
     public void Bleed(int amountBleed)
     {
-        bleed = amountBleed;
+        bleed += amountBleed;
         UpdateBleed();
     }
     public void TakeDamage(int amountDamage)
