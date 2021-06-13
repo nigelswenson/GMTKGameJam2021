@@ -50,26 +50,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Dead Hero
-  maxHp: 0
-  currentHp: 0
-  armor: 0
+  maxHp: 100
+  currentHp: 100
+  armor: 60
   armorDecay: 5
   bleedDecay: 1
   bleed: 0
-  target: {fileID: 0}
+  target: {fileID: 11400000, guid: be767f2236b13474aa7262386a84867e, type: 2}
   art: {fileID: 21300000, guid: af6792036a1638a488e772cbaadba14f, type: 3}
   portrait: {fileID: 627357223798649897}
   isAlive: 1
-  attack: 8
-  selfharm: 4
-  diceRoll: 1
+  selfharm: 0
+  diceRoll: 6
   scalar: 1
-  action1: fallasleep
-  action2: 
+  action1: bleed
+  action2: attack
   sleepTimer: 0
   tired: 0
   cranky: 1
-  logical: 1
+  oneAttack: 12
+  allAttack: 6
+  oneBleed: 6
+  allBleed: 4
+  oneArmor: 10
+  sleepyShield: 40
 --- !u!1 &6751689726316533129
 GameObject:
   m_ObjectHideFlags: 0

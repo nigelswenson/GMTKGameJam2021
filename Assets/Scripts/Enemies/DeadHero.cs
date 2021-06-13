@@ -13,41 +13,31 @@ Starts out asleep for x turns w/ armor
 */
 public class DeadHero : Enemy
 {
-    public int attack = 8;
     public int selfharm = 4;
     public int diceRoll = 1;
     public float scalar = 1;
-    public string action1 = "fallasleep";
+    public string action1 = "sleep";
     public string action2;
-    public int sleepTimer = 0;
+    public int sleepTimer = 1;
     public bool tired = false;
     public bool cranky = true;
-    public bool logical = true;
+    public int oneAttack = 12;
+    public int allAttack = 6;
+    public int oneBleed = 6;
+    public int allBleed = 4;
+    public int oneArmor = 10;
+    public int sleepyShield = 40;
+
 
     override public void SetBehavior()
     {
-        if (action1 == "fallasleep")
-        {
-            armor += 15;
-        }
-        else if (action1 == "sleep") // still asleep
-        {
-            if (sleepTimer > 0) // OR IF ARMOR == 0, needs to be implemented, needed?
-            {
-                sleepTimer -= 1;
-                action1 = "sleep";
-            }
-            else
-            {
-                cranky = true;
-                tired = false;
-            }
-        }
+        if (action1 == "fallasleep" || action1 == "sleep")
+        { }
         else // Has woken up and is displeased
         {
             if (tired == false)
             {
-                if (currentHp > maxHp / 6) // really low, so aggressive attack
+                if (currentHp < maxHp / 6) // really low, so aggressive attack
                 {
                     cranky = true;
                 }
@@ -78,13 +68,15 @@ public class DeadHero : Enemy
                 if (cranky == true) // Really aggressive attack, when first woken up & when low 
                 {
                     action1 = "attackall";
-                    action1 = "bleedall";
+                    action2 = "bleedall";
                     cranky = false;
                 }
+                Debug.Log("Undead Hero is about to " + action1 + " and " + action2);
             }
             else
             {
                 action1 = "rest";
+                tired = false;
             }
             if (Random.Range(1, 5) != 4) // Choose to either target lowest or target random
             {
@@ -94,9 +86,9 @@ public class DeadHero : Enemy
             {
                 TargetRandom();
             }
-            Debug.Log("Undead Hero is about to" + action1 + "and " + action2);
 
         }
+        
 
     }
 
@@ -105,34 +97,51 @@ public class DeadHero : Enemy
     {
         if (action1 == "fallasleep")
         {
-            sleepTimer = 2;
+            armor += sleepyShield;
+            sleepTimer = 1;
             action1 = "sleep";
         }
         else if (action1 == "sleep")
-        { }
+        {
+            if (sleepTimer > 0)
+            {
+                sleepTimer -= 1;
+            }
+            else
+            {
+                Debug.Log("just woke up");
+                cranky = true;
+                tired = false;
+                action1 = "awake";
+            }
+        }
+
+        else if (tired == true)
+        {
+            tired = true;
+        }
         else
         {
             if (action1 == "attackall" || action2 == "attackall")
             {
-                AttackAll(10);
+                AttackAll(allAttack);
             }
             if (action1 == "bleedall" || action2 == "bleedall")
             {
-                BleedAll(3);
+                BleedAll(allBleed); ;
             }
             if (action1 == "armor" || action2 == "armor")
             {
-                armor += 5;
+                armor += oneArmor;
             }
             if (action1 == "bleed" || action2 == "bleed")
             {
-                target.Bleed(3);
+                target.Bleed(oneBleed);
             }
             if (action1 == "attack" || action2 == "attack")
             {
-                target.TakeDamage(10);
+                target.TakeDamage(oneAttack);
             }
         }
-
     }
 }

@@ -1303,3 +1303,303 @@ System memory in use after: 89.2 MB.
 Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2643.
 Total: 2.667842 ms (FindLiveObjects: 0.190715 ms CreateObjectMapping: 0.072038 ms MarkObjects: 2.332354 ms  DeleteObjects: 0.071386 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002094 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.863 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.2 MB.
+System memory in use after: 89.2 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2646.
+Total: 2.560254 ms (FindLiveObjects: 0.214850 ms CreateObjectMapping: 0.073120 ms MarkObjects: 2.197369 ms  DeleteObjects: 0.073892 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002130 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.895 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.41 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.2 MB.
+System memory in use after: 89.2 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2649.
+Total: 2.880656 ms (FindLiveObjects: 0.211577 ms CreateObjectMapping: 0.086066 ms MarkObjects: 2.484562 ms  DeleteObjects: 0.097262 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2355.334928 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b45358e268b985d6b4c93c0fda5bc0de') in 0.024106 seconds
+  Import took 0.026824 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Prefabs/Enemies/Enemy.prefab
+  artifactKey: Guid(484a8e027da60364fafe3e7871fd350c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Enemy.prefab using Guid(484a8e027da60364fafe3e7871fd350c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '352449a5b45c99a0a4a3ec640df40a00') in 0.001638 seconds
+  Import took 0.003699 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.362688 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c96198c2be1442f1f236aa280f9d5de') in 0.002375 seconds
+  Import took 0.005336 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014745 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c96198c2be1442f1f236aa280f9d5de') in 0.002359 seconds
+  Import took 0.005358 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.997683 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a63cb2849fdf9c46087ab74f464fb28e') in 0.002020 seconds
+  Import took 0.004477 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018644 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a63cb2849fdf9c46087ab74f464fb28e') in 0.002026 seconds
+  Import took 0.004687 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.677293 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8646445d4bac27c42c1aa5161f33e9d') in 0.002008 seconds
+  Import took 0.004593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.018978 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8646445d4bac27c42c1aa5161f33e9d') in 0.002034 seconds
+  Import took 0.004742 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.331602 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fd3aa7cc83e06d84b18fb965cb7b91a') in 0.002220 seconds
+  Import took 0.005150 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014686 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fd3aa7cc83e06d84b18fb965cb7b91a') in 0.002057 seconds
+  Import took 0.004871 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002186 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.873 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.2 MB.
+System memory in use after: 89.2 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2652.
+Total: 2.448306 ms (FindLiveObjects: 0.178269 ms CreateObjectMapping: 0.067106 ms MarkObjects: 2.146753 ms  DeleteObjects: 0.055378 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 32.020856 seconds.
+  path: Assets/Prefabs/Enemies/Enemy.prefab
+  artifactKey: Guid(484a8e027da60364fafe3e7871fd350c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Enemy.prefab using Guid(484a8e027da60364fafe3e7871fd350c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c3a787df8e4934f6d58dbffaa539267') in 0.022646 seconds
+  Import took 0.025255 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af800306acc7b854463c750cae0569af') in 0.001631 seconds
+  Import took 0.003750 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002091 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.910 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.2 MB.
+System memory in use after: 89.2 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2655.
+Total: 3.353524 ms (FindLiveObjects: 0.416687 ms CreateObjectMapping: 0.092777 ms MarkObjects: 2.786744 ms  DeleteObjects: 0.056289 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 275.665218 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cacf246465b4d1e04e1fa8521f973de') in 0.027149 seconds
+  Import took 0.029870 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.214278 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f142eac92ff2d4459e9206772f12fd5') in 0.006646 seconds
+  Import took 0.010907 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.250095 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3fd0bbcfcfc2f1d261ad496c1e7543b') in 0.003852 seconds
+  Import took 0.006540 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.967245 seconds.
+  path: Assets/Scenes/Dialogue 4.unity
+  artifactKey: Guid(a1771a62696417c4198dfae5878f7af4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Dialogue 4.unity using Guid(a1771a62696417c4198dfae5878f7af4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '798e5bd26bf0ae8c9e7c3867ec795663') in 0.001092 seconds
+  Import took 0.004369 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.106212 seconds.
+  path: Assets/Scenes/Dialogue 4.unity
+  artifactKey: Guid(a1771a62696417c4198dfae5878f7af4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Dialogue 4.unity using Guid(a1771a62696417c4198dfae5878f7af4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '798e5bd26bf0ae8c9e7c3867ec795663') in 0.000792 seconds
+  Import took 0.003423 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002217 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.905 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.2 MB.
+System memory in use after: 89.3 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2658.
+Total: 2.507244 ms (FindLiveObjects: 0.166273 ms CreateObjectMapping: 0.055447 ms MarkObjects: 2.229412 ms  DeleteObjects: 0.055107 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.779102 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce1d3bdbe0c28acf57a505a9d731dfac') in 0.026976 seconds
+  Import took 0.029713 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002095 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.900 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.2 MB.
+System memory in use after: 89.3 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2661.
+Total: 2.875482 ms (FindLiveObjects: 0.188530 ms CreateObjectMapping: 0.070182 ms MarkObjects: 2.563635 ms  DeleteObjects: 0.052210 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.779191 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '951c2b3306fbbf93dd8ba5e31870fe7a') in 0.025616 seconds
+  Import took 0.028445 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.836147 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddf732dd3174655d1e4ea80b16f1767c') in 0.003599 seconds
+  Import took 0.006307 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.019584 seconds.
+  path: Assets/Prefabs/Enemies/Dead Hero.prefab
+  artifactKey: Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemies/Dead Hero.prefab using Guid(2d84a6cb541e04d4da148ec1f8e69b96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddf732dd3174655d1e4ea80b16f1767c') in 0.003921 seconds
+  Import took 0.006776 seconds .
+
