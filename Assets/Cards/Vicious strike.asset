@@ -22,6 +22,6 @@ MonoBehaviour:
   damageDealt: 0
   healingDone: 0
   armorAdded: 0
-  bleedAdded: 5
+  bleedAdded: 3
   actionAdded: 0
   target: enemy

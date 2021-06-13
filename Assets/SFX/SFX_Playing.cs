@@ -9,6 +9,7 @@ public class SFX_Playing : MonoBehaviour
     public AudioSource heal;
     public AudioSource music;
     public AudioSource armor;
+    public AudioSource talkingMusic;
     
     public void PlayDamage()
     {
@@ -33,6 +34,11 @@ public class SFX_Playing : MonoBehaviour
     public void PlayMusic()
     {
         music.Play();
+    }
+    
+    public void PlayTalkingMusic()
+    {
+        talkingMusic.Play();
     }
 }
 

@@ -164,6 +164,10 @@ public class Enemy : MonoBehaviour
         }
         SetArmor(armor);
         currentHp -= bleed; // bleed affects inside armor
+        if (currentHp <= 0)
+        {
+            FindObjectOfType<BattleManager>().EnemyDeath();
+        }
         SetHp();
         bleed -= bleedDecay; // bleed decays after damage
         if (bleed < 0)

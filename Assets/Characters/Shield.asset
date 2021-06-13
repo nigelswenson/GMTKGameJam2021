@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   characterName: Aegis Bane
-  maxHp: 10
-  currentHp: 10
+  maxHp: 80
+  currentHp: 80
   armor: 0
   armorDecay: 5
   bleedDecay: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0a4a645310cf49622b7881fb668b30ff, type: 2}
   - {fileID: 11400000, guid: f3870afc8ad51123d883fde14bcd02bf, type: 2}
   - {fileID: 11400000, guid: 88e6b3e2ad49f6d539f186daaf6aeecd, type: 2}
-  - {fileID: 11400000, guid: 6cb666fa1a5c64a40ad6906210763980, type: 2}
+  - {fileID: 11400000, guid: 88e6b3e2ad49f6d539f186daaf6aeecd, type: 2}
   deck:
   - {fileID: 0}
   - {fileID: 0}

@@ -52,6 +52,7 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         state = BattleState.START;
+        sfx.PlayMusic();
         StartCoroutine(SetupBattle());
         enemyHealImage.enabled = false;
     }
@@ -141,6 +142,7 @@ public class BattleManager : MonoBehaviour
             {
                 Invoke(method, 0);
             }
+            targetSelected = false;
             if (doubleStrike)
             {
                 if (playedCard.isTargeted)
@@ -250,9 +252,11 @@ public class BattleManager : MonoBehaviour
     private void BleedToDamage()
     {
         enemy.TakeDamage(enemy.bleed);
+        sfx.PlayDamage();
     }
     private void BleedToArmor()
     {
+        sfx.PlayArmor();
         foreach (PlayerCharacter partyMember in party)
         {
             if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
@@ -263,7 +267,8 @@ public class BattleManager : MonoBehaviour
     }
     private void BleedToBleed()
     {
-        enemy.Bleed(enemy.bleed*2);
+        enemy.Bleed(enemy.bleed);
+        sfx.PlayBleed();
     }
     private void ChangeTarget()
     {  // Needs to be fixed
@@ -297,10 +302,7 @@ public class BattleManager : MonoBehaviour
     {
         doubleStrike = true;
     }
-    private void Delay()
-    {
-        
-    }
+
 
     //Enemy Turn Coroutine
     private IEnumerator EnemyTurn()

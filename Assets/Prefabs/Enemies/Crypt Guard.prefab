@@ -51,22 +51,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: 
-  maxHp: 0
-  currentHp: 0
+  maxHp: 100
+  currentHp: 100
   armor: 0
   armorDecay: 5
   bleedDecay: 1
-  bleed: 0
+  bleed: 3
   target: {fileID: 0}
   art: {fileID: 21300000, guid: d47589cf5b43e8d4ebc90b5fc92320fe, type: 3}
   portrait: {fileID: 1960236562593643502}
   isAlive: 1
-  attack: 2
+  attack: 4
   startArmor: 15
-  shield: 4
+  shield: 5
   shieldScaling: 5
-  shieldDecay: 2
-  startBleed: 5
+  startBleed: 3
   startHealth: 100
   action: 
 --- !u!1 &2019872607610708140

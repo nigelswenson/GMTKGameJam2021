@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Laurelai
   m_EditorClassIdentifier: 
   characterName: Laurelai
-  maxHp: 10
-  currentHp: 10
+  maxHp: 40
+  currentHp: 40
   armor: 0
   armorDecay: 5
   bleedDecay: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40dc51a0bb3f55743add2a963ecce85b, type: 2}
   - {fileID: 11400000, guid: 2752ae25828eb1c0781a96c1a05e576b, type: 2}
   - {fileID: 11400000, guid: 0c1ee729571334bab93949cbee5b0c66, type: 2}
-  - {fileID: 11400000, guid: 40dc51a0bb3f55743add2a963ecce85b, type: 2}
+  - {fileID: 11400000, guid: ad49ab5423a01bf8db1e6a9147fcd641, type: 2}
   deck:
   - {fileID: 0}
   - {fileID: 0}

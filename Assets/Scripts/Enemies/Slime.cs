@@ -66,16 +66,16 @@ public class Slime : Enemy
     {
         if (action == "attack")
         {
-            target.TakeDamage(attack * (size / 10));
+            target.TakeDamage(attack + (size / 10));
         }
         else if (action == "heal")
         {
-            currentHp += healSize * (size / 10);
+            currentHp += healSize + (size / 10);
             SetHp();
         }
         else if (action == "shield")
         {
-            armor = armorSize * (size / 10);
+            armor = armorSize + (size / 10);
         }
         else // grow
         {

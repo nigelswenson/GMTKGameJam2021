@@ -60,7 +60,7 @@ MonoBehaviour:
   art: {fileID: 21300000, guid: 3d2a6bb57e1221c4eb256880a45ae997, type: 3}
   portrait: {fileID: 297609314650466897}
   isAlive: 1
-  size: 97
+  size: 10
   growRate: 1
   growSize: 5
   armorSize: 5

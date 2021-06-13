@@ -16,7 +16,6 @@ public class CryptGuard : Enemy
     public int startArmor = 15;
     public int shield = 4;
     public int shieldScaling = 5;
-    public int shieldDecay = 2;
     public int startBleed = 5;
     public int startHealth = 100;
     public string action;
@@ -26,8 +25,8 @@ public class CryptGuard : Enemy
     {
         if (isAlive)
         {
-            SetArmorDecay(shieldDecay);
             armor += shield;
+            SetArmor(armor);
             TargetLowest();
             action = "attack";
         }

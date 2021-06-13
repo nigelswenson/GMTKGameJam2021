@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   characterName: Blood Avow
-  maxHp: 50
-  currentHp: 50
+  maxHp: 40
+  currentHp: 40
   armor: 0
   armorDecay: 5
   bleedDecay: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 75699f48ae8af16178722370697a6b5d, type: 2}
   - {fileID: 11400000, guid: c14a28a952fde60a18675693312e2d40, type: 2}
   - {fileID: 11400000, guid: f12e10a998cbcf1e09a0148d260f2852, type: 2}
-  - {fileID: 11400000, guid: 622290db0b5f4194fbbdbc4bb7900816, type: 2}
+  - {fileID: 11400000, guid: c14a28a952fde60a18675693312e2d40, type: 2}
   deck:
   - {fileID: 0}
   - {fileID: 0}

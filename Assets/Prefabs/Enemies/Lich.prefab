@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Lich
-  maxHp: 0
-  currentHp: 0
+  maxHp: 70
+  currentHp: 70
   armor: 0
   armorDecay: 5
   bleedDecay: 1
@@ -60,7 +60,7 @@ MonoBehaviour:
   art: {fileID: 21300000, guid: 44549d699ecb20b44b78c5e96b9eaa62, type: 3}
   portrait: {fileID: 3890785354921546352}
   isAlive: 1
-  attack: 8
+  attack: 6
   selfharm: 4
   scalar: 1
   action: 

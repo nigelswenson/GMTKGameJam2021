@@ -24,4 +24,4 @@ MonoBehaviour:
   armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
-  target: '''all'''
+  target: all

@@ -29,7 +29,7 @@ public class Lich : Enemy
         }
         else // Is inraged/desperate so deals more damage and hurts itself more (change healthbar color?)
         {
-            scalar = 2;
+            scalar = 1.5F;
         }
 
         if (Random.Range(1, 5) != 4)
