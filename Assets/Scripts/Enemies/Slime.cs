@@ -49,10 +49,12 @@ public class Slime : Enemy
             if (size < 5) // Shield
             {
                 action = "shield";
+                FindObjectOfType<BattleManager>().EnableHealImage();
             }
             else // Heal
             {
                 action = "heal";
+                FindObjectOfType<BattleManager>().EnableHealImage();
             }
         }
 

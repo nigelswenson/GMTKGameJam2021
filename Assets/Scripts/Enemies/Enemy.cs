@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour
     public PlayerCharacter target;
     public Sprite art;
     public Image portrait;
-    public Image healImage;
 
     [HideInInspector]
     public bool isAlive = true;

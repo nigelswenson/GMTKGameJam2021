@@ -21,6 +21,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Image enemyArmorImage;
     [SerializeField] Text enemyArmorCount;
     [SerializeField] Slider enemyHpSlider;
+    [SerializeField] Image enemyHealImage;
 
 
     [SerializeField] Button targetButton;
@@ -52,6 +53,7 @@ public class BattleManager : MonoBehaviour
     {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
+        enemyHealImage.enabled = false;
     }
 
     public void Test(string someText)
@@ -308,7 +310,8 @@ public class BattleManager : MonoBehaviour
         var characterDisplays = FindObjectsOfType<CharacterDisplay>();
         foreach (CharacterDisplay display in characterDisplays)
         {
-                display.DisableTargetIndicator();
+            display.DisableTargetIndicator();
+            enemyHealImage.enabled = false;
         }
         enemy.SetBehavior();
         
@@ -431,6 +434,11 @@ public class BattleManager : MonoBehaviour
             enemyHpSlider.maxValue = enemy.maxHp;
         }
         enemyHpSlider.value = enemy.currentHp;
+    }
+
+    public void EnableHealImage()
+    {
+        enemyHealImage.enabled = true;
     }
 }
 
