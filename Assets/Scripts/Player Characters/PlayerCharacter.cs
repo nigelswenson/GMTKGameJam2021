@@ -58,12 +58,15 @@ public class PlayerCharacter : ScriptableObject
         {
             currentHp = maxHp;
         }
+        else if (currentHp <= 0)
+        {
+            currentHp = 0
+        }
         UpdateHp();
     }
 
     public void Armor(int amountShielded)
     {
-        Debug.Log("shileded" + amountShielded);
         armor += amountShielded;
         UpdateArmor();
     }
@@ -77,6 +80,11 @@ public class PlayerCharacter : ScriptableObject
         if (amountDamage - armor >= 0)
         {
             currentHp -= amountDamage - armor;
+            if (currentHp <= 0)
+            {
+                currentHp = 0;
+                
+            }
             UpdateHp();
             armor = 0;
         }
@@ -89,7 +97,11 @@ public class PlayerCharacter : ScriptableObject
     public void TakePenDamage(int amountDamage)
     {
         currentHp -= amountDamage;
-        UpdateHp();
+        if (currentHp <= 0)
+        {
+            currentHp = 0;
+            UpdateHp();
+        }
     }
     public void EndTurn()
     {
@@ -99,7 +111,7 @@ public class PlayerCharacter : ScriptableObject
             armor = 0;
             UpdateArmor();
         }
-        currentHp -= bleed; // bleed affects inside armor
+        TakePenDamage(bleed); // bleed affects inside armor
         UpdateHp();
         bleed -= bleedDecay; // bleed decays after damage
         if (bleed < 0)
