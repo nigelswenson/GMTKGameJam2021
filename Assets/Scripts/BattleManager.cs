@@ -16,6 +16,12 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject enemyArea;
+    [SerializeField] Image enemyBleedImage;
+    [SerializeField] Text enemyBleedCount;
+    [SerializeField] Image enemyArmorImage;
+    [SerializeField] Text enemyArmorCount;
+    [SerializeField] Slider enemyHpSlider;
+
 
     [SerializeField] Button targetButton;
     private List<Button> targetButtons = new List<Button>();
@@ -314,7 +320,6 @@ public class BattleManager : MonoBehaviour
         foreach (PlayerCharacter partyMember in party)
         {
             partyMember.EndTurn();
-            Debug.Log(partyMember.currentHp.ToString());
         }
         enemy.EndTurn();
         Debug.Log(enemy.currentHp.ToString());
