@@ -135,6 +135,7 @@ MonoBehaviour:
   target: {fileID: 0}
   art: {fileID: 21300000, guid: 44549d699ecb20b44b78c5e96b9eaa62, type: 3}
   portrait: {fileID: 3890785354921546352}
+  healImage: {fileID: 0}
   isAlive: 1
   attack: 8
   selfharm: 4

@@ -59,6 +59,7 @@ MonoBehaviour:
   target: {fileID: 11400000, guid: 1ee9058cbc3a6de49861c99b01d39102, type: 2}
   art: {fileID: 21300000, guid: 3d2a6bb57e1221c4eb256880a45ae997, type: 3}
   portrait: {fileID: 297609314650466897}
+  healImage: {fileID: 0}
   isAlive: 1
   size: 77
   growRate: 1

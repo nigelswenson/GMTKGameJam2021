@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public PlayerCharacter target;
     public Sprite art;
     public Image portrait;
+    public Image healImage;
 
     [HideInInspector]
     public bool isAlive = true;
@@ -180,7 +181,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Die()
     {
-        //isAlive = false;
+        isAlive = false;
         portrait.enabled = false;
         yield return new WaitForSeconds(1);
 

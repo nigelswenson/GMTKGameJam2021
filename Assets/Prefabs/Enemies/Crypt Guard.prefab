@@ -299,14 +299,10 @@ MonoBehaviour:
   bleedDecay: 1
   bleed: 0
   target: {fileID: 0}
-  namePlate: {fileID: 1996118152936685542}
-  hpSlider: {fileID: 2544661425228407233}
   art: {fileID: 21300000, guid: d47589cf5b43e8d4ebc90b5fc92320fe, type: 3}
   portrait: {fileID: 1960236562593643502}
-  bleedImage: {fileID: 8074458152415870638}
-  bleedCount: {fileID: 185180507288275746}
-  armorImage: {fileID: 3926055814594411561}
-  armorCount: {fileID: 1413849530084182406}
+  healImage: {fileID: 0}
+  isAlive: 1
   attack: 2
   startArmor: 15
   shield: 4

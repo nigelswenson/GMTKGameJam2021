@@ -51,7 +51,7 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         state = BattleState.START;
-        SetupBattle();
+        StartCoroutine(SetupBattle());
     }
 
     public void Test(string someText)
@@ -59,7 +59,7 @@ public class BattleManager : MonoBehaviour
         Debug.Log("ping");
     }
 
-    void SetupBattle()
+    private IEnumerator SetupBattle()
     {
         //instantiate player characters and generate decks
         foreach (PlayerCharacter partyMember in party)
@@ -70,7 +70,7 @@ public class BattleManager : MonoBehaviour
             partyMember.actions = 1;
             partyMember.currentHp = partyMember.maxHp;
 
-            InstantiateCharacters(partyMember);
+            yield return StartCoroutine(InstantiateCharacters(partyMember));
             InstantiateCards(partyMember);
             
         }
@@ -78,6 +78,14 @@ public class BattleManager : MonoBehaviour
         InstantiateEnemies();
         DrawNewHand();
         enemy.SetBehavior();
+        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
+        foreach (CharacterDisplay display in characterDisplays)
+        {
+            if (display.character == enemy.target)
+            {
+                display.EnableTargetIndicator();
+            }
+        }
     }
 
     private void InstantiateEnemies()
@@ -86,7 +94,7 @@ public class BattleManager : MonoBehaviour
         
     }
 
-    private void InstantiateCharacters(PlayerCharacter partyMember)
+    private IEnumerator InstantiateCharacters(PlayerCharacter partyMember)
     {
         GameObject newCharacter = Instantiate(characterTemplate, new Vector3(0, 0, 0), Quaternion.identity);
         newCharacter.GetComponent<CharacterDisplay>().character = partyMember;
@@ -95,6 +103,7 @@ public class BattleManager : MonoBehaviour
         partyMember.playerArea = newCharacter.GetComponent<CharacterDisplay>().cardArea;
 
         newCharacter.GetComponent<CharacterDisplay>().SetHp();
+        yield return new WaitForSeconds(0);
     }
 
     private void InstantiateCards(PlayerCharacter partyMember)
@@ -377,6 +386,10 @@ public class BattleManager : MonoBehaviour
     public void shuffle(List<GameObject> emptyDeck, List<GameObject> fullDiscard)
     {
         emptyDeck.AddRange(fullDiscard);
+        foreach (GameObject card in fullDiscard)
+        {
+            card.transform.SetParent(deckArea.transform, false);
+        }
         fullDiscard.Clear();
     }
 
