@@ -315,8 +315,8 @@ public class BattleManager : MonoBehaviour
         foreach (CharacterDisplay display in characterDisplays)
         {
             display.DisableTargetIndicator();
-            enemyHealImage.enabled = false;
         }
+        enemyHealImage.enabled = false;
         var alive = false;
         foreach (PlayerCharacter character in party)
         {

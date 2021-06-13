@@ -38,6 +38,7 @@ public class CryptGuard : Enemy
             if (action == "attack")
             {
                 target.TakeDamage(attack + (int)((float)armor * shieldScaling / 10));
+                FindObjectOfType<BattleManager>().sfx.PlayDamage();
             }
         }
     }

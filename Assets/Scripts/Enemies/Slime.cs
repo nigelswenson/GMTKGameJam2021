@@ -67,15 +67,18 @@ public class Slime : Enemy
         if (action == "attack")
         {
             target.TakeDamage(attack + (size / 10));
+            FindObjectOfType<BattleManager>().sfx.PlayDamage();
         }
         else if (action == "heal")
         {
             currentHp += healSize + (size / 10);
             SetHp();
+            FindObjectOfType<BattleManager>().sfx.PlayHeal();
         }
         else if (action == "shield")
         {
             armor = armorSize + (size / 10);
+            FindObjectOfType<BattleManager>().sfx.PlayArmor();
         }
         else // grow
         {

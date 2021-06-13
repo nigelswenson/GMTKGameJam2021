@@ -141,22 +141,27 @@ public class DeadHero : Enemy
             if (action1 == "attackall" || action2 == "attackall")
             {
                 AttackAll(allAttack);
+                FindObjectOfType<BattleManager>().sfx.PlayDamage();
             }
             if (action1 == "bleedall" || action2 == "bleedall")
             {
-                BleedAll(allBleed); ;
+                BleedAll(allBleed);
+                FindObjectOfType<BattleManager>().sfx.PlayBleed();
             }
             if (action1 == "armor" || action2 == "armor")
             {
                 armor += oneArmor;
+                FindObjectOfType<BattleManager>().sfx.PlayArmor();
             }
             if (action1 == "bleed" || action2 == "bleed")
             {
                 target.Bleed(oneBleed);
+                FindObjectOfType<BattleManager>().sfx.PlayBleed();
             }
             if (action1 == "attack" || action2 == "attack")
             {
                 target.TakeDamage(oneAttack);
+                FindObjectOfType<BattleManager>().sfx.PlayDamage();
             }
         }
     }

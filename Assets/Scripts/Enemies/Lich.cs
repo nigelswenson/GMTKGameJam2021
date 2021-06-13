@@ -58,10 +58,12 @@ public class Lich : Enemy
         if (action == "attackall")
         {
             AttackAll((int)((float)attack * scalar));
+            FindObjectOfType<BattleManager>().sfx.PlayDamage();
         }
         else if (action == "attack")
         {
             target.TakeDamage(2 * (int)((float)attack * scalar));
+            FindObjectOfType<BattleManager>().sfx.PlayDamage();
         }
         currentHp -= (int)((float)selfharm * scalar);
     }

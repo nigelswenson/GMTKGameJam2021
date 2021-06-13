@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
 	[SerializeField] Text dialogueText;
 	[SerializeField] Image portrait;
 	[SerializeField] Dialogue[] dialogues;
+	[SerializeField] bool isEndGame = false;
 	public int dialogueIndex = 0;
 
 	[SerializeField] Animator animator;
@@ -27,7 +28,11 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-		portrait.sprite = dialogue.portrait;
+		if (dialogue.portrait != null)
+        {
+			portrait.sprite = dialogue.portrait;
+			portrait.enabled = true;
+		}
 		nameText.text = dialogue.name;
 
 		sentences.Clear();
@@ -42,6 +47,11 @@ public class DialogueManager : MonoBehaviour
 
 	public void DisplayNextSentence()
 	{
+		if(portrait)
+        {
+			portrait.enabled = true;
+		}
+
 		if (sentences.Count == 0)
 		{
 			EndDialogue();
@@ -65,16 +75,24 @@ public class DialogueManager : MonoBehaviour
 
 	void EndDialogue()
 	{
-		dialogueIndex++;
 		//animator.SetBool("IsOpen", false);
-		if(dialogueIndex <= dialogues.Length)
+		if(dialogueIndex + 1 < dialogues.Length)
 		{
+			dialogueIndex++;
 			StartDialogue(dialogues[dialogueIndex]);
 		}
 		else
         {
-			FindObjectOfType<SceneLoader>().LoadNextScene();
+			if(isEndGame == true)
+            {
+				FindObjectOfType<SceneLoader>().Restart();
+			}
+            else
+            {
+				FindObjectOfType<SceneLoader>().LoadNextScene();
+			}
         }
+
 	}
 
 }

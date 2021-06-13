@@ -51,15 +51,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Dead Hero
   maxHp: 100
-  currentHp: 100
-  armor: 60
+  currentHp: 75
+  armor: 40
   armorDecay: 5
   bleedDecay: 1
   startBleed: 0
-  startArmor: 60
+  startArmor: 30
   bleed: 0
   target: {fileID: 11400000, guid: be767f2236b13474aa7262386a84867e, type: 2}
-  art: {fileID: 21300000, guid: af6792036a1638a488e772cbaadba14f, type: 3}
+  art: {fileID: 21300000, guid: bee1c8d4c76373c4da26df704abc0801, type: 3}
   portrait: {fileID: 627357223798649897}
   isAlive: 1
   selfharm: 0
@@ -72,8 +72,8 @@ MonoBehaviour:
   cranky: 1
   oneAttack: 12
   allAttack: 6
-  oneBleed: 6
-  allBleed: 4
+  oneBleed: 4
+  allBleed: 2
   oneArmor: 10
   sleepyShield: 40
 --- !u!1 &6751689726316533129
@@ -111,7 +111,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 28.7, y: 0}
-  m_SizeDelta: {x: 209.5816, y: 242.3287}
+  m_SizeDelta: {x: 242.5816, y: 242.3287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5891308097372048706
 CanvasRenderer:

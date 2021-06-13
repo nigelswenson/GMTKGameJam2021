@@ -179,7 +179,7 @@ MonoBehaviour:
   portrait: {fileID: 2078273983}
   dialogues:
   - name: ???
-    portrait: {fileID: 21300000, guid: ea656da3bf1d2ed45b49004860b8371c, type: 3}
+    portrait: {fileID: 0}
     sentences:
     - There was once a great hero, a bastion of goodness and justice.
     - At her side, a stalwart shield and a cruel blade, polished with the blood of
@@ -190,24 +190,30 @@ MonoBehaviour:
     - The sacred blade and shield were stolen away, burried and left for some unwitting
       soul to find.
   - name: AEGIS BANE
-    portrait: {fileID: 21300000, guid: 3a31f9d3ca2a98e4b9ceff0ef5399166, type: 3}
+    portrait: {fileID: 21300000, guid: 80e4e875692e0984cbb65cb732eab105, type: 3}
     sentences:
     - 'And so, I beseech thee, child of innocence:'
     - Will you return me and my companion to our proper resting place?
   - name: LAURELAI
-    portrait: {fileID: 21300000, guid: d687166b4f4ef2e4ea0a4b10793238ed, type: 3}
+    portrait: {fileID: 21300000, guid: 9dcfa727dbb6be1499f8ad5716367710, type: 3}
     sentences:
     - ...
     - Um.
+  - name: LAURELAI
+    portrait: {fileID: 21300000, guid: 69a2b1b0579617a4ca261f23b5ced6a1, type: 3}
+    sentences:
     - Alright?
+  - name: LAURELAI
+    portrait: {fileID: 21300000, guid: 51e611bc2505374448a229fbffb55fe2, type: 3}
+    sentences:
     - I just have a question, first.
   - name: AEGIS BANE
     portrait: {fileID: 21300000, guid: 57ecf905eb2160247a3555ed7ccfae4b, type: 3}
     sentences:
-    - Questions are the lifeblood of mortality
+    - Questions are the lifeblood of mortality.
     - Go ahead.
   - name: LAURELAI
-    portrait: {fileID: 21300000, guid: d841db1a985c0bb41b4f4f42fff50d92, type: 3}
+    portrait: {fileID: 21300000, guid: 51e611bc2505374448a229fbffb55fe2, type: 3}
     sentences:
     - Does the sword talk as much as you?
   - name: BLOOD AVOW
@@ -215,18 +221,19 @@ MonoBehaviour:
     sentences:
     - ...
   - name: AEGIS BANE
-    portrait: {fileID: 21300000, guid: 57ecf905eb2160247a3555ed7ccfae4b, type: 3}
+    portrait: {fileID: 21300000, guid: 3a31f9d3ca2a98e4b9ceff0ef5399166, type: 3}
     sentences:
     - You should be glad for his silence.
   - name: LAURELAI
-    portrait: {fileID: 21300000, guid: d841db1a985c0bb41b4f4f42fff50d92, type: 3}
+    portrait: {fileID: 21300000, guid: 51e611bc2505374448a229fbffb55fe2, type: 3}
     sentences:
     - I just don't know if I can really fight monsters by myself.
   - name: AEGIS BANE
-    portrait: {fileID: 21300000, guid: 57ecf905eb2160247a3555ed7ccfae4b, type: 3}
+    portrait: {fileID: 21300000, guid: 80e4e875692e0984cbb65cb732eab105, type: 3}
     sentences:
     - Suffering in solitude shall not be your curse.
     - We fight as one!
+  isEndGame: 0
   dialogueIndex: 0
   animator: {fileID: 1126185637}
   textSpeed: 0.02
@@ -555,7 +562,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -655,22 +662,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8967185699680707781, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: a4eaf658ebd938c469c2ec8b12fbf42b, type: 3}
-    - target: {fileID: 8967185699872067281, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967185699872067281, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967185699872067281, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
     - target: {fileID: 8967185699872067283, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
       propertyPath: m_Name
       value: Dialogue Canvas
@@ -758,22 +749,6 @@ PrefabInstance:
     - target: {fileID: 8967185699872067311, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967185699971645364, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: a4eaf658ebd938c469c2ec8b12fbf42b, type: 3}
-    - target: {fileID: 8967185699971645364, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8967185699977819483, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: a4eaf658ebd938c469c2ec8b12fbf42b, type: 3}
-    - target: {fileID: 8967185699977819483, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8967185700452520149, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

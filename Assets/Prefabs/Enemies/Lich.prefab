@@ -55,9 +55,11 @@ MonoBehaviour:
   armor: 0
   armorDecay: 5
   bleedDecay: 1
+  startBleed: 0
+  startArmor: 0
   bleed: 0
   target: {fileID: 0}
-  art: {fileID: 21300000, guid: 44549d699ecb20b44b78c5e96b9eaa62, type: 3}
+  art: {fileID: 21300000, guid: 616a5ab5c5a077745b16e3d4e8f892ff, type: 3}
   portrait: {fileID: 3890785354921546352}
   isAlive: 1
   attack: 6
