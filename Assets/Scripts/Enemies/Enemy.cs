@@ -13,13 +13,33 @@ public class Enemy : MonoBehaviour
     public int bleedDecay = 1;
     public int bleed = 0;
     public PlayerCharacter target;
-    public Text namePlate;
-    public Slider hpSlider;
     public Sprite art;
     public Image portrait;
 
+    [HideInInspector]
+    public bool isAlive = true;
+
     //[SerializeField] List<PlayerCharacter> party = FindObjectOfType<BattleManager>().party;
     //PlayerCharacter party = FindObjectOfType<BattleManager>().party;
+
+    void Start()
+    {
+        portrait.sprite = art;
+        SetHp();
+        SetBleed(bleed);
+        SetArmor(armor);
+    }
+
+    //Condition indicators
+    public void SetBleed(int bleed)
+    {
+        FindObjectOfType<BattleManager>().SetEnemyBleed(bleed);
+    }
+
+    public void SetArmor(int armor)
+    {
+        FindObjectOfType<BattleManager>().SetEnemyArmor(armor);
+    }
 
     // Set armor decay value (could be nice to make this for updating all variables if we're bored)
     public void SetArmorDecay(int decay)
@@ -85,11 +105,13 @@ public class Enemy : MonoBehaviour
     public void Armor(int amountShielded)
     {
         armor += amountShielded;
+        SetArmor(armor);
     }
     // Set bleed counter for amount given
     public void Bleed(int amountBleed)
     {
-        bleed = amountBleed;
+        bleed += amountBleed;
+        SetBleed(bleed);
     }
 
     // Take damage for amount given
@@ -100,10 +122,16 @@ public class Enemy : MonoBehaviour
             currentHp -= amountDamage - armor;
             SetHp();
             armor = 0;
+            SetArmor(armor);
         }
         else
         {
             armor -= amountDamage;
+            SetArmor(armor);
+        }
+        if (currentHp <= 0)
+        {
+            StartCoroutine(Die());
         }
     }
     // Take premitigation damage for amount given
@@ -134,6 +162,7 @@ public class Enemy : MonoBehaviour
         {
             armor = 0;
         }
+        SetArmor(armor);
         currentHp -= bleed; // bleed affects inside armor
         SetHp();
         bleed -= bleedDecay; // bleed decays after damage
@@ -141,19 +170,20 @@ public class Enemy : MonoBehaviour
         {
             bleed = 0;
         }
-    }
-
-
-    void Start()
-    {
-        portrait.sprite = art;
-        namePlate.text = enemyName;
-        hpSlider.maxValue = maxHp;
-        SetHp();
+        SetBleed(bleed);
     }
 
     public void SetHp()
     {
-        hpSlider.value = currentHp;
+        FindObjectOfType<BattleManager>().SetEnemyHp();
     }
+
+    private IEnumerator Die()
+    {
+        //isAlive = false;
+        portrait.enabled = false;
+        yield return new WaitForSeconds(1);
+
+        //change enemy in battleManager
+    }    
 }

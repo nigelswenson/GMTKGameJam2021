@@ -16,6 +16,12 @@ public class BattleManager : MonoBehaviour
 
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject enemyArea;
+    [SerializeField] Image enemyBleedImage;
+    [SerializeField] Text enemyBleedCount;
+    [SerializeField] Image enemyArmorImage;
+    [SerializeField] Text enemyArmorCount;
+    [SerializeField] Slider enemyHpSlider;
+
 
     [SerializeField] Button targetButton;
     private List<Button> targetButtons = new List<Button>();
@@ -314,7 +320,6 @@ public class BattleManager : MonoBehaviour
         foreach (PlayerCharacter partyMember in party)
         {
             partyMember.EndTurn();
-            Debug.Log(partyMember.currentHp.ToString());
         }
         enemy.EndTurn();
         Debug.Log(enemy.currentHp.ToString());
@@ -374,4 +379,46 @@ public class BattleManager : MonoBehaviour
         emptyDeck.AddRange(fullDiscard);
         fullDiscard.Clear();
     }
+
+    //Enemy UI behavior
+    public void SetEnemyBleed(int bleed)
+    {
+        if (bleed <= 0)
+        {
+            enemyBleedImage.enabled = false;
+            enemyBleedCount.enabled = false;
+        }
+        else
+        {
+            enemyBleedCount.text = enemy.bleed.ToString();
+            enemyBleedImage.enabled = true;
+            enemyBleedCount.enabled = true;
+        }
+    }
+
+    public void SetEnemyArmor(int armor)
+    {
+        if (armor <= 0)
+        {
+            enemyArmorImage.enabled = false;
+            enemyArmorCount.enabled = false;
+        }
+        else
+        {
+            enemyArmorCount.text = enemy.armor.ToString();
+            enemyArmorImage.enabled = true;
+            enemyArmorCount.enabled = true;
+        }
+    }
+
+    public void SetEnemyHp()
+    {
+        if(enemyHpSlider.maxValue != enemy.maxHp)
+        {
+            enemyHpSlider.maxValue = enemy.maxHp;
+        }
+        enemyHpSlider.value = enemy.currentHp;
+    }
 }
+
+

@@ -24,18 +24,24 @@ public class CryptGuard : Enemy
 
     override public void SetBehavior()
     {
-        SetArmorDecay(shieldDecay);
-        armor += shield;
-        TargetLowest();
-        action = "attack";
+        if (isAlive)
+        {
+            SetArmorDecay(shieldDecay);
+            armor += shield;
+            TargetLowest();
+            action = "attack";
+        }
     }
 
 
     override public void DoBehavior()
     {
-        if (action == "attack")
+        if(isAlive)
         {
-            target.TakeDamage(attack + (int)((float)armor * shieldScaling / 10));
+            if (action == "attack")
+            {
+                target.TakeDamage(attack + (int)((float)armor * shieldScaling / 10));
+            }
         }
     }
 

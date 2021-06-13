@@ -51,7 +51,6 @@ public class CharacterDisplay : MonoBehaviour
 
     public void SetArmor(int armor)
     {
-        Debug.Log("Set Armor");
         if (armor <= 0)
         {
             armorImage.enabled = false;
