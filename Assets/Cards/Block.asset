@@ -16,7 +16,6 @@ MonoBehaviour:
   description: Give an ally 5 armor
   art: {fileID: 21300000, guid: 9c6fd5292da7e3b4394caad2628ab489, type: 3}
   methodList:
-  - SelectTarget
   - Armor
   isTargeted: 1
   cardsToDraw: 0
@@ -25,4 +24,5 @@ MonoBehaviour:
   armorAdded: 5
   bleedAdded: 0
   actionAdded: 0
-  target: Laurelai
+  target: AEGIS BANE
+  targetsAlly: 1

@@ -25,4 +25,6 @@ public class Card : ScriptableObject
     public int actionAdded = 0;
 
     public string target = "";
+
+    public bool targetsAlly = false;
 }

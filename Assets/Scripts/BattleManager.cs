@@ -57,11 +57,6 @@ public class BattleManager : MonoBehaviour
         enemyHealImage.enabled = false;
     }
 
-    public void Test(string someText)
-    {
-        Debug.Log("ping");
-    }
-
     private IEnumerator SetupBattle()
     {
         //instantiate player characters and generate decks
@@ -105,6 +100,7 @@ public class BattleManager : MonoBehaviour
     {
         GameObject newCharacter = Instantiate(characterTemplate, new Vector3(0, 0, 0), Quaternion.identity);
         newCharacter.GetComponent<CharacterDisplay>().character = partyMember;
+        newCharacter.transform.Find("DropZone").gameObject.GetComponent<DropZone>().character = partyMember;
         newCharacter.transform.SetParent(playerAreas.transform, false);
 
         partyMember.playerArea = newCharacter.GetComponent<CharacterDisplay>().cardArea;
@@ -131,28 +127,15 @@ public class BattleManager : MonoBehaviour
     {
         playedCard = cardToExecute.GetComponent<CardDisplay>().card;
         playedCardOwner = cardToExecute.GetComponent<CardDisplay>().owner;
-        StartCoroutine(TargetAndInvoke(cardToExecute));
-    }
-
-    private IEnumerator TargetAndInvoke(GameObject cardToExecute)
-    {
+        //StartCoroutine(TargetAndInvoke(cardToExecute));
         if (playedCardOwner.actions >= 1)
         {
-            if (playedCard.isTargeted)
-            {
-                yield return StartCoroutine(SelectTarget());
-            }
             foreach (string method in playedCard.methodList)
             {
                 Invoke(method, 0);
             }
-            targetSelected = false;
             if (doubleStrike)
             {
-                if (playedCard.isTargeted)
-                {
-                    yield return StartCoroutine(SelectTarget());
-                }
                 foreach (string method in playedCard.methodList)
                 {
 
@@ -162,40 +145,11 @@ public class BattleManager : MonoBehaviour
             }
             playedCardOwner.actions -= 1;
             DiscardCard(cardToExecute);
-            targetSelected = false;
         }
         else
         {
             cardToExecute.transform.SetParent(cardToExecute.GetComponent<CardDisplay>().owner.playerArea.transform, false);
         }
-
-    }
-
-    private IEnumerator SelectTarget()
-    {
-        state = BattleState.TARGETING;
-        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
-        foreach (CharacterDisplay display in characterDisplays)
-        {
-            var characterPos = display.gameObject.transform.position;
-            Button button = Instantiate(targetButton, characterPos, Quaternion.identity);
-            button.transform.SetParent(FindObjectOfType<Canvas>().transform, true);
-            button.GetComponent<TargetButton>().targetCharacterName = display.character.characterName;
-            targetButtons.Add(button);
-        }
-        yield return new WaitUntil(() => targetSelected);
-        state = BattleState.PLAYERTURN;
-    }
-
-    public void SetTarget(string target)
-    {
-        playedCard.target = target;
-        targetSelected = true;
-        foreach (Button button in targetButtons)
-        {
-            Destroy(button.gameObject);
-        }
-        targetButtons.Clear();
     }
 
     //Card Methods
@@ -230,7 +184,6 @@ public class BattleManager : MonoBehaviour
     {
         foreach (PlayerCharacter partyMember in party)
         {
-            Debug.Log(playedCard.target);
             if ((partyMember.characterName == playedCard.target) || (playedCard.target == "all"))
             {
                 partyMember.Armor(playedCard.armorAdded);

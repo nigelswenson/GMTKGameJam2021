@@ -12,10 +12,17 @@ public class DragDrop : MonoBehaviour
     private GameObject startParent;
     private Vector2 startPosition;
 
+    private Card cardData;
+
 
     private void Awake()
     {
         canvas = GameObject.Find("Main Canvas");
+    }
+
+    private void Start()
+    {
+        cardData = gameObject.GetComponent<CardDisplay>().card;
     }
 
     // Update is called once per frame
@@ -62,13 +69,31 @@ public class DragDrop : MonoBehaviour
         isDragging = false;
         if (isOverDropZone)
         {
-            transform.SetParent(dropZone.transform, false);
-            FindObjectOfType<BattleManager>().Execute(gameObject);
-        } 
+            var dropZoneOwner = dropZone.GetComponent<DropZone>().character;
+            if ((cardData.targetsAlly && dropZoneOwner != null) || (!cardData.targetsAlly && dropZoneOwner == null))
+            {
+                transform.SetParent(dropZone.transform, false);
+
+                if (dropZoneOwner != null)
+                {
+                    cardData.target = dropZoneOwner.characterName;
+                }
+                FindObjectOfType<BattleManager>().Execute(gameObject);
+            }
+            else
+            {
+                ResetPosition();
+            }
+        }
         else
         {
-            transform.position = startPosition;
-            transform.SetParent(startParent.transform, false);
+            ResetPosition();
         }
+    }
+
+    private void ResetPosition()
+    {
+        transform.position = startPosition;
+        transform.SetParent(startParent.transform, false);
     }
 }

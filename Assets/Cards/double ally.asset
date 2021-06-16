@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: double ally
   m_EditorClassIdentifier: 
   cardName: Put Your Back into it!
-  description: Play next ally's card twice
+  description: Play target ally's next card twice
   art: {fileID: 21300000, guid: b46d7a43b2fa40240bec0582f0fe34ee, type: 3}
   methodList:
-  - SelectTarget
   - SetDuplicate
   isTargeted: 1
   cardsToDraw: 0
@@ -25,4 +24,5 @@ MonoBehaviour:
   armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
-  target: Blood Avow
+  target: BLOOD AVOW
+  targetsAlly: 1

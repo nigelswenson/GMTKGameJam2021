@@ -16,7 +16,6 @@ MonoBehaviour:
   description: Heal an ally 5 damage
   art: {fileID: 21300000, guid: b46d7a43b2fa40240bec0582f0fe34ee, type: 3}
   methodList:
-  - SelectTarget
   - Heal
   isTargeted: 1
   cardsToDraw: 0
@@ -26,3 +25,4 @@ MonoBehaviour:
   bleedAdded: 0
   actionAdded: 0
   target: Aegis Bane
+  targetsAlly: 1

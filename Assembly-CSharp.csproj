@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{AEE2A217-2D42-0914-5740-E763D7181D8A}</ProjectGuid>
+    <ProjectGuid>{E4F5B455-FFA8-0FB0-5930-07422D91A10B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,10 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
-    <Compile Include="Assets\Scripts\TargetButton.cs" />
     <Compile Include="Assets\Scripts\Player Characters\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\Enemies\Slime.cs" />
     <Compile Include="Assets\SFX\SFX_Playing.cs" />
+    <Compile Include="Assets\Scripts\Card Functionality\DropZone.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\Card.cs" />
     <Compile Include="Assets\Scripts\Enemies\DeadHero.cs" />

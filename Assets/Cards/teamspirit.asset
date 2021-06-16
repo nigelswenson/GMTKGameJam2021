@@ -25,3 +25,4 @@ MonoBehaviour:
   bleedAdded: 0
   actionAdded: 0
   target: all
+  targetsAlly: 1

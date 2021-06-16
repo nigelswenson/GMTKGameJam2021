@@ -36,7 +36,6 @@ public class CharacterDisplay : MonoBehaviour
     }    
     public void SetBleed(int bleed)
     {
-        Debug.Log("bled");
         if(bleed <= 0)
         {
             bleedImage.enabled = false;
