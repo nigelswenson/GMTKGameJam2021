@@ -52,6 +52,7 @@ public class DragDrop : MonoBehaviour
     {
         startParent = transform.parent.gameObject;
         startPosition = transform.position;
+        if (FindObjectOfType<BattleManager>().state == BattleState.PLAYERTURN)
         isDragging = true;
     }
 

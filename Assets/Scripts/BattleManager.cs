@@ -45,7 +45,7 @@ public class BattleManager : MonoBehaviour
     PlayerCharacter playedCardOwner;
 
     //state variables
-    BattleState state;
+    public BattleState state;
     bool targetSelected = false;
 
 
@@ -75,7 +75,7 @@ public class BattleManager : MonoBehaviour
 
             yield return StartCoroutine(InstantiateCharacters(partyMember));
             InstantiateCards(partyMember);
-            
+
         }
 
         InstantiateEnemies();
@@ -91,12 +91,14 @@ public class BattleManager : MonoBehaviour
         }
 
         enemy.EnemySetup();
+
+        state = BattleState.PLAYERTURN;
     }
 
     private void InstantiateEnemies()
     {
         Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity, enemyArea.transform);
-        
+
     }
 
     private IEnumerator InstantiateCharacters(PlayerCharacter partyMember)
@@ -153,7 +155,7 @@ public class BattleManager : MonoBehaviour
                 }
                 foreach (string method in playedCard.methodList)
                 {
-    
+
                     Invoke(method, 0);
                 }
                 doubleStrike = false;
@@ -166,7 +168,7 @@ public class BattleManager : MonoBehaviour
         {
             cardToExecute.transform.SetParent(cardToExecute.GetComponent<CardDisplay>().owner.playerArea.transform, false);
         }
-        
+
     }
 
     private IEnumerator SelectTarget()
@@ -211,14 +213,14 @@ public class BattleManager : MonoBehaviour
     {
         foreach (PlayerCharacter partyMember in party)
         {
-            if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
+            if ((partyMember.characterName == playedCard.target) | (playedCard.target == "all"))
             {
                 partyMember.Heal(playedCard.healingDone);
                 sfx.PlayHeal();
             }
 
         }
-    }    
+    }
     private void Damage()
     {
         enemy.TakeDamage(playedCard.damageDealt);
@@ -229,7 +231,7 @@ public class BattleManager : MonoBehaviour
         foreach (PlayerCharacter partyMember in party)
         {
             Debug.Log(playedCard.target);
-            if ((partyMember.characterName == playedCard.target)||(playedCard.target == "all"))
+            if ((partyMember.characterName == playedCard.target) || (playedCard.target == "all"))
             {
                 partyMember.Armor(playedCard.armorAdded);
                 sfx.PlayArmor();
@@ -245,7 +247,7 @@ public class BattleManager : MonoBehaviour
     {
         foreach (PlayerCharacter partyMember in party)
         {
-            if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
+            if ((partyMember.characterName == playedCard.target) | (playedCard.target == "all"))
             {
                 partyMember.ActionAdd(playedCard.actionAdded);
             }
@@ -261,7 +263,7 @@ public class BattleManager : MonoBehaviour
         sfx.PlayArmor();
         foreach (PlayerCharacter partyMember in party)
         {
-            if ((partyMember.characterName == playedCard.target)|(playedCard.target == "all"))
+            if ((partyMember.characterName == playedCard.target) | (playedCard.target == "all"))
             {
                 partyMember.Armor(enemy.bleed);
             }
@@ -285,7 +287,7 @@ public class BattleManager : MonoBehaviour
         {
             playedCard.damageDealt = 0;
         }
-        else 
+        else
         {
             playedCard.damageDealt = 5;
         }
@@ -330,7 +332,7 @@ public class BattleManager : MonoBehaviour
             GameOver();
         }
         enemy.SetBehavior();
-        
+
         foreach (CharacterDisplay display in characterDisplays)
         {
             if (display.character == enemy.target)
@@ -338,7 +340,7 @@ public class BattleManager : MonoBehaviour
                 display.EnableTargetIndicator();
             }
         }
-            yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.5f);
     }
 
     //Turn Process Functions
@@ -459,7 +461,7 @@ public class BattleManager : MonoBehaviour
 
     public void SetEnemyHp()
     {
-        if(enemyHpSlider.maxValue != enemy.maxHp)
+        if (enemyHpSlider.maxValue != enemy.maxHp)
         {
             enemyHpSlider.maxValue = enemy.maxHp;
         }
@@ -474,10 +476,10 @@ public class BattleManager : MonoBehaviour
     public void EnemyDeath()
     {
         FindObjectOfType<SceneLoader>().LoadNextScene();
-    }  
-    
+    }
+
     public void GameOver()
     {
         FindObjectOfType<SceneLoader>().LoadSpecificScene("GameOver");
-    }    
+    }
 }
