@@ -146,13 +146,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76759087}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.286133, y: 43.68988, z: -166.1842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -35, y: 396, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1503537052}
   - {fileID: 1370835984}
-  - {fileID: 390604961}
   m_Father: {fileID: 2146722380}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -370,81 +369,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5458115179037121688, guid: 2b4c98c8d5064044a8e5784493fdf844, type: 3}
   m_PrefabInstance: {fileID: 5458115179224039579}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &390604960
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 390604961}
-  - component: {fileID: 390604963}
-  - component: {fileID: 390604962}
-  m_Layer: 0
-  m_Name: portrait
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &390604961
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390604960}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 76759088}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 624, y: -301}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &390604962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390604960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &390604963
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390604960}
-  m_CullTransparentMesh: 1
 --- !u!1 &393848485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1350,7 @@ GameObject:
   - component: {fileID: 1170531127}
   - component: {fileID: 1170531126}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Battle Info Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1628,7 +1552,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1211061799}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1503537053}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1211061799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,7 +1768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40.647827, y: -376.6626}
+  m_AnchoredPosition: {x: 43, y: -356}
   m_SizeDelta: {x: 1471.3489, y: 281.4402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1370835985
@@ -1986,29 +1922,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503537051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7695f8189c8132d448f16dfc896defd9, type: 3}
+  m_Script: {fileID: 11500000, guid: b8656b10952fc2e4fbb3dca02e028eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 799274735}
   dialogueText: {fileID: 541433366}
   continueButton: {fileID: 1211061798}
-  portrait: {fileID: 1211061799}
+  tutorialHolder: {fileID: 76759087}
   dialogues:
   - name: ???
     portrait: {fileID: 0}
     sentences:
-    - Triad's Tomb is a card-based RPG.  To play cards simply drag them onto the
-      cards target.  You should drag damaging cards onto enemies, and healing cards
-      and buffs onto allies.
-    - Each character draws 2 cards, but can play only 1 per turn.  Once you've played
-      a card with each character, press end turn.
-    - Sometimes you'll see a target icon above a characters name.  That means the
-      enemy is going to attack them on their turn.  Make sure you defend targeted
-      characters!
-  isEndGame: 0
-  isTutorial: 1
+    - This is some Tutorial Text
   dialogueIndex: 0
-  animator: {fileID: 0}
   textSpeed: 0.02
 --- !u!114 &1513514073 stripped
 MonoBehaviour:
@@ -2128,7 +2054,7 @@ GameObject:
   - component: {fileID: 1969873315}
   - component: {fileID: 1969873314}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Battle Info Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2229,12 +2155,12 @@ GameObject:
   - component: {fileID: 2107451821}
   - component: {fileID: 2107451820}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Battle Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2107451819
 RectTransform:
   m_ObjectHideFlags: 0

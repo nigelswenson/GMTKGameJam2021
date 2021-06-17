@@ -17,14 +17,9 @@ public class Slime : Enemy
     public int attack = 5;
     public string action;
 
-
-    public override void Start()
-    {
-        base.Start();
-        battleManager = FindObjectOfType<BattleManager>();
-    }
     override public void SetBehavior()
     {
+        battleManager = FindObjectOfType<BattleManager>();
 
         size += growRate; // grow every turn
         // scale slime pixel size here

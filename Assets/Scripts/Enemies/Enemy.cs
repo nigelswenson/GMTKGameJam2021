@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     //[SerializeField] List<PlayerCharacter> party = FindObjectOfType<BattleManager>().party;
     //PlayerCharacter party = FindObjectOfType<BattleManager>().party;
 
-    public virtual void Start()
+    private void Start()
     {
         portrait.sprite = art;
         SetHp();

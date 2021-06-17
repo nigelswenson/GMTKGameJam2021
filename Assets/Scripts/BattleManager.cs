@@ -445,17 +445,17 @@ public class BattleManager : MonoBehaviour
     {
         state = BattleState.TEXT;
 
-        battleText.text = text;
-
-        battleInfo.enabled = true ;
-        battleText.enabled = true;
+        battleInfo.gameObject.SetActive(true);
+        battleText.gameObject.SetActive(true);
         battleTextContinueButton.gameObject.SetActive(true);
+
+        battleText.text = text;
     }
 
     public void HideBattleText()
     {
-        battleInfo.enabled = true;
-        battleText.enabled = false;
+        battleInfo.gameObject.SetActive(false);
+        battleText.gameObject.SetActive(false);
         battleTextContinueButton.gameObject.SetActive(false);
 
         state = BattleState.PLAYERTURN;
