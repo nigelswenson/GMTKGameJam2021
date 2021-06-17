@@ -18,9 +18,13 @@ public class Slime : Enemy
     public string action;
 
 
+    public override void Start()
+    {
+        base.Start();
+        battleManager = FindObjectOfType<BattleManager>();
+    }
     override public void SetBehavior()
     {
-
 
         size += growRate; // grow every turn
         // scale slime pixel size here
@@ -66,19 +70,25 @@ public class Slime : Enemy
     {
         if (action == "attack")
         {
-            target.TakeDamage(attack + (size / 10));
-            FindObjectOfType<BattleManager>().sfx.PlayDamage();
+            var damage = attack + (size / 10);
+            target.TakeDamage(damage);
+            battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to " + target.characterName);
+            battleManager.sfx.PlayDamage();
         }
         else if (action == "heal")
         {
-            currentHp += healSize + (size / 10);
+            var heal = healSize + (size / 10);
+            currentHp += heal;
             SetHp();
-            FindObjectOfType<BattleManager>().sfx.PlayHeal();
+            battleManager.ShowBattleText(enemyName + " healed " + heal + " damage");
+            battleManager.sfx.PlayHeal();
         }
         else if (action == "shield")
         {
-            armor = armorSize + (size / 10);
-            FindObjectOfType<BattleManager>().sfx.PlayArmor();
+            var armorGain = armorSize + (size / 10);
+            Armor(armorGain);
+            battleManager.ShowBattleText(enemyName + " gained " + armorGain + " armor");
+            battleManager.sfx.PlayArmor();
         }
         else // grow
         {

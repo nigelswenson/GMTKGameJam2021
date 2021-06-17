@@ -21,10 +21,13 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public bool isAlive = true;
 
+    //cached reference
+    public BattleManager battleManager;
+
     //[SerializeField] List<PlayerCharacter> party = FindObjectOfType<BattleManager>().party;
     //PlayerCharacter party = FindObjectOfType<BattleManager>().party;
 
-    void Start()
+    public virtual void Start()
     {
         portrait.sprite = art;
         SetHp();

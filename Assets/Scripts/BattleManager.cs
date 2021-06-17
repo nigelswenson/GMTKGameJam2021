@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 // Characters now instantiate at the start of the script, need to edit script to manage the three decks separately.
-public enum BattleState { START, PLAYERTURN, TARGETING, ENEMYTURN, ESCAPE, VICTORY, DEFEAT, RUN }
+public enum BattleState { START, PLAYERTURN, TEXT, ENEMYTURN, ESCAPE, VICTORY, DEFEAT, RUN }
 
 public class BattleManager : MonoBehaviour
 {
     //config variables
+    [Header("Player Character")]
     [SerializeField] GameObject characterTemplate;
     public List<PlayerCharacter> party = new List<PlayerCharacter>();
     [SerializeField] GameObject characterArea;
 
-    public SFX_Playing sfx;
-
+    [Header("Enemy")] 
     [SerializeField] Enemy enemy;
     [SerializeField] GameObject enemyArea;
     [SerializeField] Image enemyBleedImage;
@@ -23,12 +23,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Slider enemyHpSlider;
     [SerializeField] Image enemyHealImage;
 
-
-    [SerializeField] Button targetButton;
-    private List<Button> targetButtons = new List<Button>();
-
-    [SerializeField] Button endTurnButton;
-
+    [Header("Card")]
     [SerializeField] int handSize;
     [SerializeField] GameObject cardTemplate;
     private List<Card> deck = new List<Card>();
@@ -41,12 +36,20 @@ public class BattleManager : MonoBehaviour
     public GameObject discardZone;
     public bool doubleStrike = false;
 
-    Card playedCard;
-    PlayerCharacter playedCardOwner;
+    [Header("Sound")]
+    public SFX_Playing sfx;
+
+    [Header("UI")]
+    public Image battleInfo;
+    public Text battleText;
+    public Button battleTextContinueButton;
+
 
     //state variables
     public BattleState state;
-    bool targetSelected = false;
+
+    Card playedCard;
+    PlayerCharacter playedCardOwner;
 
 
     void Start()
@@ -299,31 +302,34 @@ public class BattleManager : MonoBehaviour
     //Turn Process Functions
     public void EndTurn()
     {
-        StartCoroutine(EnemyTurn());
-        foreach (PlayerCharacter partyMember in party)
+        if(state == BattleState.PLAYERTURN)
         {
-            partyMember.EndTurn();
-        }
-        var alive = false;
-        foreach (PlayerCharacter character in party)
-        {
-            if (character.currentHp > 0)
+            StartCoroutine(EnemyTurn());
+            foreach (PlayerCharacter partyMember in party)
             {
-                alive = true;
+                partyMember.EndTurn();
             }
+            var alive = false;
+            foreach (PlayerCharacter character in party)
+            {
+                if (character.currentHp > 0)
+                {
+                    alive = true;
+                }
+            }
+            if (!alive)
+            {
+                GameOver();
+            }
+            enemy.EndTurn();
+            //Discards current hand before drawing a new one
+            DiscardHand();
+            doubleStrike = false;
+            //reset active cards to recieve a new hand
+            activeCards.Clear();
+            //Draws a fresh hand of cards
+            DrawNewHand();
         }
-        if (!alive)
-        {
-            GameOver();
-        }
-        enemy.EndTurn();
-        //Discards current hand before drawing a new one
-        DiscardHand();
-        doubleStrike = false;
-        //reset active cards to recieve a new hand
-        activeCards.Clear();
-        //Draws a fresh hand of cards
-        DrawNewHand();
     }
 
     private void DrawNewHand()
@@ -369,8 +375,7 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
-    //shuffle currently broken because drawing currently attaches the scriptable object to the card template prefab, need to do that in setup instead of draw, that way we have a list of GameObjects that draw pulls from instead of cards, because discard is a list of Gameobjects.  
+ 
     public void shuffle(List<GameObject> emptyDeck, List<GameObject> fullDiscard)
     {
         emptyDeck.AddRange(fullDiscard);
@@ -435,4 +440,26 @@ public class BattleManager : MonoBehaviour
     {
         FindObjectOfType<SceneLoader>().LoadSpecificScene("GameOver");
     }
+
+    public void ShowBattleText(string text)
+    {
+        state = BattleState.TEXT;
+
+        battleText.text = text;
+
+        battleInfo.enabled = true ;
+        battleText.enabled = true;
+        battleTextContinueButton.gameObject.SetActive(true);
+    }
+
+    public void HideBattleText()
+    {
+        battleInfo.enabled = true;
+        battleText.enabled = false;
+        battleTextContinueButton.gameObject.SetActive(false);
+
+        state = BattleState.PLAYERTURN;
+    }
+
+
 }
