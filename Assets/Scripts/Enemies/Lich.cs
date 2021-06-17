@@ -20,9 +20,11 @@ public class Lich : Enemy
     public int selfharm = 4;
     public float scalar = 1;
     public string action;
+    public int damage;
 
     override public void SetBehavior()
     {
+        base.SetBehavior();
         if (currentHp > maxHp / 2)
         {
             scalar = 1;
@@ -38,16 +40,14 @@ public class Lich : Enemy
             if (target.currentHp > target.maxHp / 2)
             {
                 action = "attackall";
-
-                var displays = FindObjectsOfType<CharacterDisplay>();
-                foreach (CharacterDisplay display in displays)
-                {
-                    display.EnableTargetIndicator();
-                }
+                damage = (int)((float)attack * scalar);
+                battleManager.EnableTargetIndicator(null, damage.ToString());
             }
             else
             {
                 action = "attack";
+                damage = 2 * (int)((float)attack * scalar);
+                battleManager.EnableTargetIndicator(target, damage.ToString());
             }
 
         }
@@ -57,15 +57,19 @@ public class Lich : Enemy
     {
         if (action == "attackall")
         {
-            AttackAll((int)((float)attack * scalar));
+            AttackAll(damage);
             FindObjectOfType<BattleManager>().sfx.PlayDamage();
+            battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to all allies");
         }
         else if (action == "attack")
         {
-            target.TakeDamage(2 * (int)((float)attack * scalar));
+            target.TakeDamage(damage);
             FindObjectOfType<BattleManager>().sfx.PlayDamage();
+            battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to " + target.characterName);
         }
         currentHp -= (int)((float)selfharm * scalar);
+        
+        base.DoBehavior();
     }
 }
 

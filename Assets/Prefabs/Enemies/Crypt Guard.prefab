@@ -50,24 +50,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47938ebfc02085b4fa7564aedbaf87dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Crypt Guard
   maxHp: 100
-  currentHp: 100
+  currentHp: 95
   armor: 15
   armorDecay: 5
   bleedDecay: 1
   startBleed: 3
   startArmor: 15
-  bleed: 3
-  target: {fileID: 0}
+  bleed: 1
+  target: {fileID: 11400000, guid: 1ee9058cbc3a6de49861c99b01d39102, type: 2}
   art: {fileID: 21300000, guid: d47589cf5b43e8d4ebc90b5fc92320fe, type: 3}
   portrait: {fileID: 1960236562593643502}
   isAlive: 1
+  battleManager: {fileID: 0}
   attack: 4
   shield: 5
   shieldScaling: 5
   startHealth: 100
-  action: 
+  action: attack
 --- !u!1 &2019872607610708140
 GameObject:
   m_ObjectHideFlags: 0

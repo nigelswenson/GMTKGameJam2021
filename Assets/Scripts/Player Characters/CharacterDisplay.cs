@@ -16,6 +16,7 @@ public class CharacterDisplay : MonoBehaviour
     public Image armorImage;
     public Text armorCount;
     public Image targetIndicator;
+    public Text targetDamage;
 
 
     // Start is called before the first frame update
@@ -64,13 +65,19 @@ public class CharacterDisplay : MonoBehaviour
         }
     }
 
-    public void EnableTargetIndicator()
+    public void EnableTargetIndicator(string damage = null)
     {
         targetIndicator.enabled = true;
+        if (damage != null)
+        {
+            targetDamage.enabled = true;
+            targetDamage.text = damage;
+        }
     }
 
     public void DisableTargetIndicator()
     {
         targetIndicator.enabled = false;
+        targetDamage.enabled = false;
     }
 }

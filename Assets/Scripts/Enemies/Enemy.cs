@@ -162,10 +162,15 @@ public class Enemy : MonoBehaviour
     }
 
     public virtual void SetBehavior()
-    { }
+    {
+        battleManager = FindObjectOfType<BattleManager>();
+    }
 
     public virtual void DoBehavior()
-    { }
+    {
+        battleManager.DisableTargetIndicator();
+        battleManager.DisableHealImage();
+    }
 
     // Update numbers at the end of enemy's turn
     public void EndTurn()

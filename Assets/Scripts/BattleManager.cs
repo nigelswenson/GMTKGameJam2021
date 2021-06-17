@@ -57,7 +57,6 @@ public class BattleManager : MonoBehaviour
         state = BattleState.START;
         sfx.PlayMusic();
         StartCoroutine(SetupBattle());
-        enemyHealImage.enabled = false;
     }
 
     private IEnumerator SetupBattle()
@@ -79,19 +78,13 @@ public class BattleManager : MonoBehaviour
         InstantiateEnemies();
         DrawNewHand();
         enemy.SetBehavior();
-        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
-        foreach (CharacterDisplay display in characterDisplays)
-        {
-            if (display.character == enemy.target)
-            {
-                display.EnableTargetIndicator();
-            }
-        }
 
         enemy.EnemySetup();
 
         state = BattleState.PLAYERTURN;
     }
+
+
 
     private void InstantiateEnemies()
     {
@@ -103,8 +96,10 @@ public class BattleManager : MonoBehaviour
     {
         GameObject newCharacter = Instantiate(characterTemplate, new Vector3(0, 0, 0), Quaternion.identity);
         newCharacter.GetComponent<CharacterDisplay>().character = partyMember;
+        newCharacter.GetComponent<CharacterDisplay>().DisableTargetIndicator();
         newCharacter.transform.Find("DropZone").gameObject.GetComponent<DropZone>().character = partyMember;
         newCharacter.transform.SetParent(playerAreas.transform, false);
+
 
         partyMember.playerArea = newCharacter.GetComponent<CharacterDisplay>().cardArea;
 
@@ -270,11 +265,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         enemy.DoBehavior();
         var characterDisplays = FindObjectsOfType<CharacterDisplay>();
-        foreach (CharacterDisplay display in characterDisplays)
-        {
-            display.DisableTargetIndicator();
-        }
-        enemyHealImage.enabled = false;
+
         var alive = false;
         foreach (PlayerCharacter character in party)
         {
@@ -289,13 +280,6 @@ public class BattleManager : MonoBehaviour
         }
         enemy.SetBehavior();
 
-        foreach (CharacterDisplay display in characterDisplays)
-        {
-            if (display.character == enemy.target)
-            {
-                display.EnableTargetIndicator();
-            }
-        }
         yield return new WaitForSeconds(.5f);
     }
 
@@ -429,6 +413,42 @@ public class BattleManager : MonoBehaviour
     public void EnableHealImage()
     {
         enemyHealImage.enabled = true;
+    }
+
+    public void DisableHealImage()
+    {
+        enemyHealImage.enabled = false;
+    }
+
+    public void EnableTargetIndicator(PlayerCharacter target = null, string damage = null)
+    {
+        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
+        if (target == null)
+        {
+            foreach (CharacterDisplay display in characterDisplays)
+            {
+                display.EnableTargetIndicator(damage);
+            }
+        }
+        else
+        {
+            foreach (CharacterDisplay display in characterDisplays)
+            {
+                if (display.character == enemy.target)
+                {
+                    display.EnableTargetIndicator(damage);
+                }
+            }
+        }
+    }
+
+    public void DisableTargetIndicator()
+    {
+        var characterDisplays = FindObjectsOfType<CharacterDisplay>();
+        foreach (CharacterDisplay display in characterDisplays)
+        {
+            display.DisableTargetIndicator();
+        }
     }
 
     public void EnemyDeath()

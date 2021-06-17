@@ -17,16 +17,20 @@ public class CryptGuard : Enemy
     public int shieldScaling = 5;
     public int startHealth = 100;
     public string action;
+    int damage;
 
 
     override public void SetBehavior()
     {
+        base.SetBehavior();
         if (isAlive)
         {
+            damage = attack + (int)((float)armor * shieldScaling / 10);
             armor += shield;
             SetArmor(armor);
             TargetRandom();
             action = "attack";
+            FindObjectOfType<BattleManager>().EnableTargetIndicator(target, damage.ToString());
         }
     }
 
@@ -37,10 +41,12 @@ public class CryptGuard : Enemy
         {
             if (action == "attack")
             {
-                target.TakeDamage(attack + (int)((float)armor * shieldScaling / 10));
+                target.TakeDamage(damage);
                 FindObjectOfType<BattleManager>().sfx.PlayDamage();
+                battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to " + target.characterName);
             }
         }
+        base.DoBehavior();
     }
 
     //   void Start()

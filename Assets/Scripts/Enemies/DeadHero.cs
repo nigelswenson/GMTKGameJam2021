@@ -28,13 +28,24 @@ public class DeadHero : Enemy
     public int oneArmor = 10;
     public int sleepyShield = 40;
 
+    int damage;
+
 
     override public void SetBehavior()
     {
+        base.SetBehavior();
         if (action1 == "fallasleep" || action1 == "sleep")
         { }
         else // Has woken up and is displeased
         {
+            if (Random.Range(1, 5) != 4) // Choose to either target lowest or target random
+            {
+                TargetLowest();
+            }
+            else
+            {
+                TargetRandom();
+            }
             if (tired == false)
             {
                 if (currentHp < maxHp / 6) // really low, so aggressive attack
@@ -54,26 +65,20 @@ public class DeadHero : Enemy
                 {
                     action1 = "bleed";
                     action2 = "attack";
+                    battleManager.EnableTargetIndicator(target, oneAttack.ToString());
                 }
                 else if (diceRoll > 10 && diceRoll < 16) // mid chance for aoe attack and shield
                 {
                     action1 = "attackall";
                     action2 = "armor";
-                    var displays = FindObjectsOfType<CharacterDisplay>();
-                    foreach (CharacterDisplay display in displays)
-                    {
-                        display.EnableTargetIndicator();
-                    }
+                    battleManager.EnableTargetIndicator(null, allAttack.ToString());
+                    FindObjectOfType<BattleManager>().EnableHealImage();
                 }
                 else // mid chance for bleed and shield
                 {
                     action1 = "bleedall";
                     action2 = "armor";
-                    var displays = FindObjectsOfType<CharacterDisplay>();
-                    foreach (CharacterDisplay display in displays)
-                    {
-                        display.EnableTargetIndicator();
-                    }
+                    battleManager.EnableTargetIndicator(null, null);
                     FindObjectOfType<BattleManager>().EnableHealImage();
                 }
                 if (cranky == true) // Really aggressive attack, when first woken up & when low 
@@ -81,11 +86,8 @@ public class DeadHero : Enemy
                     action1 = "attackall";
                     action2 = "bleedall";
                     cranky = false;
-                    var displays = FindObjectsOfType<CharacterDisplay>();
-                    foreach (CharacterDisplay display in displays)
-                    {
-                        display.EnableTargetIndicator();
-                    }
+
+                    battleManager.EnableTargetIndicator(null, allAttack.ToString());
                 }
                 Debug.Log("Undead Hero is about to " + action1 + " and " + action2);
             }
@@ -94,18 +96,7 @@ public class DeadHero : Enemy
                 action1 = "rest";
                 tired = false;
             }
-            if (Random.Range(1, 5) != 4) // Choose to either target lowest or target random
-            {
-                TargetLowest();
-            }
-            else
-            {
-                TargetRandom();
-            }
-
         }
-        
-
     }
 
 
@@ -116,16 +107,18 @@ public class DeadHero : Enemy
             armor += sleepyShield;
             sleepTimer = 1;
             action1 = "sleep";
+            battleManager.ShowBattleText(enemyName + " gains " + sleepyShield + " armor and drifts to sleep");
         }
         else if (action1 == "sleep")
         {
             if (sleepTimer > 0)
             {
                 sleepTimer -= 1;
+                battleManager.ShowBattleText(enemyName + " rests solemnly");
             }
             else
             {
-                Debug.Log("just woke up");
+                battleManager.ShowBattleText(enemyName + " suddenly awakens");
                 cranky = true;
                 tired = false;
                 action1 = "awake";
@@ -138,32 +131,84 @@ public class DeadHero : Enemy
         }
         else
         {
+            var string1 = "";
+            var string2 = "";
             if (action1 == "attackall" || action2 == "attackall")
             {
                 AttackAll(allAttack);
                 FindObjectOfType<BattleManager>().sfx.PlayDamage();
+                string1 = (enemyName + " dealt " + allAttack + " damage to all allies");
+
             }
             if (action1 == "bleedall" || action2 == "bleedall")
             {
                 BleedAll(allBleed);
                 FindObjectOfType<BattleManager>().sfx.PlayBleed();
+                
+                if(string1 == "")
+                {
+                    string1 = (enemyName + " applied " + allBleed + " bleed to all allies");
+                }
+                else
+                {
+                    string2 = ("applied " + allBleed + " bleed to all allies");
+                }
             }
             if (action1 == "armor" || action2 == "armor")
             {
                 armor += oneArmor;
                 FindObjectOfType<BattleManager>().sfx.PlayArmor();
+
+                if (string1 == "")
+                {
+                    string1 = (enemyName + " gained " + oneArmor + " armor");
+                }
+                else
+                {
+                    string2 = ("gained " + oneArmor + " armor");
+                }
             }
             if (action1 == "bleed" || action2 == "bleed")
             {
                 target.Bleed(oneBleed);
                 FindObjectOfType<BattleManager>().sfx.PlayBleed();
+                battleManager.ShowBattleText(enemyName + " dealt " + oneBleed + " to " + target.characterName);
+
+                if (string1 == "")
+                {
+                    string1 = (enemyName + " dealt " + oneBleed + " to " + target.characterName);
+                }
+                else
+                {
+                    string2 = ("dealt " + oneBleed + " to " + target.characterName);
+                }
             }
             if (action1 == "attack" || action2 == "attack")
             {
                 target.TakeDamage(oneAttack);
                 FindObjectOfType<BattleManager>().sfx.PlayDamage();
+                battleManager.ShowBattleText(enemyName + " dealt " + oneAttack + " damage to " + target.characterName);
+
+                if (string1 == "")
+                {
+                    string1 = (enemyName + " dealt " + oneAttack + " damage to " + target.characterName);
+                }
+                else
+                {
+                    string2 = ("dealt " + oneAttack + " damage to " + target.characterName);
+                }
             }
+            if(string1 != "" && string2 != "")
+            {
+                battleManager.ShowBattleText(string1 + " and " + string2);
+            }
+            else
+            {
+                battleManager.ShowBattleText(string1);
+            }
+
         }
+        base.DoBehavior();
     }
 
     public override void EnemySetup()
