@@ -25,4 +25,7 @@ MonoBehaviour:
   armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
-  target: all
+  target: BLOOD AVOW
+  targetsAlly: 0
+  targetsAllAllies: 0
+  wasPlayed: 0

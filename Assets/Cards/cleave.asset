@@ -25,3 +25,6 @@ MonoBehaviour:
   bleedAdded: 0
   actionAdded: 0
   target: enemy
+  targetsAlly: 0
+  targetsAllAllies: 0
+  wasPlayed: 0

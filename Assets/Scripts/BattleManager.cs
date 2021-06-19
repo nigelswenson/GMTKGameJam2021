@@ -43,6 +43,7 @@ public class BattleManager : MonoBehaviour
     public Image battleInfo;
     public Text battleText;
     public Button battleTextContinueButton;
+    public Image endTurnImage;
 
 
     //state variables
@@ -144,12 +145,34 @@ public class BattleManager : MonoBehaviour
                 doubleStrike = false;
             }
             playedCardOwner.actions -= 1;
+            EndTurnGlow();
             DiscardCard(cardToExecute);
         }
         else
         {
             cardToExecute.transform.SetParent(cardToExecute.GetComponent<CardDisplay>().owner.playerArea.transform, false);
         }
+    }
+
+    private void EndTurnGlow()
+    {
+        var noActions = true;
+        foreach (PlayerCharacter character in party)
+        {
+            if (character.actions != 0)
+            {
+                noActions = false;
+            }
+        }
+        if (noActions)
+        {
+            endTurnImage.color = new Color32(68, 180, 250, 255);
+        }
+    }
+
+    private void ResetEndTurnButton()
+    {
+        endTurnImage.color = new Color32(255, 255, 255, 255);
     }
 
     //Card Methods
@@ -315,6 +338,7 @@ public class BattleManager : MonoBehaviour
             activeCards.Clear();
             //Draws a fresh hand of cards
             DrawNewHand();
+            ResetEndTurnButton();
         }
     }
 

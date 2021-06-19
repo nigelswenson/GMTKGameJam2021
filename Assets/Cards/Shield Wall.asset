@@ -26,3 +26,5 @@ MonoBehaviour:
   actionAdded: 0
   target: all
   targetsAlly: 1
+  targetsAllAllies: 1
+  wasPlayed: 0

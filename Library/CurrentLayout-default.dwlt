@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 19
+  controlID: 122
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 125
+  controlID: 123
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 126
+  controlID: 124
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -400,7 +400,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 80d6ffff88d7ffffa0d7ffff40fbffff60420000ae420000
+      m_ExpandedIDs: a2e2fefface4feff8af2feff02f3feff1af3feffdc01ffff0803ffff2003ffffec08ffff0409fffff095ffff5c96ffffd096ffffe896ffffce99ffff7aa3ffffa6a4ffffbea4ffff4cafffff30b0ffff48b0ffffeeb5ffff06b6ffffdab8ffff7cfaffff8efaffffa8faffffb0faffff40fbffff44420000604200009e420000ae420000c0420000d2420000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -460,9 +460,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 809.54926, y: 537.20776, z: 190.29367}
+    m_Target: {x: 1107.9988, y: 492.25116, z: -591.62463}
     speed: 2
-    m_Value: {x: 809.54926, y: 537.20776, z: 190.29367}
+    m_Value: {x: 1107.9988, y: 492.25116, z: -591.62463}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -513,9 +513,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 594.8268
+    m_Target: 841.10547
     speed: 2
-    m_Value: 594.8268
+    m_Value: 841.10547
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -639,21 +639,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Characters
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Characters
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\MACKENZB\Card Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 92450000
-    m_LastClickedID: 17810
+    m_SelectedIDs: 8e450000
+    m_LastClickedID: 17806
     m_ExpandedIDs: 00000000824500009645000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1318
+  m_LastSelectedObjectID: 17062
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
