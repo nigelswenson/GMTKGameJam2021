@@ -28,5 +28,7 @@ public class Card : ScriptableObject
 
     public bool targetsAlly = false;
 
+    public bool targetsAllAllies;
+
     public bool wasPlayed = false;
 }

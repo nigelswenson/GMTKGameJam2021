@@ -70,13 +70,18 @@ public class DragDrop : MonoBehaviour
         if (isOverDropZone)
         {
             var dropZoneOwner = dropZone.GetComponent<DropZone>().character;
-            if ((cardData.targetsAlly && dropZoneOwner != null) || (!cardData.targetsAlly && dropZoneOwner == null))
+            //if the dropzone owner is null, it's the enemy dropzone 
+            if (((cardData.targetsAlly || !cardData.targetsAllAllies) && dropZoneOwner != null) || (!cardData.targetsAlly && !cardData.targetsAllAllies && dropZoneOwner == null))
             {
                 transform.SetParent(dropZone.transform, false);
 
                 if (dropZoneOwner != null)
                 {
                     cardData.target = dropZoneOwner.characterName;
+                    if (cardData.targetsAllAllies)
+                    {
+                        cardData.target = "all";
+                    }
                 }
                 FindObjectOfType<BattleManager>().Execute(gameObject);
             }

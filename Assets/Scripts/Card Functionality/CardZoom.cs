@@ -30,6 +30,7 @@ public class CardZoom : MonoBehaviour
 
     public void OnHoverEnter()
     {
+        //set start positions to go back to on shrink
         startParent = transform.parent.gameObject;
         startCardPosition = card.GetComponent<RectTransform>().position;
         startCardSizeDelta = card.GetComponent<RectTransform>().sizeDelta;
@@ -40,7 +41,7 @@ public class CardZoom : MonoBehaviour
 
 
         transform.SetParent(canvas.transform, true);
-
+        //set increased card size
         card.GetComponent<RectTransform>().sizeDelta = new Vector2(301, 432);
         cardsArt.GetComponent<RectTransform>().sizeDelta = new Vector2(252, 224);
         cardsArt.GetComponent<RectTransform>().position = new Vector2(cardsArt.GetComponent<RectTransform>().position.x, cardsArt.GetComponent<RectTransform>().position.y-55);
@@ -52,6 +53,7 @@ public class CardZoom : MonoBehaviour
 
     public void SetDrag()
     {
+        //determines if we were dragging the card, vs just hovering it
         wasDragged = true;
     }
 
@@ -59,6 +61,7 @@ public class CardZoom : MonoBehaviour
     {
         if (!wasDragged || !gameObject.GetComponent<CardDisplay>().card.wasPlayed)
         {
+            //reset transform to shrink the card back down
             transform.SetParent(startParent.transform, true);
             card.GetComponent<RectTransform>().sizeDelta = startCardSizeDelta;
             cardsArt.GetComponent<RectTransform>().sizeDelta = startArtSizeDelta;
