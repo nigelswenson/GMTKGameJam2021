@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 7361331403913989634}
   - component: {fileID: 7361331403913989635}
   - component: {fileID: 898075542866607656}
+  - component: {fileID: 9001225221765106064}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -281,6 +282,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9001225221765106064}
+          m_TargetAssemblyTypeName: CardZoom, Assembly-CSharp
+          m_MethodName: OnHoverEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9001225221765106064}
+          m_TargetAssemblyTypeName: CardZoom, Assembly-CSharp
+          m_MethodName: OnHoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &7361331403913989633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,3 +390,15 @@ MonoBehaviour:
   descriptionText: {fileID: 7361331403454012246}
   art: {fileID: 7361331403894593987}
   owner: {fileID: 0}
+--- !u!114 &9001225221765106064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7361331403913989659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5db4fe68fa6814e91234b7a3c06b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
