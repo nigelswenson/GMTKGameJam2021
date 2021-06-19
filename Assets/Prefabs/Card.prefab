@@ -266,6 +266,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 9001225221765106064}
+          m_TargetAssemblyTypeName: CardZoom, Assembly-CSharp
+          m_MethodName: OnHoverExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9001225221765106064}
+          m_TargetAssemblyTypeName: CardZoom, Assembly-CSharp
+          m_MethodName: SetDrag
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 14
     callback:
       m_PersistentCalls:
@@ -402,3 +426,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb5db4fe68fa6814e91234b7a3c06b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  card: {fileID: 7361331403913989659}
+  cardsArt: {fileID: 7361331403894593987}
+  cardsDescription: {fileID: 7361331403454012246}
+  startCardDescription: {fileID: 0}
+  startCardPosition: {x: 0, y: 0}
+  startCardSizeDelta: {x: 0, y: 0}
+  startArtPosition: {x: 0, y: 0}
+  startArtSizeDelta: {x: 0, y: 0}
+  startDescriptionPosition: {x: 0, y: 0}
+  startDescriptionSizeDelta: {x: 0, y: 0}
+  startParent: {fileID: 0}

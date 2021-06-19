@@ -113,6 +113,7 @@ public class BattleManager : MonoBehaviour
         foreach (Card card in partyMember.deckData)
         {
             GameObject newCard = Instantiate(cardTemplate, new Vector3(0, 0, 0), Quaternion.identity);
+            card.wasPlayed = false;
             newCard.GetComponent<CardDisplay>().card = card;
             newCard.GetComponent<CardDisplay>().SetColor(partyMember.cardColor);
             newCard.GetComponent<CardDisplay>().owner = partyMember;
@@ -124,6 +125,7 @@ public class BattleManager : MonoBehaviour
     public void Execute(GameObject cardToExecute)
     {
         playedCard = cardToExecute.GetComponent<CardDisplay>().card;
+        playedCard.wasPlayed = true;
         playedCardOwner = cardToExecute.GetComponent<CardDisplay>().owner;
         //StartCoroutine(TargetAndInvoke(cardToExecute));
         if (playedCardOwner.actions >= 1)
@@ -353,6 +355,7 @@ public class BattleManager : MonoBehaviour
 
                 int randNum = Random.Range(0, activeDeck.Count);
                 GameObject drawnCard = activeDeck[randNum];
+                drawnCard.GetComponent<CardDisplay>().card.wasPlayed = false;
                 drawnCard.transform.SetParent(drawnCard.GetComponent<CardDisplay>().owner.playerArea.transform, false);
                 activeCards.Add(activeDeck[randNum]);
                 activeDeck.RemoveAt(randNum);
