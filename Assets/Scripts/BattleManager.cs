@@ -308,6 +308,24 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
     }
 
+    //used when the enemy takes an action
+    public void SetWiggle(Color32 color, int wiggleSpeed)
+    {
+        StartCoroutine(Wiggle(color, wiggleSpeed));
+    }
+    public IEnumerator Wiggle(Color32 color, int wiggleSpeed)
+    {
+        Debug.Log("wiggling");
+        Image image = FindObjectOfType<Enemy>().transform.Find("Image").GetComponent<Image>();
+        for (var i = 0; i <= 2; i++)
+        {
+            image.color = color;
+            yield return new WaitForSeconds(.2f);
+            image.color = new Color32(255, 255, 255, 255);
+            yield return new WaitForSeconds(.2f);
+        }
+    }
+
     //Turn Process Functions
     public void EndTurn()
     {

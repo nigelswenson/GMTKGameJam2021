@@ -61,13 +61,25 @@ MonoBehaviour:
   target: {fileID: 11400000, guid: be767f2236b13474aa7262386a84867e, type: 2}
   art: {fileID: 21300000, guid: ac26a06565057d44c94fad1bc22a3c3c, type: 3}
   portrait: {fileID: 297609314650466897}
+  horizontalSpeed: 1
+  attackColor:
+    serializedVersion: 2
+    rgba: 4283579391
+  healColor:
+    serializedVersion: 2
+    rgba: 4285720438
   isAlive: 1
-  size: 21
+  battleManager: {fileID: 0}
+  size: 61
   growRate: 1
   growSize: 5
+  baseArmor: 5
   armorSize: 5
+  baseHeal: 5
   healSize: 5
-  attack: 5
+  baseAttack: 5
+  attack: 6
+  randomValue: 2
   action: attack
 --- !u!1 &5847732813005966321
 GameObject:

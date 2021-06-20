@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public PlayerCharacter target;
     public Sprite art;
     public Image portrait;
+    public int wiggleSpeed = 1;
+    public Color32 attackColor = new Color32 (255, 59, 82, 255);
+    public Color32 healColor = new Color32(118, 231, 114, 255);
 
     [HideInInspector]
     public bool isAlive = true;
@@ -24,8 +27,6 @@ public class Enemy : MonoBehaviour
     //cached reference
     public BattleManager battleManager;
 
-    //[SerializeField] List<PlayerCharacter> party = FindObjectOfType<BattleManager>().party;
-    //PlayerCharacter party = FindObjectOfType<BattleManager>().party;
 
     private void Start()
     {

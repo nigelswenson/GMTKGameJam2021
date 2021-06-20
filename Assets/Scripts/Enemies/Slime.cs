@@ -74,6 +74,8 @@ public class Slime : Enemy
             target.TakeDamage(attack);
             battleManager.ShowBattleText(enemyName + " dealt " + attack + " damage to " + target.characterName);
             battleManager.sfx.PlayDamage();
+            Debug.Log(gameObject);
+            battleManager.SetWiggle(attackColor, wiggleSpeed);
         }
         else if (action == "heal")
         {
@@ -81,12 +83,14 @@ public class Slime : Enemy
             SetHp();
             battleManager.ShowBattleText(enemyName + " healed " + healSize + " damage");
             battleManager.sfx.PlayHeal();
+            battleManager.SetWiggle(healColor, wiggleSpeed);
         }
         else if (action == "shield")
         {
             Armor(armorSize);
             battleManager.ShowBattleText(enemyName + " gained " + armorSize + " armor");
             battleManager.sfx.PlayArmor();
+            battleManager.SetWiggle(healColor, wiggleSpeed);
         }
         else // grow
         {
