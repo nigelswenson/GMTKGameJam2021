@@ -82,6 +82,7 @@ public class Slime : Enemy
             currentHp += healSize;
             SetHp();
             battleManager.ShowBattleText(enemyName + " healed " + healSize + " damage");
+            battleManager.EnableHealImage();
             battleManager.sfx.PlayHeal();
             battleManager.SetWiggle(healColor, wiggleSpeed);
         }
@@ -89,6 +90,7 @@ public class Slime : Enemy
         {
             Armor(armorSize);
             battleManager.ShowBattleText(enemyName + " gained " + armorSize + " armor");
+            battleManager.EnableHealImage();
             battleManager.sfx.PlayArmor();
             battleManager.SetWiggle(healColor, wiggleSpeed);
         }

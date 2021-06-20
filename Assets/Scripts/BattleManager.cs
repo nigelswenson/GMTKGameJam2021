@@ -82,6 +82,8 @@ public class BattleManager : MonoBehaviour
 
         enemy.EnemySetup();
 
+        DisableHealImage();
+
         state = BattleState.PLAYERTURN;
     }
 
@@ -289,6 +291,7 @@ public class BattleManager : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         enemy.DoBehavior();
+        DisableHealImage();
         var characterDisplays = FindObjectsOfType<CharacterDisplay>();
 
         var alive = false;
