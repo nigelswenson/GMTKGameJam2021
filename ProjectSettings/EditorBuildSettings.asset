@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Dialogue 5.unity
     guid: c146b4dd80571374b9f4567c50875caa
   - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 0e55be28ec9ef94409679afba6b61215
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 39608d19a7a4f214bbbd149d0b6c1e35
   m_configObjects: {}

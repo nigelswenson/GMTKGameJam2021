@@ -154,15 +154,25 @@ MonoBehaviour:
   characterArea: {fileID: 0}
   enemy: {fileID: 6754313503436384559, guid: 499355c72eb1dfb41adfa856cbe70225, type: 3}
   enemyArea: {fileID: 0}
-  targetButton: {fileID: 5838135563954410300, guid: a40212ce156d14f4397e530d5951e832, type: 3}
-  endTurnButton: {fileID: 0}
-  handSize: 6
+  enemyBleedImage: {fileID: 0}
+  enemyBleedCount: {fileID: 0}
+  enemyArmorImage: {fileID: 0}
+  enemyArmorCount: {fileID: 0}
+  enemyHpSlider: {fileID: 0}
+  enemyHealImage: {fileID: 0}
+  cardsDrawnPerTurn: 2
   cardTemplate: {fileID: 7361331403913989659, guid: 37fae56cd02acf7499ed15c0f9599f27, type: 3}
   playerAreas: {fileID: 0}
   deckArea: {fileID: 0}
   dropZone: {fileID: 0}
   discardZone: {fileID: 0}
   doubleStrike: 0
+  sfx: {fileID: 0}
+  battleInfo: {fileID: 0}
+  battleText: {fileID: 0}
+  battleTextContinueButton: {fileID: 0}
+  endTurnImage: {fileID: 0}
+  state: 0
 --- !u!1 &6428910575549472922
 GameObject:
   m_ObjectHideFlags: 0

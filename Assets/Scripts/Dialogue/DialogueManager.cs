@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
 	[SerializeField] Text dialogueText;
 	[SerializeField] Image portrait;
 	[SerializeField] Dialogue[] dialogues;
-	[SerializeField] bool isEndGame = false;
 	public int dialogueIndex = 0;
 
 	[SerializeField] Animator animator;
@@ -83,14 +82,7 @@ public class DialogueManager : MonoBehaviour
 		}
 		else
         {
-			if(isEndGame == true)
-            {
-				FindObjectOfType<SceneLoader>().Restart();
-			}
-            else
-            {
 				FindObjectOfType<SceneLoader>().LoadNextScene();
-			}
         }
 
 	}
