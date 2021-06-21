@@ -44,6 +44,7 @@ public class CryptGuard : Enemy
                 target.TakeDamage(damage);
                 FindObjectOfType<BattleManager>().sfx.PlayDamage();
                 battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to " + target.characterName);
+                battleManager.SetBlink(attackColor);
             }
         }
         base.DoBehavior();

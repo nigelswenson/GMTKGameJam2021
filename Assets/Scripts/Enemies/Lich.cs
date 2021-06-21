@@ -60,12 +60,14 @@ public class Lich : Enemy
             AttackAll(damage);
             FindObjectOfType<BattleManager>().sfx.PlayDamage();
             battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to all allies");
+            battleManager.SetBlink(attackColor);
         }
         else if (action == "attack")
         {
             target.TakeDamage(damage);
             FindObjectOfType<BattleManager>().sfx.PlayDamage();
             battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to " + target.characterName);
+            battleManager.SetBlink(attackColor);
         }
         currentHp -= (int)((float)selfharm * scalar);
         

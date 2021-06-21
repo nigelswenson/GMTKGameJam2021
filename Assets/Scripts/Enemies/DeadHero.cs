@@ -138,12 +138,14 @@ public class DeadHero : Enemy
                 AttackAll(allAttack);
                 FindObjectOfType<BattleManager>().sfx.PlayDamage();
                 string1 = (enemyName + " dealt " + allAttack + " damage to all allies");
+                battleManager.SetBlink(attackColor);
 
             }
             if (action1 == "bleedall" || action2 == "bleedall")
             {
                 BleedAll(allBleed);
                 FindObjectOfType<BattleManager>().sfx.PlayBleed();
+
                 
                 if(string1 == "")
                 {
@@ -153,6 +155,9 @@ public class DeadHero : Enemy
                 {
                     string2 = ("applied " + allBleed + " bleed to all allies");
                 }
+
+                battleManager.SetBlink(attackColor);
+
             }
             if (action1 == "armor" || action2 == "armor")
             {
@@ -167,6 +172,8 @@ public class DeadHero : Enemy
                 {
                     string2 = ("gained " + oneArmor + " armor");
                 }
+
+                battleManager.SetBlink(healColor);
             }
             if (action1 == "bleed" || action2 == "bleed")
             {
@@ -182,6 +189,7 @@ public class DeadHero : Enemy
                 {
                     string2 = ("dealt " + oneBleed + " to " + target.characterName);
                 }
+                battleManager.SetBlink(attackColor);
             }
             if (action1 == "attack" || action2 == "attack")
             {
@@ -197,6 +205,7 @@ public class DeadHero : Enemy
                 {
                     string2 = ("dealt " + oneAttack + " damage to " + target.characterName);
                 }
+                battleManager.SetBlink(attackColor);
             }
             if(string1 != "" && string2 != "")
             {
