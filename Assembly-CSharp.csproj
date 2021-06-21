@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Enemies\DeadHero.cs" />
     <Compile Include="Assets\Scripts\Enemies\CryptGuard.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\CardDisplay.cs" />
+    <Compile Include="Assets\Scripts\VariableHolder.cs" />
     <Compile Include="Assets\Scripts\Enemies\Lich.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\DragDrop.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\CardZoom.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\VariableHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
