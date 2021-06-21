@@ -48,6 +48,7 @@ public class BattleManager : MonoBehaviour
 
     //state variables
     public BattleState state;
+    private bool enemyDefeated = false;
 
     Card playedCard;
     PlayerCharacter playedCardOwner;
@@ -87,8 +88,6 @@ public class BattleManager : MonoBehaviour
         state = BattleState.PLAYERTURN;
     }
 
-
-
     private void InstantiateEnemies()
     {
         Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity, enemyArea.transform);
@@ -123,6 +122,19 @@ public class BattleManager : MonoBehaviour
             newCard.transform.SetParent(deckArea.transform, false);
             partyMember.deck.Add(newCard);
         }
+    }
+
+    public void MuteAudio()
+    {
+        if(AudioListener.volume != 0)
+        {
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+        }
+        
     }
 
     public void Execute(GameObject cardToExecute)
@@ -312,13 +324,12 @@ public class BattleManager : MonoBehaviour
     }
 
     //used when the enemy takes an action
-    public void SetWiggle(Color32 color, int wiggleSpeed)
+    public void SetBlink(Color32 color)
     {
-        StartCoroutine(Wiggle(color, wiggleSpeed));
+        StartCoroutine(Blink(color));
     }
-    public IEnumerator Wiggle(Color32 color, int wiggleSpeed)
+    public IEnumerator Blink(Color32 color)
     {
-        Debug.Log("wiggling");
         Image image = FindObjectOfType<Enemy>().transform.Find("Image").GetComponent<Image>();
         for (var i = 0; i <= 2; i++)
         {
@@ -328,6 +339,7 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForSeconds(.2f);
         }
     }
+
 
     //Turn Process Functions
     public void EndTurn()
@@ -501,7 +513,13 @@ public class BattleManager : MonoBehaviour
 
     public void EnemyDeath()
     {
-        FindObjectOfType<SceneLoader>().LoadNextScene();
+        StartCoroutine(Dying());
+    }
+    public IEnumerator Dying()
+    {
+        ShowBattleText(enemy.enemyName + " has been slain!");
+        enemyDefeated = true;
+        yield return StartCoroutine(Blink(enemy.attackColor));
     }
 
     public void GameOver()
@@ -527,6 +545,11 @@ public class BattleManager : MonoBehaviour
         battleTextContinueButton.gameObject.SetActive(false);
 
         state = BattleState.PLAYERTURN;
+
+        if (enemyDefeated == true)
+        {
+            FindObjectOfType<SceneLoader>().LoadNextScene();
+        }
     }
 
 

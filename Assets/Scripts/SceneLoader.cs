@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-
     [SerializeField] private int numScenes;
 
     public void LoadNextScene()
@@ -16,10 +15,12 @@ public class SceneLoader : MonoBehaviour
 
         if (currentSceneIndex < numScenes)
         {
+            SetLastIndex();
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
         else
         {
+            SetLastIndex();
             SceneManager.LoadScene(0);
         }
     }
@@ -31,6 +32,19 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadSpecificScene(string sceneName)
     {
+        SetLastIndex();
         SceneManager.LoadScene(sceneName);
     }
+
+    public void LoadLastScene()
+    {
+        SceneManager.LoadScene(FindObjectOfType<VariableHolder>().lastSceneIndex);
+    }
+
+    private void SetLastIndex()
+    {
+        FindObjectOfType<VariableHolder>().lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }    
+
+
 }

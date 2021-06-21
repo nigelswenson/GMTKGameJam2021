@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Enemies\Slime.cs" />
     <Compile Include="Assets\SFX\SFX_Playing.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\DropZone.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\TutorialManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\Card.cs" />
     <Compile Include="Assets\Scripts\Enemies\DeadHero.cs" />
@@ -73,7 +74,7 @@
     <Compile Include="Assets\Scripts\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Card Functionality\CardZoom.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\TutorialManager.cs" />
+    <Compile Include="Assets\Scripts\VariableHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
