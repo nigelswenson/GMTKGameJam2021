@@ -174,7 +174,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update numbers at the end of enemy's turn
-    public void EndTurn()
+    public void Upkeep()
     {
         armor -= armorDecay; // armor goes down every turn
         if (armor < 0)

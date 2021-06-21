@@ -69,34 +69,37 @@ public class Slime : Enemy
 
     override public void DoBehavior()
     {
-        if (action == "attack")
+        if (currentHp > 0)
         {
-            target.TakeDamage(attack);
-            battleManager.ShowBattleText(enemyName + " dealt " + attack + " damage to " + target.characterName);
-            battleManager.sfx.PlayDamage();
-            Debug.Log(gameObject);
-            battleManager.SetBlink(attackColor);
-        }
-        else if (action == "heal")
-        {
-            currentHp += healSize;
-            SetHp();
-            battleManager.ShowBattleText(enemyName + " healed " + healSize + " damage");
-            battleManager.EnableHealImage();
-            battleManager.sfx.PlayHeal();
-            battleManager.SetBlink(healColor);
-        }
-        else if (action == "shield")
-        {
-            Armor(armorSize);
-            battleManager.ShowBattleText(enemyName + " gained " + armorSize + " armor");
-            battleManager.EnableHealImage();
-            battleManager.sfx.PlayArmor();
-            battleManager.SetBlink(healColor);
-        }
-        else // grow
-        {
-            size += growSize;
+            if (action == "attack")
+            {
+                target.TakeDamage(attack);
+                battleManager.ShowBattleText(enemyName + " dealt " + attack + " damage to " + target.characterName);
+                battleManager.sfx.PlayDamage();
+                Debug.Log(gameObject);
+                battleManager.SetBlink(attackColor);
+            }
+            else if (action == "heal")
+            {
+                currentHp += healSize;
+                SetHp();
+                battleManager.ShowBattleText(enemyName + " healed " + healSize + " damage");
+                battleManager.EnableHealImage();
+                battleManager.sfx.PlayHeal();
+                battleManager.SetBlink(healColor);
+            }
+            else if (action == "shield")
+            {
+                Armor(armorSize);
+                battleManager.ShowBattleText(enemyName + " gained " + armorSize + " armor");
+                battleManager.EnableHealImage();
+                battleManager.sfx.PlayArmor();
+                battleManager.SetBlink(healColor);
+            }
+            else // grow
+            {
+                size += growSize;
+            }
         }
 
         base.DoBehavior();

@@ -3,16 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private int numScenes;
 
+    [SerializeField] private Image UIFade;
+    [SerializeField] private Animator anim;
+
+
     public void LoadNextScene()
     {
 
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        StartCoroutine(Fading());
+    }
 
+    private IEnumerator Fading()
+    {
+        anim.SetBool("fade", true);
+        yield return new WaitUntil(() => UIFade.color.a == 1);
+
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (currentSceneIndex < numScenes)
         {
             SetLastIndex();
@@ -45,6 +57,8 @@ public class SceneLoader : MonoBehaviour
     {
         FindObjectOfType<VariableHolder>().lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }    
+
+
 
 
 }

@@ -19,9 +19,9 @@ public class PlayerCharacter : ScriptableObject
     public Color cardColor;
 
     public List<Card> deckData = new List<Card>();
-    [HideInInspector]
+    
     public List<GameObject> deck = new List<GameObject>();
-    [HideInInspector]
+
     public List<GameObject> discardPile = new List<GameObject>();
 
     private void UpdateHp()

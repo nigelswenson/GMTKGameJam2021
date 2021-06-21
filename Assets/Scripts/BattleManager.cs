@@ -24,7 +24,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] Image enemyHealImage;
 
     [Header("Card")]
-    [SerializeField] int handSize;
+    [SerializeField] int cardsDrawnPerTurn;
     [SerializeField] GameObject cardTemplate;
     private List<Card> deck = new List<Card>();
     private List<GameObject> activeCards = new List<GameObject>();
@@ -71,6 +71,7 @@ public class BattleManager : MonoBehaviour
             partyMember.deck.Clear();
             partyMember.actions = 1;
             partyMember.currentHp = partyMember.maxHp;
+            partyMember.bleed = 0;
 
             yield return StartCoroutine(InstantiateCharacters(partyMember));
             InstantiateCards(partyMember);
@@ -115,12 +116,13 @@ public class BattleManager : MonoBehaviour
         foreach (Card card in partyMember.deckData)
         {
             GameObject newCard = Instantiate(cardTemplate, new Vector3(0, 0, 0), Quaternion.identity);
+            partyMember.deck.Add(newCard);
             card.wasPlayed = false;
             newCard.GetComponent<CardDisplay>().card = card;
             newCard.GetComponent<CardDisplay>().SetColor(partyMember.cardColor);
             newCard.GetComponent<CardDisplay>().owner = partyMember;
             newCard.transform.SetParent(deckArea.transform, false);
-            partyMember.deck.Add(newCard);
+            
         }
     }
 
@@ -346,6 +348,7 @@ public class BattleManager : MonoBehaviour
     {
         if(state == BattleState.PLAYERTURN)
         {
+            enemy.Upkeep();
             StartCoroutine(EnemyTurn());
             foreach (PlayerCharacter partyMember in party)
             {
@@ -363,7 +366,7 @@ public class BattleManager : MonoBehaviour
             {
                 GameOver();
             }
-            enemy.EndTurn();
+            
             //Discards current hand before drawing a new one
             DiscardHand();
             doubleStrike = false;
@@ -379,7 +382,7 @@ public class BattleManager : MonoBehaviour
     {
         foreach (PlayerCharacter partyMember in party)
         {
-            Draw(partyMember, handSize / party.Count, partyMember.deck);
+            Draw(partyMember, cardsDrawnPerTurn, partyMember.deck);
         }
     }
 
@@ -419,7 +422,7 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
- 
+    //breaking when out of cards for one character byt not all?
     public void shuffle(List<GameObject> emptyDeck, List<GameObject> fullDiscard)
     {
         emptyDeck.AddRange(fullDiscard);

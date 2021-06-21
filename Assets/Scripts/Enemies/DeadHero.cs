@@ -143,6 +143,7 @@ public class DeadHero : Enemy
             }
             if (action1 == "bleedall" || action2 == "bleedall")
             {
+                Debug.Log("hero bleeding");
                 BleedAll(allBleed);
                 FindObjectOfType<BattleManager>().sfx.PlayBleed();
 
@@ -177,6 +178,7 @@ public class DeadHero : Enemy
             }
             if (action1 == "bleed" || action2 == "bleed")
             {
+                Debug.Log("hero bleeding");
                 target.Bleed(oneBleed);
                 FindObjectOfType<BattleManager>().sfx.PlayBleed();
                 battleManager.ShowBattleText(enemyName + " dealt " + oneBleed + " to " + target.characterName);
