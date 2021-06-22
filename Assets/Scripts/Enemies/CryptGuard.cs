@@ -23,21 +23,18 @@ public class CryptGuard : Enemy
     override public void SetBehavior()
     {
         base.SetBehavior();
-        if (isAlive)
-        {
             damage = attack + (int)((float)armor * shieldScaling / 10);
             armor += shield;
-            SetArmor(armor);
+            SetArmor();
             TargetRandom();
             action = "attack";
             FindObjectOfType<BattleManager>().EnableTargetIndicator(target, damage.ToString());
-        }
     }
 
 
     override public void DoBehavior()
     {
-        if(isAlive)
+        if(currentHp > 0)
         {
             if (action == "attack")
             {

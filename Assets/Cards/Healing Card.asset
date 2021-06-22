@@ -18,6 +18,7 @@ MonoBehaviour:
   methodList:
   - Heal
   isTargeted: 1
+  fontSize: 30
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 5
@@ -26,3 +27,5 @@ MonoBehaviour:
   actionAdded: 0
   target: Aegis Bane
   targetsAlly: 1
+  targetsAllAllies: 0
+  wasPlayed: 0

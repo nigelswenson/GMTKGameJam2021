@@ -25,4 +25,9 @@ public class CardDisplay : MonoBehaviour
     {
         gameObject.GetComponent<Image>().color = color;
     }    
+
+    public void SetFontSize(int size)
+    {
+        descriptionText.fontSize = size;
+    }
 }

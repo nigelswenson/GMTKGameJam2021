@@ -66,12 +66,13 @@ public class DragDrop : MonoBehaviour
     //set object transform to the dropzone if its over a collider, send it back to the start position if not
     public void EndDrag()
     {
+        Debug.Log("end drag");
         isDragging = false;
         if (isOverDropZone)
         {
             var dropZoneOwner = dropZone.GetComponent<DropZone>().character;
             //if the dropzone owner is null, it's the enemy dropzone 
-            if (((cardData.targetsAlly || !cardData.targetsAllAllies) && dropZoneOwner != null) || (!cardData.targetsAlly && !cardData.targetsAllAllies && dropZoneOwner == null))
+            if (((cardData.targetsAlly || cardData.targetsAllAllies) && dropZoneOwner != null) || (!cardData.targetsAlly && !cardData.targetsAllAllies && dropZoneOwner == null))
             {
                 transform.SetParent(dropZone.transform, false);
 

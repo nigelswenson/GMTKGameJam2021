@@ -72,6 +72,7 @@ public class BattleManager : MonoBehaviour
             partyMember.actions = 1;
             partyMember.currentHp = partyMember.maxHp;
             partyMember.bleed = 0;
+            partyMember.armor = 0;
 
             yield return StartCoroutine(InstantiateCharacters(partyMember));
             InstantiateCards(partyMember);
@@ -121,6 +122,7 @@ public class BattleManager : MonoBehaviour
             newCard.GetComponent<CardDisplay>().card = card;
             newCard.GetComponent<CardDisplay>().SetColor(partyMember.cardColor);
             newCard.GetComponent<CardDisplay>().owner = partyMember;
+            newCard.GetComponent<CardDisplay>().SetFontSize(card.fontSize);
             newCard.transform.SetParent(deckArea.transform, false);
             
         }
@@ -449,9 +451,9 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void SetEnemyArmor(int armor)
+    public void SetEnemyArmor()
     {
-        if (armor <= 0)
+        if (enemy.armor <= 0)
         {
             enemyArmorImage.enabled = false;
             enemyArmorCount.enabled = false;

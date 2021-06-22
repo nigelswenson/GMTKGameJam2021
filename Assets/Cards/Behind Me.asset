@@ -19,6 +19,7 @@ MonoBehaviour:
   - Bleed
   - Armor
   isTargeted: 0
+  fontSize: 22
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
@@ -26,3 +27,6 @@ MonoBehaviour:
   bleedAdded: 2
   actionAdded: 0
   target: all
+  targetsAlly: 0
+  targetsAllAllies: 0
+  wasPlayed: 0

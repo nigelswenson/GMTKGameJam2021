@@ -19,6 +19,7 @@ MonoBehaviour:
   - ActionAdd
   - CardDraw
   isTargeted: 1
+  fontSize: 24
   cardsToDraw: 1
   damageDealt: 0
   healingDone: 0
@@ -27,3 +28,5 @@ MonoBehaviour:
   actionAdded: 1
   target: BLOOD AVOW
   targetsAlly: 1
+  targetsAllAllies: 0
+  wasPlayed: 0

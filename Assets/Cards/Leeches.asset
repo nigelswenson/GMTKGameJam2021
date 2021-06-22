@@ -18,6 +18,7 @@ MonoBehaviour:
   methodList:
   - BleedToBleed
   isTargeted: 0
+  fontSize: 25
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
@@ -25,3 +26,6 @@ MonoBehaviour:
   bleedAdded: 0
   actionAdded: 0
   target: enemy
+  targetsAlly: 0
+  targetsAllAllies: 0
+  wasPlayed: 0

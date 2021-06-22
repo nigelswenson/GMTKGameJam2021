@@ -18,6 +18,7 @@ MonoBehaviour:
   methodList:
   - Armor
   isTargeted: 1
+  fontSize: 27
   cardsToDraw: 0
   damageDealt: 0
   healingDone: 0
@@ -26,3 +27,5 @@ MonoBehaviour:
   actionAdded: 0
   target: AEGIS BANE
   targetsAlly: 1
+  targetsAllAllies: 0
+  wasPlayed: 0

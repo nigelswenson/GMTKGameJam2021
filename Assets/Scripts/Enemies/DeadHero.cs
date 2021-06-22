@@ -102,124 +102,127 @@ public class DeadHero : Enemy
 
     override public void DoBehavior()
     {
-        if (action1 == "fallasleep")
+        if (currentHp > 0)
         {
-            armor += sleepyShield;
-            sleepTimer = 1;
-            action1 = "sleep";
-            battleManager.ShowBattleText(enemyName + " gains " + sleepyShield + " armor and drifts to sleep");
-        }
-        else if (action1 == "sleep")
-        {
-            if (sleepTimer > 0)
+            if (action1 == "fallasleep")
             {
-                sleepTimer -= 1;
-                battleManager.ShowBattleText(enemyName + " rests solemnly");
+                armor += sleepyShield;
+                sleepTimer = 1;
+                action1 = "sleep";
+                battleManager.ShowBattleText(enemyName + " gains " + sleepyShield + " armor and drifts to sleep");
+            }
+            else if (action1 == "sleep")
+            {
+                if (sleepTimer > 0)
+                {
+                    sleepTimer -= 1;
+                    battleManager.ShowBattleText(enemyName + " rests solemnly");
+                }
+                else
+                {
+                    battleManager.ShowBattleText(enemyName + " suddenly awakens");
+                    cranky = true;
+                    tired = false;
+                    action1 = "awake";
+                }
+            }
+
+            else if (tired == true)
+            {
+                tired = true;
             }
             else
             {
-                battleManager.ShowBattleText(enemyName + " suddenly awakens");
-                cranky = true;
-                tired = false;
-                action1 = "awake";
+                var string1 = "";
+                var string2 = "";
+                if (action1 == "attackall" || action2 == "attackall")
+                {
+                    AttackAll(allAttack);
+                    FindObjectOfType<BattleManager>().sfx.PlayDamage();
+                    string1 = (enemyName + " dealt " + allAttack + " damage to all allies");
+                    battleManager.SetBlink(attackColor);
+
+                }
+                if (action1 == "bleedall" || action2 == "bleedall")
+                {
+                    Debug.Log("hero bleeding");
+                    BleedAll(allBleed);
+                    FindObjectOfType<BattleManager>().sfx.PlayBleed();
+
+
+                    if (string1 == "")
+                    {
+                        string1 = (enemyName + " applied " + allBleed + " bleed to all allies");
+                    }
+                    else
+                    {
+                        string2 = ("applied " + allBleed + " bleed to all allies");
+                    }
+
+                    battleManager.SetBlink(attackColor);
+
+                }
+                if (action1 == "armor" || action2 == "armor")
+                {
+                    armor += oneArmor;
+                    SetArmor();
+                    FindObjectOfType<BattleManager>().sfx.PlayArmor();
+
+                    if (string1 == "")
+                    {
+                        string1 = (enemyName + " gained " + oneArmor + " armor");
+                    }
+                    else
+                    {
+                        string2 = ("gained " + oneArmor + " armor");
+                    }
+
+                    battleManager.SetBlink(healColor);
+                }
+                if (action1 == "bleed" || action2 == "bleed")
+                {
+                    Debug.Log("hero bleeding");
+                    target.Bleed(oneBleed);
+                    FindObjectOfType<BattleManager>().sfx.PlayBleed();
+                    battleManager.ShowBattleText(enemyName + " dealt " + oneBleed + " to " + target.characterName);
+
+                    if (string1 == "")
+                    {
+                        string1 = (enemyName + " dealt " + oneBleed + " to " + target.characterName);
+                    }
+                    else
+                    {
+                        string2 = ("dealt " + oneBleed + " to " + target.characterName);
+                    }
+                    battleManager.SetBlink(attackColor);
+                }
+                if (action1 == "attack" || action2 == "attack")
+                {
+                    target.TakeDamage(oneAttack);
+                    FindObjectOfType<BattleManager>().sfx.PlayDamage();
+                    battleManager.ShowBattleText(enemyName + " dealt " + oneAttack + " damage to " + target.characterName);
+
+                    if (string1 == "")
+                    {
+                        string1 = (enemyName + " dealt " + oneAttack + " damage to " + target.characterName);
+                    }
+                    else
+                    {
+                        string2 = ("dealt " + oneAttack + " damage to " + target.characterName);
+                    }
+                    battleManager.SetBlink(attackColor);
+                }
+                if (string1 != "" && string2 != "")
+                {
+                    battleManager.ShowBattleText(string1 + " and " + string2);
+                }
+                else
+                {
+                    battleManager.ShowBattleText(string1);
+                }
             }
+            base.DoBehavior();
         }
-
-        else if (tired == true)
-        {
-            tired = true;
-        }
-        else
-        {
-            var string1 = "";
-            var string2 = "";
-            if (action1 == "attackall" || action2 == "attackall")
-            {
-                AttackAll(allAttack);
-                FindObjectOfType<BattleManager>().sfx.PlayDamage();
-                string1 = (enemyName + " dealt " + allAttack + " damage to all allies");
-                battleManager.SetBlink(attackColor);
-
-            }
-            if (action1 == "bleedall" || action2 == "bleedall")
-            {
-                Debug.Log("hero bleeding");
-                BleedAll(allBleed);
-                FindObjectOfType<BattleManager>().sfx.PlayBleed();
-
-                
-                if(string1 == "")
-                {
-                    string1 = (enemyName + " applied " + allBleed + " bleed to all allies");
-                }
-                else
-                {
-                    string2 = ("applied " + allBleed + " bleed to all allies");
-                }
-
-                battleManager.SetBlink(attackColor);
-
-            }
-            if (action1 == "armor" || action2 == "armor")
-            {
-                armor += oneArmor;
-                FindObjectOfType<BattleManager>().sfx.PlayArmor();
-
-                if (string1 == "")
-                {
-                    string1 = (enemyName + " gained " + oneArmor + " armor");
-                }
-                else
-                {
-                    string2 = ("gained " + oneArmor + " armor");
-                }
-
-                battleManager.SetBlink(healColor);
-            }
-            if (action1 == "bleed" || action2 == "bleed")
-            {
-                Debug.Log("hero bleeding");
-                target.Bleed(oneBleed);
-                FindObjectOfType<BattleManager>().sfx.PlayBleed();
-                battleManager.ShowBattleText(enemyName + " dealt " + oneBleed + " to " + target.characterName);
-
-                if (string1 == "")
-                {
-                    string1 = (enemyName + " dealt " + oneBleed + " to " + target.characterName);
-                }
-                else
-                {
-                    string2 = ("dealt " + oneBleed + " to " + target.characterName);
-                }
-                battleManager.SetBlink(attackColor);
-            }
-            if (action1 == "attack" || action2 == "attack")
-            {
-                target.TakeDamage(oneAttack);
-                FindObjectOfType<BattleManager>().sfx.PlayDamage();
-                battleManager.ShowBattleText(enemyName + " dealt " + oneAttack + " damage to " + target.characterName);
-
-                if (string1 == "")
-                {
-                    string1 = (enemyName + " dealt " + oneAttack + " damage to " + target.characterName);
-                }
-                else
-                {
-                    string2 = ("dealt " + oneAttack + " damage to " + target.characterName);
-                }
-                battleManager.SetBlink(attackColor);
-            }
-            if(string1 != "" && string2 != "")
-            {
-                battleManager.ShowBattleText(string1 + " and " + string2);
-            }
-            else
-            {
-                battleManager.ShowBattleText(string1);
-            }
-
-        }
-        base.DoBehavior();
     }
 
     public override void EnemySetup()

@@ -12,6 +12,8 @@ public class Card : ScriptableObject
     public List<string> methodList = new List<string>();
     public bool isTargeted = false;
 
+    public int fontSize = 20;
+
     public int cardsToDraw = 0;
 
     public int damageDealt = 0;

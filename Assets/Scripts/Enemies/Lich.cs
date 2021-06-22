@@ -55,23 +55,26 @@ public class Lich : Enemy
 
     override public void DoBehavior()
     {
-        if (action == "attackall")
+        if (currentHp > 0)
         {
-            AttackAll(damage);
-            FindObjectOfType<BattleManager>().sfx.PlayDamage();
-            battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to all allies");
-            battleManager.SetBlink(attackColor);
+            if (action == "attackall")
+            {
+                AttackAll(damage);
+                FindObjectOfType<BattleManager>().sfx.PlayDamage();
+                battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to all allies");
+                battleManager.SetBlink(attackColor);
+            }
+            else if (action == "attack")
+            {
+                target.TakeDamage(damage);
+                FindObjectOfType<BattleManager>().sfx.PlayDamage();
+                battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to " + target.characterName);
+                battleManager.SetBlink(attackColor);
+            }
+            currentHp -= (int)((float)selfharm * scalar);
+
+            base.DoBehavior();
         }
-        else if (action == "attack")
-        {
-            target.TakeDamage(damage);
-            FindObjectOfType<BattleManager>().sfx.PlayDamage();
-            battleManager.ShowBattleText(enemyName + " dealt " + damage + " damage to " + target.characterName);
-            battleManager.SetBlink(attackColor);
-        }
-        currentHp -= (int)((float)selfharm * scalar);
-        
-        base.DoBehavior();
     }
 }
 

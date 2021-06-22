@@ -19,13 +19,14 @@ MonoBehaviour:
   - Damage
   - Heal
   isTargeted: 0
+  fontSize: 22
   cardsToDraw: 0
   damageDealt: 5
   healingDone: 1
   armorAdded: 0
   bleedAdded: 0
   actionAdded: 0
-  target: BLOOD AVOW
+  target: all
   targetsAlly: 0
   targetsAllAllies: 0
   wasPlayed: 0

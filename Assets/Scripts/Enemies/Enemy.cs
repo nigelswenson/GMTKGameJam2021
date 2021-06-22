@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         portrait.sprite = art;
         SetHp();
         SetBleed(bleed);
-        SetArmor(armor);
+        SetArmor();
     }
 
     //Condition indicators
@@ -42,9 +42,9 @@ public class Enemy : MonoBehaviour
         FindObjectOfType<BattleManager>().SetEnemyBleed(bleed);
     }
 
-    public void SetArmor(int armor)
+    public void SetArmor()
     {
-        FindObjectOfType<BattleManager>().SetEnemyArmor(armor);
+        FindObjectOfType<BattleManager>().SetEnemyArmor();
     }
 
     // Set armor decay value (could be nice to make this for updating all variables if we're bored)
@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour
     public void Armor(int amountShielded)
     {
         armor += amountShielded;
-        SetArmor(armor);
+        SetArmor();
     }
     // Set bleed counter for amount given
     public void Bleed(int amountBleed)
@@ -136,12 +136,12 @@ public class Enemy : MonoBehaviour
             currentHp -= amountDamage - armor;
             SetHp();
             armor = 0;
-            SetArmor(armor);
+            SetArmor();
         }
         else
         {
             armor -= amountDamage;
-            SetArmor(armor);
+            SetArmor();
         }
         if (currentHp <= 0)
         {
@@ -181,7 +181,7 @@ public class Enemy : MonoBehaviour
         {
             armor = 0;
         }
-        SetArmor(armor);
+        SetArmor();
         currentHp -= bleed; // bleed affects inside armor
         if (currentHp <= 0)
         {
@@ -206,7 +206,7 @@ public class Enemy : MonoBehaviour
         currentHp = maxHp;
         bleed = startBleed;
         armor = startArmor;
-        SetArmor(armor);
+        SetArmor();
         SetBleed(bleed);
         SetHp();
     }
