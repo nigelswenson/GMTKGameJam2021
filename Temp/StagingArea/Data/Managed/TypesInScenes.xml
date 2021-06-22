@@ -46,6 +46,7 @@
 		<type fullname="UnityEngine.BoxCollider2D" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Assembly-CSharp">
+		<type fullname="AudioController" preserve="nothing"/>
 		<type fullname="BattleManager" preserve="nothing"/>
 		<type fullname="Card" preserve="nothing"/>
 		<type fullname="CardDisplay" preserve="nothing"/>

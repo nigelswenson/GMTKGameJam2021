@@ -771,6 +771,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8967185699552622001, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: def3448f24f0bf3418b363facdcf2a0c, type: 3}
     - target: {fileID: 8967185699872067283, guid: 158d72efcb94674499b1e61ebe5871de, type: 3}
       propertyPath: m_Name
       value: Dialogue Canvas

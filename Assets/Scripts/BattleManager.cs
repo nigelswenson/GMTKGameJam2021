@@ -371,7 +371,10 @@ public class BattleManager : MonoBehaviour
     {
         foreach (PlayerCharacter partyMember in party)
         {
-            Draw(partyMember, cardsDrawnPerTurn, partyMember.deck);
+            if (partyMember.currentHp > 0)
+            {
+                Draw(partyMember, cardsDrawnPerTurn, partyMember.deck);
+            }
         }
     }
 

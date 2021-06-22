@@ -1,3 +1,1 @@
 {"msg":"init","dagFile":"artifacts\\tundra.dag","targets":[]}
-{"msg":"nodeRetryBuild","annotation":"Il2Cpp C:/Users/MACKENZB/Card Game/Library/Il2cppBuildCache/WebGL/Native/build.bc","index":2}
-{"msg":"noderesult","annotation":"Il2Cpp C:/Users/MACKENZB/Card Game/Library/Il2cppBuildCache/WebGL/Native/build.bc","index":2,"exitcode":0}
