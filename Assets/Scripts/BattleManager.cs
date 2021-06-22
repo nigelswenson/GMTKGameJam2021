@@ -393,6 +393,19 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    public void DiscardCardsOwnedBy(PlayerCharacter owner)
+    {
+        foreach (GameObject card in activeCards)
+        {
+            if (card.GetComponent<CardDisplay>().owner == owner)
+            {
+                card.GetComponent<CardDisplay>().owner.discardPile.Add(card);
+                //cards are moved off screen because we still want to access them but hide them from the player
+                card.transform.SetParent(discardZone.transform, false);
+            }
+        }
+    }
+
     public void Draw(PlayerCharacter partyMember, int numCards, List<GameObject> activeDeck)
     {
         if (partyMember.currentHp > 0)

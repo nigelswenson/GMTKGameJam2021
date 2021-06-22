@@ -18,6 +18,8 @@ public class CardZoom : MonoBehaviour
     public Vector2 startDescriptionPosition;
     public Vector2 startDescriptionSizeDelta;
     public GameObject startParent;
+    private int siblingIndex;
+    public GameObject placeholder;
 
     public bool beingDragged = false;
 
@@ -32,6 +34,7 @@ public class CardZoom : MonoBehaviour
         {
             //set start positions to go back to on shrink
             startParent = transform.parent.gameObject;
+            siblingIndex = transform.GetSiblingIndex();
             startCardPosition = card.GetComponent<RectTransform>().position;
             startCardSizeDelta = card.GetComponent<RectTransform>().sizeDelta;
             startArtPosition = cardsArt.GetComponent<RectTransform>().position;
@@ -41,6 +44,8 @@ public class CardZoom : MonoBehaviour
 
 
             transform.SetParent(canvas.transform, true);
+            placeholder.transform.SetParent(startParent.transform, false);
+            placeholder.transform.SetSiblingIndex(siblingIndex);
             //set increased card size
             card.GetComponent<RectTransform>().sizeDelta = new Vector2(301, 432);
             cardsArt.GetComponent<RectTransform>().sizeDelta = new Vector2(252, 224);
@@ -69,7 +74,9 @@ public class CardZoom : MonoBehaviour
             if (card.GetComponent<RectTransform>().sizeDelta != startCardSizeDelta)
             {
                 //reset transform to shrink the card back down
+                placeholder.transform.SetParent(canvas.transform, false);
                 transform.SetParent(startParent.transform, true);
+                transform.SetSiblingIndex(siblingIndex);
                 card.GetComponent<RectTransform>().sizeDelta = startCardSizeDelta;
                 cardsArt.GetComponent<RectTransform>().sizeDelta = startArtSizeDelta;
                 cardsArt.GetComponent<RectTransform>().position = startArtPosition;

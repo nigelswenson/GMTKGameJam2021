@@ -17,6 +17,7 @@ public class PlayerCharacter : ScriptableObject
     public int actionsRemaining = 0;
     public GameObject playerArea;
     public Color cardColor;
+    bool isDead = false;
 
     public List<Card> deckData = new List<Card>();
     
@@ -31,6 +32,7 @@ public class PlayerCharacter : ScriptableObject
         {
             character.SetHp();
         }
+        CheckDeath();
     }
 
     private void UpdateBleed()
@@ -53,6 +55,11 @@ public class PlayerCharacter : ScriptableObject
 
     public void Heal(int amountHealed)
     {
+        if(isDead)
+        {
+            isDead = false;
+        }
+
         currentHp += amountHealed;
         if (currentHp >= maxHp)
         {
@@ -67,13 +74,19 @@ public class PlayerCharacter : ScriptableObject
 
     public void Armor(int amountShielded)
     {
-        armor += amountShielded;
-        UpdateArmor();
+        if(!isDead)
+        {
+            armor += amountShielded;
+            UpdateArmor();
+        }
     }
     public void Bleed(int amountBleed)
     {
-        bleed += amountBleed;
-        UpdateBleed();
+        if (!isDead)
+        {
+            bleed += amountBleed;
+            UpdateBleed();
+        }
     }
     public void TakeDamage(int amountDamage)
     {
@@ -125,4 +138,15 @@ public class PlayerCharacter : ScriptableObject
     {
         actions += actionAdd;
     }
+
+    public void CheckDeath()
+    {
+        if(currentHp <= 0)
+        {
+            bleed = 0;
+            armor = 0;
+            isDead = true;
+            FindObjectOfType<BattleManager>().DiscardCardsOwnedBy(this);
+        }
+    }    
 }

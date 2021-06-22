@@ -61,11 +61,20 @@ MonoBehaviour:
   target: {fileID: 0}
   art: {fileID: 21300000, guid: 616a5ab5c5a077745b16e3d4e8f892ff, type: 3}
   portrait: {fileID: 3890785354921546352}
+  wiggleSpeed: 1
+  attackColor:
+    serializedVersion: 2
+    rgba: 4283579391
+  healColor:
+    serializedVersion: 2
+    rgba: 4285720438
   isAlive: 1
+  battleManager: {fileID: 0}
   attack: 6
   selfharm: 4
   scalar: 1
   action: 
+  damage: 0
 --- !u!1 &6987573072499798992
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 59.4, y: -80.3}
+  m_AnchoredPosition: {x: 59.4, y: 24}
   m_SizeDelta: {x: 218.70435, y: 260.60004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7820548276483091227

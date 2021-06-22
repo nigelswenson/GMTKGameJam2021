@@ -11,6 +11,7 @@ public class DragDrop : MonoBehaviour
     private GameObject dropZone;
     private GameObject startParent;
     private Vector2 startPosition;
+    private int siblingIndex;
 
     private Card cardData;
 
@@ -57,6 +58,7 @@ public class DragDrop : MonoBehaviour
     //set start position in case player drops the object somewhere they can't
     public void StartDrag()
     {
+        siblingIndex = transform.GetSiblingIndex();
         startParent = transform.parent.gameObject;
         startPosition = transform.position;
         if (FindObjectOfType<BattleManager>().state == BattleState.PLAYERTURN)
@@ -101,5 +103,8 @@ public class DragDrop : MonoBehaviour
     {
         transform.position = startPosition;
         transform.SetParent(startParent.transform, false);
+        Debug.Log(transform.GetSiblingIndex());
+        transform.SetSiblingIndex(siblingIndex);
+        Debug.Log(transform.GetSiblingIndex());
     }
 }
