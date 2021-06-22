@@ -1507,7 +1507,7 @@ ScriptsOnlyBuild:
     className: BattleManager
   - hash:
       serializedVersion: 2
-      Hash: ce32e04401108ae27204ece8681287f9
+      Hash: 222b718dc86396a8ae7d32571373a5d3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CardZoom

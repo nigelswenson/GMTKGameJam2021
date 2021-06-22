@@ -19,11 +19,8 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(Fading());
     }
 
-    private IEnumerator Fading()
+    public void FastLoadNextScene()
     {
-        anim.SetBool("fade", true);
-        yield return new WaitUntil(() => UIFade.color.a == 1);
-
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (currentSceneIndex < numScenes)
         {
@@ -35,6 +32,14 @@ public class SceneLoader : MonoBehaviour
             SetLastIndex();
             SceneManager.LoadScene(0);
         }
+    }
+
+    private IEnumerator Fading()
+    {
+        anim.SetBool("fade", true);
+        yield return new WaitUntil(() => UIFade.color.a == 1);
+
+        FastLoadNextScene();
     }
 
     public void Restart()

@@ -46,7 +46,7 @@ public class CardZoom : MonoBehaviour
             cardsArt.GetComponent<RectTransform>().sizeDelta = new Vector2(252, 224);
             cardsArt.GetComponent<RectTransform>().position = new Vector2(cardsArt.GetComponent<RectTransform>().position.x, cardsArt.GetComponent<RectTransform>().position.y - 30);
             cardsDescription.GetComponent<RectTransform>().sizeDelta = new Vector2(236, 152);
-            cardsDescription.GetComponent<RectTransform>().position = new Vector2(cardsDescription.GetComponent<RectTransform>().position.x, cardsDescription.GetComponent<RectTransform>().position.y - 50);
+            cardsDescription.GetComponent<RectTransform>().position = new Vector2(cardsDescription.GetComponent<RectTransform>().position.x, cardsDescription.GetComponent<RectTransform>().position.y - 25);
             cardsDescription.GetComponent<Text>().fontSize = gameObject.GetComponent<CardDisplay>().card.fontSize + 17;
         }
     }

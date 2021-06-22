@@ -128,19 +128,6 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void MuteAudio()
-    {
-        if(AudioListener.volume != 0)
-        {
-            AudioListener.volume = 0;
-        }
-        else
-        {
-            AudioListener.volume = 1;
-        }
-        
-    }
-
     public void Execute(GameObject cardToExecute)
     {
         playedCard = cardToExecute.GetComponent<CardDisplay>().card;
@@ -412,9 +399,11 @@ public class BattleManager : MonoBehaviour
                 //check if deck is empty, if so shuffle
                 if (activeDeck.Count <= 0)
                 {
+                    Debug.Log("Shuffling");
                     shuffle(activeDeck, partyMember.discardPile);
                 }
 
+                Debug.Log("drawing");
                 int randNum = Random.Range(0, activeDeck.Count);
                 GameObject drawnCard = activeDeck[randNum];
                 drawnCard.GetComponent<CardDisplay>().card.wasPlayed = false;
